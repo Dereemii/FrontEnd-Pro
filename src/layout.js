@@ -8,7 +8,9 @@ import injectContext from "./js/store/appContext";
 
 import { Navbar } from "./js/component/navbar";
 import { Footer } from "./js/component/footer";
-import { Login } from "./js/component/login";
+import { Login } from "./js/views/login";
+import { Welcome } from "./js/views/welcome";
+import { Curso } from "./js/views/curso";
 
 //create your first component
 export const Layout = () => {
@@ -23,7 +25,9 @@ export const Layout = () => {
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route path="/demo" component={Demo} />
-						<Route path="/single/:theid" component={Single} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/welcome" component={Welcome} />
+						<Route path="/curso" component={Curso} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />

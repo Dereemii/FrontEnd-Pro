@@ -1,14 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 
-export const Login = () => {
+export const Register = () => {
   return (
     <>
-      <div className="container">
+      <div className="container my-5">
+          
         <div className="row">
-          <div className="col-6 border">
+            
+          <div className="col mr-5">
+              
             <form className="px-4 py-3">
-              <h3 className="text-center">Ingresa a tu cuenta</h3>
               <div className="form-group">
                 <label for="exampleDropdownFormEmail1">
                   Correo electrónico
@@ -49,10 +51,9 @@ export const Login = () => {
               </button>
             </form>
           </div>
-          <div className="col-6 border">
+          <div className="col">
             <div className="row my-3 mx-3">
               <div className="col align-sel-center text-center">
-                <h3>¿No tienes cuenta?</h3>
                 <button
                   type="submit"
                   className="btn btn-secondary btn-lg btn-block my-5"
