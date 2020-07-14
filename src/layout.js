@@ -8,6 +8,11 @@ import injectContext from "./js/store/appContext";
 
 import { Navbar } from "./js/component/navbar";
 import { Footer } from "./js/component/footer";
+import Formulario from "./js/component/Formularios/registro";
+import { ViewAjustesInfoPersonal } from "./js/views/ajustesHome/InfoPersonal";
+import ViewAjustesSeguridad from "./js/views/ajustesHome/Seguridad";
+import ViewAjustesCerrarSesion from "./js/views/ajustesHome/CerrarSesion";
+import ViewAjustesVisuales from "./js/views/ajustesHome/AjustesVisuales";
 
 //create your first component
 export const Layout = () => {
@@ -20,7 +25,12 @@ export const Layout = () => {
 			<BrowserRouter basename={basename}>
 					<Navbar />
 					<Switch>
-						<Route exact path="/" component={Home} />
+						<Route exact path="/viewajustesinfopersonal" component={ViewAjustesInfoPersonal}/>
+						<Route exact path="/viewajustesvisuales" component={ViewAjustesVisuales}/>
+						<Route exact path="/viewajustescerrarsesion" component={ViewAjustesCerrarSesion}/>
+						<Route exact path="/viewajustesseguridad" component={ViewAjustesSeguridad}/>
+						<Route exact path="/registro" component={Formulario}/>
+						<Route exact path="/" component={Home}/>
 						<Route path="/demo" component={Demo} />
 						<Route path="/single/:theid" component={Single} />
 						<Route render={() => <h1>Not found!</h1>} />
