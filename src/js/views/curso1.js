@@ -37,7 +37,7 @@ export const Curso1 = () => (
         <p>Opciones</p>
         <span className="m-2 p-2 border">Opcion A</span>
         <span className="m-2 p-2 border">Opcion B</span>
-        <span className="m-2 p-2 border">Opcion C</span>
+        <span className="m-2 p-2 border">Opcion C.</span>
         <br></br>
         <br></br>
         <br></br>
