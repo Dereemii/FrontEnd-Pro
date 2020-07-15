@@ -16,6 +16,7 @@ import ViewAjustesVisuales from "./js/views/ajustesHome/AjustesVisuales";
 import { Login } from "./js/views/login";
 import { Welcome } from "./js/views/welcome";
 import { Curso } from "./js/views/curso";
+import { Curso1 } from "./js/views/curso1";
 
 //create your first component
 export const Layout = () => {
@@ -37,8 +38,9 @@ export const Layout = () => {
 						<Route path="/demo" component={Demo} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/welcome" component={Welcome} />
-						<Route path="/curso" component={Curso} />
-						<Route render={() => <h1>Not found!</h1>} />
+						<Route exact path="/curso" component={Curso} />
+						<Route exact path="/curso/1" component={Curso1}/>
+						<Route render={() => <h1>No encontrado!</h1>} />
 					</Switch>
 					<Footer />
 			</BrowserRouter>
