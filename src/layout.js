@@ -30,7 +30,7 @@ export const Layout = () => {
 						<Route exact path="/welcome" component={Welcome} />
 						<Route exact path="/curso" component={Curso} />
 						<Route exact path="/curso/1" component={Curso1}/>
-						<Route render={() => <h1>Not found!</h1>} />
+						<Route render={() => <h1>No encontrado!</h1>} />
 					</Switch>
 					<Footer />
 			</BrowserRouter>
