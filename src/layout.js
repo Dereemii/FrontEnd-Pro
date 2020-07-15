@@ -13,6 +13,9 @@ import { ViewAjustesInfoPersonal } from "./js/views/ajustesHome/InfoPersonal";
 import ViewAjustesSeguridad from "./js/views/ajustesHome/Seguridad";
 import ViewAjustesCerrarSesion from "./js/views/ajustesHome/CerrarSesion";
 import ViewAjustesVisuales from "./js/views/ajustesHome/AjustesVisuales";
+import { Login } from "./js/views/login";
+import { Welcome } from "./js/views/welcome";
+import { Curso } from "./js/views/curso";
 
 //create your first component
 export const Layout = () => {
@@ -32,7 +35,9 @@ export const Layout = () => {
 						<Route exact path="/registro" component={Formulario}/>
 						<Route exact path="/" component={Home}/>
 						<Route path="/demo" component={Demo} />
-						<Route path="/single/:theid" component={Single} />
+						<Route exact path="/login" component={Login} />
+						<Route exact path="/welcome" component={Welcome} />
+						<Route path="/curso" component={Curso} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />
