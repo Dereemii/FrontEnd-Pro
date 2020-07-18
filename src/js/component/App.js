@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
     <div className="App">
-      Hola
-
+      <h1>hola</h1>
     </div>
   );
 }
 
 export default App;
+

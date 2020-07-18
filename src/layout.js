@@ -5,7 +5,6 @@ import { Home } from "./js/views/home";
 import { Demo } from "./js/views/demo";
 import { Single } from "./js/views/single";
 import injectContext from "./js/store/appContext";
-
 import { Navbar } from "./js/component/navbar";
 import { Footer } from "./js/component/footer";
 import Formulario from "./js/component/Formularios/registro";
