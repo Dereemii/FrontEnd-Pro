@@ -1,5 +1,7 @@
 import React from "react";
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import iconodetareas from "../component/img/iconodetareas.png"
+import iconoTrofeo from "../component/img/iconoTrofeo.png"
+import iconoEngranaje from "../component/img/iconoEngranaje.png"
 
 export const Navbar = () => {
 
@@ -8,7 +10,6 @@ export const Navbar = () => {
 			<div className="container-fluid">
 				<div>
 					<nav className="navbar navbar-expand-lg navbar-light bg-light">
-						<a className="navbar-brand" href="#">Navbar</a>
 						<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 							<span className="navbar-toggler-icon"></span>
 						</button>
@@ -21,10 +22,13 @@ export const Navbar = () => {
 									<a className="nav-link" href="/">Features</a>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link" href="/">Pricing</a>
+									<a className="nav-link" href="/"> <img src={iconodetareas} width="30px"/> </a>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+									<a className="nav-link" href="/"> <img src={iconoTrofeo} width="30px"/></a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="/"> <img src={iconoEngranaje} width="30px"/></a>
 								</li>
 							</ul>
 						</div>
@@ -34,3 +38,4 @@ export const Navbar = () => {
 		</>
 	);
 };
+
