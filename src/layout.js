@@ -5,7 +5,6 @@ import { Home } from "./js/views/home.jsx";
 import { Demo } from "./js/views/demo.jsx";
 import { Single } from "./js/views/single.jsx";
 import injectContext from "./js/store/appContext";
-
 import { Navbar } from "./js/component/navbar.jsx";
 import { Footer } from "./js/component/footer.jsx";
 import { Login } from "./js/views/login.jsx";
