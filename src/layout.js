@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { Home } from "./js/views/home";
-import { Demo } from "./js/views/demo";
-import { Single } from "./js/views/single";
+import { Home } from "./js/views/home.jsx";
+import { Demo } from "./js/views/demo.jsx";
+import { Single } from "./js/views/single.jsx";
 import injectContext from "./js/store/appContext";
 
-import { Navbar } from "./js/component/navbar";
-import { Footer } from "./js/component/footer";
-import { Login } from "./js/views/login";
-import { Welcome } from "./js/views/welcome";
-import { Curso } from "./js/views/curso";
-import { Curso1 } from "./js/views/curso1";
+import { Navbar } from "./js/component/navbar.jsx";
+import { Footer } from "./js/component/footer.jsx";
+import { Login } from "./js/views/login.jsx";
+import { Welcome } from "./js/views/welcome.jsx";
+import { Curso } from "./js/views/curso.jsx";
+import { Curso1 } from "./js/views/curso1.jsx";
 
 //create your first component
 export const Layout = () => {
