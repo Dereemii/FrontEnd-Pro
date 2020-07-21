@@ -89,6 +89,7 @@ li:nth-child(12){
     list-style: none;
     overflow: hidden;
 }
+
 li{
     overflow: hidden;
     position: absolute;
@@ -120,4 +121,18 @@ li{
     position: absolute;
     left: 50%;
     z-index: 1;
+}
+
+.start-rotate{
+    animation: start-rotate 1s linear infinite;
+}
+
+@keyframes start-rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.stop-rotate{
+    animation-play-state: paused;
 }
