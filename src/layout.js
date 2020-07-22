@@ -5,7 +5,7 @@ import { Home } from "./js/views/home";
 import { Demo } from "./js/views/demo";
 import { Single } from "./js/views/single";
 import injectContext from "./js/store/appContext";
-import { Navbar } from "./js/component/navbar";
+import { Navbar } from "./js/component/navbar.jsx";
 import { Footer } from "./js/component/footer";
 import Formulario from "./js/component/Formularios/registro";
 import { ViewAjustesInfoPersonal } from "./js/views/ajustesHome/InfoPersonal";
@@ -16,6 +16,7 @@ import { Login } from "./js/views/login";
 import { Welcome } from "./js/views/welcome";
 import { Curso } from "./js/views/curso";
 import { Curso1 } from "./js/views/curso1";
+import { Ruleta } from "./js/views/juegos/ruleta.jsx"
 
 //create your first component
 export const Layout = () => {
@@ -39,6 +40,7 @@ export const Layout = () => {
 						<Route exact path="/welcome" component={Welcome} />
 						<Route exact path="/curso" component={Curso} />
 						<Route exact path="/curso/1" component={Curso1}/>
+						<Route exact path="/ruleta" component={Ruleta}/>
 						<Route render={() => <h1>No encontrado!</h1>} />
 					</Switch>
 					<Footer />
@@ -48,3 +50,4 @@ export const Layout = () => {
 };
 
 export default injectContext(Layout);
+
