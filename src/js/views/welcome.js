@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export const Welcome = () => {
   return (
@@ -17,12 +18,13 @@ export const Welcome = () => {
           <div className="col">
             <div className="row my-3 mx-3">
               <div className="col align-sel-center text-center">
+                <Link to={"/curso"}>
                 <button
                   type="submit"
                   className="btn btn-success btn-lg btn-block my-5"
-                >
-                  ingresa como invitado
+                >ingresa como invitado
                 </button>
+                </Link>
                 <h4>o crea una cuenta</h4>
                 <button
                   type="submit"
