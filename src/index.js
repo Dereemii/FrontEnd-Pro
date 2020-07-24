@@ -9,7 +9,9 @@ import "jquery";
 
 import 'jquery'; 
 import 'popper.js'; 
-import 'bootstrap';
+import 'bootstrap'; // js bootstrap
+
+import * as $ from 'jquery';
 
 //include your index.scss file into the bundle
 import "./styles/index.css";
@@ -21,3 +23,7 @@ import "jquery";
 
 //render your react application
 ReactDOM.render(<Layout />, document.querySelector("#root"));
+
+$(function () {
+    $('[data-toggle="popover"]').popover()
+  })
