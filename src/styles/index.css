@@ -131,3 +131,41 @@ code {
   padding-top: 150px;
   padding-bottom: 50px;
 }
+.titulos_juego_encender{
+  display: flex;
+  justify-content: center;
+}
+.botones_de_preguntas{
+  border: none;
+  background: none;
+}
+.botones_de_preguntas:hover{
+  border: none;
+  background: none;
+  outline: none;
+}
+.botones_de_preguntas:enabled{
+  border: none;
+  background: none;
+  outline: none;
+}
+.JuegoUnoEncender{
+  height: 150px;
+  width: 170px;
+}
+.ContainerJuegoDosEncender{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.JuegoDosEncender{
+  height: 400px;
+  width: 500px;
+}
+.btn-juego-dos-encender{
+  width: 100%;
+  height: 83px;
+}
+.btn-juego-dos-encender:enabled{
+  outline: none;
+}
