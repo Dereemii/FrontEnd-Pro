@@ -169,3 +169,36 @@ code {
 .btn-juego-dos-encender:enabled{
   outline: none;
 }
+.contenedor_numbersKeys{
+  margin-top: 45px;
+  height: 504px;
+  padding: 0px;
+  width: 963px;
+  border: 2px black solid;
+}
+.fila_numbersKeys{
+  display: flex;
+  justify-content: center;
+}
+.numberKeyGame{
+  font-size: 77px;
+  width: 320px;
+  height: 125px;
+  border: 2px black solid;
+  border-radius: 0px;
+}
+.numberKeyGame:focus{
+  font-size: 77px;
+  width: 320px;
+  height: 125px;
+  border: 2px #007bff solid;
+  border-radius: 0px;
+}
+
+.numberKeyGame:hover{
+  font-size: 77px;
+  width: 320px;
+  height: 125px;
+  border: solid 2px black;
+  border-radius: 0px;
+}
