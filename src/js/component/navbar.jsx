@@ -2,7 +2,6 @@ import React from "react";
 import iconodetareas from "../component/img/iconodetareas.png"
 import iconoTrofeo from "../component/img/iconoTrofeo.png"
 import iconoEngranaje from "../component/img/iconoEngranaje.png"
-import iconoAvatar from "../component/img/iconoAvatar.png"
 import iconoHome from "../component/img/iconoHome.png"
 
 
@@ -19,13 +18,14 @@ export const Navbar = () => {
 						<div className="collapse navbar-collapse" id="navbarNav">
 							<div class="row navbar-nav mx-auto">
 								<div class="col-sm px-5 ">
-									<a className="nav-link" href="/"><img className="img-fluid" src={iconoAvatar} width="100px" /> </a>
+									<a className="nav-link" href="/"><img className="img-fluid" src="../../img/iconoAvatar.png" width="100px" />
+									</a>
 								</div>
 								<div class="col-sm px-5 ">
-									<a className="nav-link" href="/"><img className="img-fluid" src={iconoHome} width="100px" /></a>
+									<a className="nav-link" href="/"><img className="img-fluid" data-toggle="tooltip" data-placement="top" title="INICIO" src={iconoHome} width="100px" /></a>
 								</div>
 								<div class="col-sm px-5">
-									<a className="nav-link" href="/"> <img  className="img-fluid" src={iconodetareas} width="100px" /> </a>
+									<a className="nav-link" href="/"> <img className="img-fluid" src={iconodetareas} width="100px" /> </a>
 								</div>
 								<div class="col-sm px-5">
 									<a className="nav-link" href="/"> <img className="img-fluid" src={iconoTrofeo} width="100px" /></a>
@@ -34,7 +34,6 @@ export const Navbar = () => {
 									<a className="nav-link" href="/"> <img className="img-fluid" src={iconoEngranaje} width="100px" /></a>
 								</div>
 							</div>
-
 						</div>
 					</nav>
 				</div>

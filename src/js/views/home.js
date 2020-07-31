@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Home = () => (
   <div className="container">
@@ -13,15 +12,11 @@ export const Home = () => (
     <div className="row my-5">
       <div className="col-3"></div>
       <div className="col">
-        <Link to={"/welcome"}>
-          <button className="btn btn-primary btn-lg btn-block my-2">
+        <Link className="btn btn-primary btn-lg btn-block my-2" to={"/welcome"}>
             Comienza
-          </button>
         </Link>
-        <Link to={"/login"}>
-          <button className="btn btn-success btn-lg btn-block my-3">
+        <Link className="btn btn-success btn-lg btn-block my-3" to={"/login"}>
             Ya tengo una cuenta
-          </button>
         </Link>
       </div>
       <div className="col-3"></div>
