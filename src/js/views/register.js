@@ -1,15 +1,11 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 
 export const Register = () => {
   return (
     <>
-      <div className="container my-5">
-          
+      <div className="container my-5">  
         <div className="row">
-            
-          <div className="col mr-5">
-              
+          <div className="col mr-5">     
             <form className="px-4 py-3">
               <div className="form-group">
                 <label for="exampleDropdownFormEmail1">
@@ -45,8 +41,7 @@ export const Register = () => {
               </div>
               <button
                 type="submit"
-                className="btn btn-primary btn-lg btn-block"
-              >
+                className="btn btn-primary btn-lg btn-block">
                 ingresar
               </button>
             </form>
