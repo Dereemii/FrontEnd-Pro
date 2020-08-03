@@ -1,19 +1,21 @@
 import React from "react";
-import iconodetareas from "../component/img/iconodetareas.png"
-import iconoTrofeo from "../component/img/iconoTrofeo.png"
-import iconoEngranaje from "../component/img/iconoEngranaje.png"
-import iconoHome from "../component/img/iconoHome.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import './navbar.css';
 
 
 export const Navbar = () => {
 
+	const menuIcon = <FontAwesomeIcon icon={faBars} />
+
 	return (
 		<>
-			<div className="container-fluid">
+			<div className="container-fluid p-0 m-0">
 				<div>
 					<nav className="navbar navbar-expand-lg navbar-light bg-info border border-light">
-						<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-							<span className="navbar-toggler-icon"></span>
+						<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+							aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="nav-icon ml-auto" title="MENU" >{menuIcon}</span>
 						</button>
 						<div className="collapse navbar-collapse" id="navbarNav">
 							<div className="row navbar-nav mx-auto">
