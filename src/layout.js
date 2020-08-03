@@ -16,7 +16,8 @@ import { Login } from "./js/views/login";
 import { Welcome } from "./js/views/welcome";
 import { Curso } from "./js/views/curso";
 import { Curso1 } from "./js/views/curso1";
-import { Ruleta } from "./js/views/juegos/ruleta.jsx"
+import { Ruleta } from "./js/views/juegos/ruleta.jsx";
+import { Quiz } from "./js/views/juegos/quiz";
 
 //create your first component
 export const Layout = () => {
@@ -41,6 +42,7 @@ export const Layout = () => {
 						<Route exact path="/curso" component={Curso} />
 						<Route exact path="/curso/1" component={Curso1}/>
 						<Route exact path="/ruleta" component={Ruleta}/>
+						<Route exact path="/quiz" component={Quiz}/>
 						<Route render={() => <h1>No encontrado!</h1>} />
 					</Switch>
 					<Footer />
