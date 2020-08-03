@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 
 export const Register = () => {
+  const {store, actions} = useContext(Context);
+  const { history } = useHistory();
+  
   return (
     <>
       <div className="container my-5">  
         <div className="row">
           <div className="col mr-5">     
-            <form className="px-4 py-3">
+            <form className="px-4 py-3" onSubmit={(e) => actions.handleRegister(e, history)>
               <div className="form-group">
                 <label for="exampleDropdownFormEmail1">
                   Correo electrónico

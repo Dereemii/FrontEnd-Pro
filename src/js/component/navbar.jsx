@@ -16,21 +16,21 @@ export const Navbar = () => {
 							<span className="navbar-toggler-icon"></span>
 						</button>
 						<div className="collapse navbar-collapse" id="navbarNav">
-							<div class="row navbar-nav mx-auto">
-								<div class="col-sm px-5 ">
+							<div className="row navbar-nav mx-auto">
+								<div className="col-sm px-5 ">
 									<a className="nav-link" href="/"><img className="img-fluid" src="../../img/iconoAvatar.png" width="100px" />
 									</a>
 								</div>
-								<div class="col-sm px-5 ">
+								<div className="col-sm px-5 ">
 									<a className="nav-link" href="/"><img className="img-fluid" data-toggle="tooltip" data-placement="top" title="INICIO" src={iconoHome} width="100px" /></a>
 								</div>
-								<div class="col-sm px-5">
+								<div className="col-sm px-5">
 									<a className="nav-link" href="/"> <img className="img-fluid" src={iconodetareas} width="100px" /> </a>
 								</div>
-								<div class="col-sm px-5">
+								<div className="col-sm px-5">
 									<a className="nav-link" href="/"> <img className="img-fluid" src={iconoTrofeo} width="100px" /></a>
 								</div>
-								<div class="col-sm px-5">
+								<div className="col-sm px-5">
 									<a className="nav-link" href="/"> <img className="img-fluid" src={iconoEngranaje} width="100px" /></a>
 								</div>
 							</div>
