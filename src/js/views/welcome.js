@@ -18,12 +18,8 @@ export const Welcome = () => {
           <div className="col">
             <div className="row my-3 mx-3">
               <div className="col align-sel-center text-center">
-                <Link to={"/curso"}>
-                <button
-                  type="submit"
-                  className="btn btn-success btn-lg btn-block my-5"
-                >ingresa como invitado
-                </button>
+                <Link className="btn btn-success btn-lg btn-block my-5" to={"/curso"}>
+                ingresa como invitado
                 </Link>
                 <h4>o crea una cuenta</h4>
                 <button
