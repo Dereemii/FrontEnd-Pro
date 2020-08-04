@@ -22,16 +22,16 @@ export const Navbar = () => {
 									</a>
 								</div>
 								<div className="col-sm px-5 ">
-									<a className="nav-link" href="/"><img className="img-fluid" data-toggle="tooltip" data-placement="top" title="INICIO" src="../../img/iconoHome.png" width="100px" /></a>
+									<a className="nav-link" href="/"><img className="img-fluid"  title="Inicio" src="../../img/iconoHome.png" width="100px" /></a>
 								</div>
 								<div className="col-sm px-5">
-									<a className="nav-link" href="/"> <img className="img-fluid" src="../../img/iconodetareas.png" width="100px" /> </a>
+									<a className="nav-link" href="/"> <img className="img-fluid" title="Tareas" src="../../img/iconodetareas.png" width="100px" /> </a>
 								</div>
 								<div className="col-sm px-5">
-									<a className="nav-link" href="/"> <img className="img-fluid" src="../../img/iconoTrofeo.png" width="100px" /></a>
+									<a className="nav-link" href="/"> <img className="img-fluid" title="Ranking" src="../../img/iconoTrofeo.png" width="100px" /></a>
 								</div>
 								<div className="col-sm px-5">
-									<a className="nav-link" href="/"> <img className="img-fluid" src="../../img/iconoEngranaje.png" width="100px" /></a>
+									<a className="nav-link" href="/"> <img className="img-fluid" title="Configuracion" src="../../img/iconoEngranaje.png" width="100px" /></a>
 								</div>
 							</div>
 						</div>
