@@ -5,9 +5,7 @@ import './navbar.css';
 
 
 export const Navbar = () => {
-
 	const menuIcon = <FontAwesomeIcon icon={faBars} />
-
 	return (
 		<>
 			<div className="container-fluid p-0 m-0">
@@ -43,4 +41,3 @@ export const Navbar = () => {
 		</>
 	);
 };
-

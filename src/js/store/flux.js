@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			name: null,
 			email: null,
 			password: null,
+			phone: null,
 			currentUser: null,
 			error: null
 		},
@@ -27,7 +28,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: JSON.stringify({
 						"name": store.name,
 						"email": store.email, 
-						"password": store.password 
+						"password": store.password,
+						"phone": store.phone
 					}),
 					headers: {
 						'Content-Type': 'application/json'
@@ -35,15 +37,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				const resp = await fetch(store.apiUrl + "/register", options);
 				const data = await resp.json();
+				console.log(data)
 
-				if (data.success){
+				if (data.succes === "Register successfully!, please Log in"){
 					setStore({
 						currentUser: data.data,
+						name: null,
 						email: null,
 						password: null,
+						phone: null,
 						error: null
 					})
-					history.push("/")
+					history.push("/login")
 				}else{
 					setStore({
 						error: data.msg
@@ -68,15 +73,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				const resp = await fetch(store.apiUrl + "/login", options);
 				const data = await resp.json();
+				console.log(data)
 
-				if (data.success){
+				if (data.succes === "Log In succesfully!"){
 					setStore({
 						currentUser: data.data,
 						email: null,
 						password: null,
 						error: null
-					});
-					history.push("/curso");
+					})
+					history.push("/curso")
 				}else{
 					setStore({
 						error: data.msg
@@ -89,6 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			handleLocal: () => {
 				const store = getStore();
 				localStorage.setItem("email", JSON.stringify(store.email));
+				localStorage.setItem("name", JSON.stringify(store.name))
 				
 			}
 

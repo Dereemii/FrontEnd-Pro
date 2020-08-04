@@ -34,7 +34,7 @@ export const Login = props => {
         <div className="row">
             <div className="col-2"></div>
           <div className="col mr-5">
-            <form className="container px-4 py-3" onSubmit={e => actions.handleLogin(e, history)}>
+            <form className="container px-4 py-3" onSubmit={e => actions.handleLogin(e, props.history)}>
               <div className="form-group">
                 <label htmlFor="email" className="form-label">
                   Correo electrónico

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "../../store/appContext";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
-export const Formulario = () => {
+export const Formulario = (props) => {
   const { store, actions } = useContext(Context);
-  const { history } = useHistory();
+/*   const { history } = useHistory();
+ */
 
   return (
     <>
@@ -13,7 +14,7 @@ export const Formulario = () => {
           <h1 className="text-center mt-5">Registrate Aqui</h1>
           
 		  
-          <form className="container" onSubmit={e => actions.handleRegister(e, history)}>
+          <form className="container" onSubmit={e => actions.handleRegister(e, props.history)}>
             <div className="form-group">
               <label htmlFor="name" className="form-label">
                 Nombre de Usuario
