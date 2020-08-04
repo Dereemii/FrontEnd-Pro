@@ -5,9 +5,7 @@ import './navbar.css';
 
 
 export const Navbar = () => {
-
 	const menuIcon = <FontAwesomeIcon icon={faBars} />
-
 	return (
 		<>
 			<div className="container-fluid p-0 m-0">
@@ -24,16 +22,16 @@ export const Navbar = () => {
 									</a>
 								</div>
 								<div className="col-sm px-5 ">
-									<a className="nav-link" href="/"><img className="img-fluid" data-toggle="tooltip" data-placement="top" title="INICIO" src={iconoHome} width="100px" /></a>
+									<a className="nav-link" href="/"><img className="img-fluid" data-toggle="tooltip" data-placement="top" title="INICIO" src="../../img/iconoHome.png" width="100px" /></a>
 								</div>
 								<div className="col-sm px-5">
-									<a className="nav-link" href="/"> <img className="img-fluid" src={iconodetareas} width="100px" /> </a>
+									<a className="nav-link" href="/"> <img className="img-fluid" src="../../img/iconodetareas.png" width="100px" /> </a>
 								</div>
 								<div className="col-sm px-5">
-									<a className="nav-link" href="/"> <img className="img-fluid" src={iconoTrofeo} width="100px" /></a>
+									<a className="nav-link" href="/"> <img className="img-fluid" src="../../img/iconoTrofeo.png" width="100px" /></a>
 								</div>
 								<div className="col-sm px-5">
-									<a className="nav-link" href="/"> <img className="img-fluid" src={iconoEngranaje} width="100px" /></a>
+									<a className="nav-link" href="/"> <img className="img-fluid" src="../../img/iconoEngranaje.png" width="100px" /></a>
 								</div>
 							</div>
 						</div>
@@ -43,4 +41,3 @@ export const Navbar = () => {
 		</>
 	);
 };
-
