@@ -19,11 +19,7 @@ export const Welcome = () => {
             <div className="row my-3 mx-3">
               <div className="col align-sel-center text-center">
                 <Link className="btn btn-success btn-lg btn-block my-5" to={"/curso"}>
-<<<<<<< HEAD
-                  Ingresa como invitado
-=======
                 ingresa como invitado
->>>>>>> c699374d2af8060194ef3effafcd35e13e7f030f
                 </Link>
                 <h4>o crea una cuenta</h4>
                 <Link className="btn btn-primary btn-lg btn-block my-5" to={"/registro"}>
