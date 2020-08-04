@@ -1,0 +1,8 @@
+.nav-icon{
+    color: white;
+    font-size: 60px;
+}
+
+.nav-icon:hover{
+    color: rgb(3, 46, 83);
+}

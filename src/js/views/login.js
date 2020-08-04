@@ -1,55 +1,70 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import React, { Component } from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+import { useHistory } from "react-router";
 
-export const Login = () => {
+export const Login = props => {
+  const {store, actions} = useContext(Context);
+  const { history } = useHistory();
+  /* const {history} = props; */
+
   return (
     <>
       <div className="container my-5">
+      { !!store.error && (<div
+            className="alert alert-warning alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>Holy guacamole!</strong> {store.error}
+            <button
+              type="button"
+              className="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>)}
+
           <div className="row">
               <div className="col mr-5">
+              
                   <h3 className="text-center">Ingresar</h3>
                 </div>
             </div>
         <div className="row">
             <div className="col-2"></div>
           <div className="col mr-5">
-            <form className="px-4 py-3">
+            <form className="container px-4 py-3" onSubmit={e => actions.handleLogin(e, props.history)}>
               <div className="form-group">
-                <label for="exampleDropdownFormEmail1">
+                <label htmlFor="email" className="form-label">
                   Correo electrónico
                 </label>
                 <input
                   type="email"
+                  id="email"
+                  name="email"
                   className="form-control"
-                  id="exampleDropdownFormEmail1"
                   placeholder="correo@ejemplo.com"
+                  defaultValue={store.email}
+                  onChange={actions.handleChange}
+                  required
                 />
               </div>
               <div className="form-group">
-                <label for="exampleDropdownFormPassword1">Contraseña</label>
+                <label htmlFor="password" className="form-label">Contraseña</label>
                 <input
                   type="password"
+                  id="password"
+                  name="password"
                   className="form-control"
-                  id="exampleDropdownFormPassword1"
-                  placeholder="Contraseña"
+                  placeholder="******"
+                  defaultValue={store.password}
+                  onChange={actions.handleChange}
+                  required
                 />
               </div>
-              <div className="form-group">
-                <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="dropdownCheck"
-                  />
-                  <label className="form-check-label" for="dropdownCheck">
-                    Recuerda mis datos
-                  </label>
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="btn btn-primary btn-lg btn-block"
-              >
+              
+              <button className="btn btn-primary btn-lg btn-block">
                 ingresar
               </button>
             </form>

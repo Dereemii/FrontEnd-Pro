@@ -1,43 +1,106 @@
+import { get } from "jquery";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			apiUrl: "http://localhost:5000",
+			name: null,
+			email: null,
+			password: null,
+			phone: null,
+			currentUser: null,
+			error: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			handleChange: e => {
+				const {name, value} = e.target;
+				setStore({
+					[name]: value
+				})
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
+			handleRegister: async (e, history) => {
+				e.preventDefault();
+				
 				const store = getStore();
+				const options = {
+					method: 'POST', 
+					body: JSON.stringify({
+						"name": store.name,
+						"email": store.email, 
+						"password": store.password,
+						"phone": store.phone
+					}),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+				const resp = await fetch(store.apiUrl + "/register", options);
+				const data = await resp.json();
+				console.log(data)
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				if (data.succes === "Register successfully!, please Log in"){
+					setStore({
+						currentUser: data.data,
+						name: null,
+						email: null,
+						password: null,
+						phone: null,
+						error: null
+					})
+					history.push("/login")
+				}else{
+					setStore({
+						error: data.msg
+					})
 
-				//reset the global store
-				setStore({ demo: demo });
+				}
+			},
+			handleLogin: async (e, history) => {
+				e.preventDefault();
+				
+				const actions = getActions();
+				const store = getStore();
+				const options = {
+					method: 'POST', 
+					body: JSON.stringify({
+						"email": store.email, 
+						"password": store.password 
+					}),
+					headers: {
+                        'Content-Type': 'application/json'
+                    }
+				}
+				const resp = await fetch(store.apiUrl + "/login", options);
+				const data = await resp.json();
+				console.log(data)
+
+				if (data.succes === "Log In succesfully!"){
+					setStore({
+						currentUser: data.data,
+						email: null,
+						password: null,
+						error: null
+					})
+					history.push("/curso")
+				}else{
+					setStore({
+						error: data.msg
+					})
+
+				}
+
+				actions.handleLocal();
+			},
+			handleLocal: () => {
+				const store = getStore();
+				localStorage.setItem("email", JSON.stringify(store.email));
+				localStorage.setItem("name", JSON.stringify(store.name))
+				
 			}
+
+			
+			
 		}
 	};
 };
