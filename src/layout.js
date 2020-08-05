@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
 import { Home } from "./js/views/home";
 import { Demo } from "./js/views/demo";
 import injectContext from "./js/store/appContext";
@@ -13,10 +12,13 @@ import ViewAjustesCerrarSesion from "./js/views/ajustesHome/CerrarSesion";
 import ViewAjustesVisuales from "./js/views/ajustesHome/AjustesVisuales";
 import { Login } from "./js/views/login";
 import { Welcome } from "./js/views/welcome";
+import { Usuarios } from "./js/views/usuarios"
 import { Curso } from "./js/views/curso";
 import { Curso1 } from "./js/views/curso1";
-import { Ruleta } from "./js/views/juegos/ruleta.jsx"
 import { Vista_Tutorial_Encender_Celular_Pregunta_Cuatro, Vista_Tutorial_Encender_Celular_Pregunta_Uno, Vista_Tutorial_Encender_Celular_Pregunta_Dos, Vista_Tutorial_Encender_Celular_Pregunta_Tres } from "./js/views/juegos/Encender_Celular";
+import { Ruleta } from "./js/views/juegos/ruleta.jsx";
+import { Quiz } from "./js/views/juegos/quiz";
+
 
 //create your first component
 export const Layout = () => {
@@ -42,9 +44,11 @@ export const Layout = () => {
 						<Route path="/demo" component={Demo} />
 						<Route exact path="/login" component={Login} />
 						<Route exact path="/welcome" component={Welcome} />
+						<Route exact path="/usuarios" component={Usuarios} />
 						<Route exact path="/curso" component={Curso} />
 						<Route exact path="/curso/1" component={Curso1}/>
 						<Route exact path="/ruleta" component={Ruleta}/>
+						<Route exact path="/quiz" component={Quiz}/>
 						<Route render={() => <h1>No encontrado!</h1>} />
 					</Switch>
 					<Footer />
