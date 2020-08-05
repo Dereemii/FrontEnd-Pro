@@ -1,6 +1,6 @@
 /* Colores */
 
-li:first-child .text{
+/* li:first-child .text{
     background-color: violet;
 }
 li:nth-child(2) .text{
@@ -35,11 +35,11 @@ li:nth-child(11) .text{
 }
 li:nth-child(12) .text{
     background-color:yellow;
-}
+} */
 
 /* Rotaciones de partes*/
 
-li:first-child{
+/* i:first-child{
     transform: rotate(0deg) skewY(-60deg);
 }
 li:nth-child(2){
@@ -74,11 +74,11 @@ li:nth-child(11){
 }
 li:nth-child(12){
     transform: rotate(330deg) skewY(-60deg);
-}
+} */
 
 /* Circulo contenedor */
 
-.circle{
+/* .circle{
     width: 25em;
     height: 25em;
     border: 1px solid black;
@@ -135,4 +135,4 @@ li{
 
 .stop-rotate{
     animation-play-state: paused;
-}
+} */

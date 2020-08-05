@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { useHistory } from "react-router";
 
+import "../../styles/home.css";
+
 export const Login = props => {
   const {store, actions} = useContext(Context);
   const { history } = useHistory();
@@ -36,29 +38,29 @@ export const Login = props => {
           <div className="col mr-5">
             <form className="container px-4 py-3" onSubmit={e => actions.handleLogin(e, props.history)}>
               <div className="form-group">
-                <label htmlFor="email" className="form-label">
+                <label htmlFor="correo" className="form-label">
                   Correo electrónico
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
+                  type="correo"
+                  id="correo"
+                  name="correo"
                   className="form-control"
                   placeholder="correo@ejemplo.com"
-                  defaultValue={store.email}
+                  defaultValue={store.correo}
                   onChange={actions.handleChange}
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password" className="form-label">Contraseña</label>
+                <label htmlFor="clave" className="form-label">clave</label>
                 <input
-                  type="password"
-                  id="password"
-                  name="password"
+                  type="clave"
+                  id="clave"
+                  name="clave"
                   className="form-control"
                   placeholder="******"
-                  defaultValue={store.password}
+                  defaultValue={store.clave}
                   onChange={actions.handleChange}
                   required
                 />

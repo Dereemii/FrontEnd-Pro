@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export const Curso = () => {
   const {store, actions} = useContext(Context);
   const {currentUser} = store;
-  const name = !!currentUser ? currentUser.user.name : "Invitado"
+  const name = !!currentUser ? currentUser.usuario.nombre_usuario : "Invitado"
 
   return(
 

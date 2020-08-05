@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../../store/appContext";
 import { useHistory } from "react-router-dom";
 
+import "../../../styles/home.css"
+
 export const Formulario = (props) => {
   const { store, actions } = useContext(Context);
 /*   const { history } = useHistory();
@@ -16,62 +18,62 @@ export const Formulario = (props) => {
 		  
           <form className="container" onSubmit={e => actions.handleRegister(e, props.history)}>
             <div className="form-group">
-              <label htmlFor="name" className="form-label">
+              <label htmlFor="nombre_usuario" className="form-label">
                 Nombre de Usuario
               </label>
               <input
-                type="name"
-                id="name"
-                name="name"
+                type="nombre_usuario"
+                id="nombre_usuario"
+                name="nombre_usuario"
                 className="form-control"
                 placeholder="Su nombre de usuario"
-                defaultValue={store.name}
+                defaultValue={store.nombre_usuario}
                 onChange={actions.handleChange}
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email" className="form-label">
+              <label htmlFor="correo" className="form-label">
                 Correo Electronico
               </label>
               <input
-                type="email"
-                id="email"
-                name="email"
+                type="correo"
+                id="correo"
+                name="correo"
                 className="form-control"
                 placeholder="correo@ejemplo.com"
-                defaultValue={store.email}
+                defaultValue={store.correo}
                 onChange={actions.handleChange}
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="phone" className="form-label">
+              <label htmlFor="telefono" className="form-label">
                 Numero Telefonico
               </label>
               <input
-                type="phone"
-                id="phone"
-                name="phone"
+                type="telefono"
+                id="telefono"
+                name="telefono"
                 /* pattern="[0-9]{8}" */
                 className="form-control"
                 placeholder="+569 12345678"
-                defaultValue={store.phone}
+                defaultValue={store.telefono}
                 onChange={actions.handleChange}
                 required
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password" className="form-label">
-                Contraseña
+              <label htmlFor="clave" className="form-label">
+                clave
               </label>
               <input
-                type="password"
-                id="password"
-                name="password"
+                type="clave"
+                id="clave"
+                name="clave"
                 className="form-control"
                 placeholder="Escriba una constraseña facil de recordar"
-                defaultValue={store.password}
+                defaultValue={store.clave}
                 onChange={actions.handleChange}
                 required
               />
