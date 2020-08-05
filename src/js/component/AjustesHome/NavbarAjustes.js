@@ -13,7 +13,7 @@ export const NavbarAjustes = () => {
                     Ajustes Visuales
                 </Link>
                 <Link className= "btn-de-navajustes col-3" to="./viewajustesseguridad" >
-                    Seguridad
+                    SeguridadSSSS
                 </Link>
                 <Link className= "btn-de-navajustes col-3" to="viewajustescerrarsesion" >
                     Cerrar Sesion
