@@ -32,84 +32,84 @@ export class Ruleta extends React.Component {
                 <div className="container-fluid pt-5 ">
                     <div className="arrow "></div>
                     <ul className={this.state.name}> {/*  paso estilo css de circle */}
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 1
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 2
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 3
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 4
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 5
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 6
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 7
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 8
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 9
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 10
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
                                 11
             </div>
                         </li>
-                        <li>
+                        <li class="li-ruleta">
                             <div className="text"
                                 contentEditable="true"
                                 spellCheck="false">
