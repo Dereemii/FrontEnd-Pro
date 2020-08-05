@@ -8,7 +8,7 @@ export class Ruleta extends React.Component {
         name: "circulo" // estilo circulo
     }
 
-    startRotation = () => {  {/* Funcion que da inicio a la rotacion */}
+    comenzarRotacion = () => {  {/* Funcion que da inicio a la rotacion */}
         this.setState({
             name: "circulo iniciar-rotacion" // estilo + css animacion
         });
@@ -18,7 +18,6 @@ export class Ruleta extends React.Component {
             })
         }, Math.floor(Math.random() * 10000) + 1); //selecion aleatoria de numero
     }
-
 
 
     render() {
@@ -120,7 +119,7 @@ export class Ruleta extends React.Component {
                 </div>
 
                 <div className="mx-auto py-5 ">
-                    <button type="button" className="btn btn-success btn-lg mx-auto px-5 py-3" onClick={this.startRotation} >GIRAR</button>
+                    <button type="button" className="btn btn-success btn-lg mx-auto px-5 py-3" onClick={this.comenzarRotacion} >GIRAR</button>
                 </div>
             </>
         )
