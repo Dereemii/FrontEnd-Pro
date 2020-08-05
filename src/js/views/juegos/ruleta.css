@@ -1,39 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+/*Importado google-fonts */
+
+h1{
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Colores */
 
-.li-ruleta:first-child .text{
+.li-ruleta:first-child .texto-ruleta{
     background-color: violet;
 }
-.li-ruleta:nth-child(2) .text{
+.li-ruleta:nth-child(2) .texto-ruleta{
     background-color: indigo;
 }
-.li-ruleta:nth-child(3) .text{
+.li-ruleta:nth-child(3) .texto-ruleta{
     background-color: blue;
 }
-.li-ruleta:nth-child(4) .text{
+.li-ruleta:nth-child(4) .texto-ruleta{
     background-color: green;
 }
-.li-ruleta:nth-child(5) .text{
+.li-ruleta:nth-child(5) .texto-ruleta{
     background-color:yellow;
 }
-.li-ruleta:nth-child(6) .text{
+.li-ruleta:nth-child(6) .texto-ruleta{
     background-color:orange;
 }
-.li-ruleta:nth-child(7) .text{
+.li-ruleta:nth-child(7) .texto-ruleta{
     background-color:red;
 }
-.li-ruleta:nth-child(8) .text{
+.li-ruleta:nth-child(8) .texto-ruleta{
     background-color:violet;
 }
-.li-ruleta:nth-child(9) .text{
+.li-ruleta:nth-child(9) .texto-ruleta{
     background-color:indigo;
 }
-.li-ruleta:nth-child(10) .text{
+.li-ruleta:nth-child(10) .texto-ruleta{
     background-color:blue;
 }
-.li-ruleta:nth-child(11) .text{
+.li-ruleta:nth-child(11) .texto-ruleta{
     background-color: green;
 }
-.li-ruleta:nth-child(12) .text{
+.li-ruleta:nth-child(12) .texto-ruleta{
     background-color:yellow;
 } 
 
@@ -78,7 +85,7 @@
 
 /* Circulo contenedor */
 
- .circle{
+ .circulo{
     width: 25em;
     height: 25em;
     border: 1px solid black;
@@ -99,7 +106,7 @@
     height: 50%;
     transform-origin: 0% 100%;
 }
-.text{
+.texto-ruleta{
     position: absolute;
     left: -100%;
     width: 200%;
@@ -112,7 +119,7 @@
     font-weight: bold;
     font-size: 18px;
 }
-.arrow{
+.flecha-ruleta{
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
@@ -123,16 +130,16 @@
     z-index: 1;
 }
 
-.start-rotate{
-    animation: start-rotate 1s linear infinite;
+.iniciar-rotacion{
+    animation: iniciar-rotacion 1s linear infinite;
 }
 
-@keyframes start-rotate {
+@keyframes iniciar-rotacion {
     100%{
         transform: rotate(360deg);
     }
 }
 
-.stop-rotate{
+.detener-rotacion{
     animation-play-state: paused;
 } 
