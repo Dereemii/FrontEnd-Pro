@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import {Link} from "react-router-dom";
 import './navbar.css';
 
 
@@ -21,6 +22,7 @@ export const Navbar = () => {
 									<a className="nav-link" href="/"><img className="img-fluid" title="Mi perfil"  data-toggle="tooltip" data-placement="bottom"src="../../img/iconoAvatar.png" width="100px" />
 									</a>
 								</div>
+
 								<div className="col-sm px-5 ">
 									<a className="nav-link" href="/"><img className="img-fluid"  title="Inicio"   data-toggle="tooltip" data-placement="bottom"src="../../img/iconoHome.png" width="100px" /></a>
 								</div>
