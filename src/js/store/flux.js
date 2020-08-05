@@ -4,10 +4,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			apiUrl: "http://localhost:5000",
-			name: null,
-			email: null,
-			password: null,
-			phone: null,
+			usuarios: [],
+			nombre_usuario: null,
+			correo: null,
+			clave: null,
+			telefono: null,
 			currentUser: null,
 			error: null
 		},
@@ -19,6 +20,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					[name]: value
 				})
 			},
+			getUsers: async url => {
+				const store = getStore();
+				const response = await fetch(store.apiUrl + "/usuarios");
+				const datos = await response.json();
+				setStore({
+					usuarios: datos
+				})
+			},
 			handleRegister: async (e, history) => {
 				e.preventDefault();
 				
@@ -26,32 +35,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const options = {
 					method: 'POST', 
 					body: JSON.stringify({
-						"name": store.name,
-						"email": store.email, 
-						"password": store.password,
-						"phone": store.phone
+						"nombre_usuario": store.nombre_usuario,
+						"correo": store.correo, 
+						"clave": store.clave,
+						"telefono": store.telefono
 					}),
 					headers: {
 						'Content-Type': 'application/json'
 					}
 				}
-				const resp = await fetch(store.apiUrl + "/register", options);
-				const data = await resp.json();
-				console.log(data)
+				const resp = await fetch(store.apiUrl + "/registro", options);
+				const datos = await resp.json();
+				console.log(datos)
 
-				if (data.succes === "Register successfully!, please Log in"){
+				if (datos.succes){
 					setStore({
-						currentUser: data.data,
-						name: null,
-						email: null,
-						password: null,
-						phone: null,
+						currentUser: datos.datos,
+						nombre_usuario: null,
+						correo: null,
+						clave: null,
+						telefono: null,
 						error: null
 					})
 					history.push("/login")
 				}else{
 					setStore({
-						error: data.msg
+						error: datos.msg
 					})
 
 				}
@@ -64,28 +73,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const options = {
 					method: 'POST', 
 					body: JSON.stringify({
-						"email": store.email, 
-						"password": store.password 
+						"correo": store.correo, 
+						"clave": store.clave 
 					}),
 					headers: {
                         'Content-Type': 'application/json'
                     }
 				}
 				const resp = await fetch(store.apiUrl + "/login", options);
-				const data = await resp.json();
-				console.log(data)
+				const datos = await resp.json();
+				console.log(datos)
 
-				if (data.succes === "Log In succesfully!"){
+				if (datos.succes === "Log In exitoso!"){
 					setStore({
-						currentUser: data.data,
-						email: null,
-						password: null,
-						error: null
+						currentUser: datos.datos,
+						correo: null,
+						clave: null,
+						error: null,
+						telefono: null
 					})
 					history.push("/curso")
 				}else{
 					setStore({
-						error: data.msg
+						error: datos.msg
 					})
 
 				}
@@ -94,8 +104,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			handleLocal: () => {
 				const store = getStore();
-				localStorage.setItem("email", JSON.stringify(store.email));
-				localStorage.setItem("name", JSON.stringify(store.name))
+				localStorage.setItem("correo", JSON.stringify(store.correo));
+				localStorage.setItem("nombre_usuario", JSON.stringify(store.nombre_usuario))
 				
 			}
 
