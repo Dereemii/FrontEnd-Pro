@@ -9,7 +9,7 @@ export const Curso = () => (
       </div>
       <div className="row my-3 ">
           <div className="col-sm mr-3 text-center"><Link to={"/curso/1"}><button type="button" className="btn btn-primary"><h3 className="my-1">Curso 1</h3><p className="my-2">Icono o imagen</p><p>Breve descripción del curso</p></button></Link></div>
-          <div className="col-sm mr-3 text-center"><button type="button" className="btn btn-secondary"><h3 className="my-1">Curso 2</h3><p className="my-2">Icono o imagen</p><p>Breve descripción del curso</p></button></div>
+          <div className="col-sm mr-3 text-center"><Link to={"/Vista_Tutorial_Encender_Celular_Pregunta_1"}><button type="button" className="btn btn-secondary"><h3 className="my-1">Curso 2</h3><p className="my-2">Icono o imagen</p><p>Encender un Smartphone</p></button></Link></div>
           <div className="col-sm mr-3 text-center"><button type="button" className="btn btn-success"><h3 className="my-1">Curso 3</h3><p className="my-2">Icono o imagen</p><p>Breve descripción del curso</p></button></div>
       </div>
       <div className="row my-3 ">

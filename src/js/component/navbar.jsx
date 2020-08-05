@@ -23,7 +23,7 @@ export const Navbar = () => {
 									<a className="nav-link" href="/"><img className="img-fluid" src={iconoAvatar} width="100px" /> </a>
 								</div>
 								<div class="col-sm px-5 ">
-									<a className="nav-link" href="/"><img className="img-fluid" src={iconoHome} width="100px" /></a>
+									<a className="nav-link" href="/"><Link to={"/curso"}><img className="img-fluid" src={iconoHome} width="100px" /></Link></a>
 								</div>
 								<div class="col-sm px-5">
 									<a className="nav-link" href="/"> <img  className="img-fluid" src={iconodetareas} width="100px" /> </a>
