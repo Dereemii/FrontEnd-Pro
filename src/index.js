@@ -27,3 +27,7 @@ ReactDOM.render(<Layout />, document.querySelector("#root"));
 $(function () {
     $('[data-toggle="popover"]').popover()
   })
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })

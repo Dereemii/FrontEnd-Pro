@@ -1,43 +1,116 @@
+import { get } from "jquery";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			apiUrl: "http://localhost:5000",
+			usuarios: [],
+			nombre_usuario: null,
+			correo: null,
+			clave: null,
+			telefono: null,
+			currentUser: null,
+			error: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			handleChange: e => {
+				const {name, value} = e.target;
+				setStore({
+					[name]: value
+				})
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
+			getUsers: async url => {
 				const store = getStore();
+				const response = await fetch(store.apiUrl + "/usuarios");
+				const datos = await response.json();
+				setStore({
+					usuarios: datos
+				})
+			},
+			handleRegister: async (e, history) => {
+				e.preventDefault();
+				
+				const store = getStore();
+				const options = {
+					method: 'POST', 
+					body: JSON.stringify({
+						"nombre_usuario": store.nombre_usuario,
+						"correo": store.correo, 
+						"clave": store.clave,
+						"telefono": store.telefono
+					}),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+				const resp = await fetch(store.apiUrl + "/registro", options);
+				const datos = await resp.json();
+				console.log(datos)
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				if (datos.succes){
+					setStore({
+						currentUser: datos.datos,
+						nombre_usuario: null,
+						correo: null,
+						clave: null,
+						telefono: null,
+						error: null
+					})
+					history.push("/login")
+				}else{
+					setStore({
+						error: datos.msg
+					})
 
-				//reset the global store
-				setStore({ demo: demo });
+				}
+			},
+			handleLogin: async (e, history) => {
+				e.preventDefault();
+				
+				const actions = getActions();
+				const store = getStore();
+				const options = {
+					method: 'POST', 
+					body: JSON.stringify({
+						"correo": store.correo, 
+						"clave": store.clave 
+					}),
+					headers: {
+                        'Content-Type': 'application/json'
+                    }
+				}
+				const resp = await fetch(store.apiUrl + "/login", options);
+				const datos = await resp.json();
+				console.log(datos)
+
+				if (datos.succes === "Log In exitoso!"){
+					setStore({
+						currentUser: datos.datos,
+						correo: null,
+						clave: null,
+						error: null,
+						telefono: null
+					})
+					history.push("/curso")
+				}else{
+					setStore({
+						error: datos.msg
+					})
+
+				}
+
+				actions.handleLocal();
+			},
+			handleLocal: () => {
+				const store = getStore();
+				localStorage.setItem("correo", JSON.stringify(store.correo));
+				localStorage.setItem("nombre_usuario", JSON.stringify(store.nombre_usuario))
+				
 			}
+
+			
+			
 		}
 	};
 };
