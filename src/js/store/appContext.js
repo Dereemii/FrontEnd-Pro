@@ -32,6 +32,9 @@ const injectContext = PassedComponent => {
 			 *
 			 **/
 			state.actions.getUsers("http://localhost:5000/usuarios");
+			state.actions.getLecciones("http://localhost:5000/api/obtener_nombre_leccion");
+			state.actions.getPreguntas("http://localhost:5000/api/obtener_pregunta");
+			state.actions.getRespuestas("http://localhost:5000/api/obtener_respuesta");
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { useHistory } from "react-router";
 
 import "../../styles/home.css";
 
 export const Login = props => {
   const {store, actions} = useContext(Context);
-  const { history } = useHistory();
-  /* const {history} = props; */
+  const {history} = props;
 
   return (
     <>

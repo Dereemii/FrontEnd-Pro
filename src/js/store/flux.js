@@ -1,6 +1,8 @@
 import { get } from "jquery";
+import { act } from "react-dom/test-utils";
 
 const getState = ({ getStore, getActions, setStore }) => {
+
 	return {
 		store: {
 			apiUrl: "http://localhost:5000",
@@ -10,7 +12,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			clave: null,
 			telefono: null,
 			currentUser: null,
-			error: null
+			error: null,
+			lecciones: [],
+			preguntas: [],
+			respuestas: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -57,7 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						telefono: null,
 						error: null
 					})
-					history.push("/login")
+					history.push("/")
 				}else{
 					setStore({
 						error: datos.msg
@@ -84,7 +89,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const datos = await resp.json();
 				console.log(datos)
 
-				if (datos.succes === "Log In exitoso!"){
+				if (datos.succes){
 					setStore({
 						currentUser: datos.datos,
 						correo: null,
@@ -92,7 +97,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						error: null,
 						telefono: null
 					})
-					history.push("/curso")
+					history.push("/seleccion_curso")
 				}else{
 					setStore({
 						error: datos.msg
@@ -101,6 +106,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 				actions.handleLocal();
+			},
+			getTodo: async() =>{
+				const actions = getActions();
+				actions.getLecciones();
+				actions.getPreguntas();
+				actions.getRespuestas();
+
+			},
+			getLecciones: async() =>{
+				const store = getStore();
+				const response = await fetch(store.apiUrl + "/obtener_nombre_leccion");
+				const datos = await response.json();
+				setStore({
+					lecciones: datos
+				})
+			},
+			getPreguntas: async() =>{
+				const store = getStore();
+				const response = await fetch(store.apiUrl + "/obtener_pregunta");
+				const datos = await response.json();
+				setStore({
+					preguntas: datos
+				})
+			},
+			getRespuestas: async() =>{
+				const store = getStore();
+				const response = await fetch(store.apiUrl + "/obtener_respuesta");
+				const datos = await response.json();
+				setStore({
+					respuestas: datos
+				})
 			},
 			handleLocal: () => {
 				const store = getStore();

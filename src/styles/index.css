@@ -21,6 +21,26 @@ code {
   align-content: center;
   height: 70px;
 }
+
+.card-columns {
+  width: 500px;
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+    column-break-inside: avoid 
+    
+  }
+}
+.card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-img-top{
+  width: 100%;
+}
+img{
+  width: 80px;
+}
+
+
 .numeroTelefono{
   display: block ruby;
 }
