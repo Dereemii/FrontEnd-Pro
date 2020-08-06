@@ -1,9 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
 import { Home } from "./js/views/home";
 import { Demo } from "./js/views/demo";
-import { Single } from "./js/views/single";
 import injectContext from "./js/store/appContext";
 import { Navbar } from "./js/component/navbar.jsx";
 import { Footer } from "./js/component/footer";
@@ -17,8 +15,11 @@ import { Welcome } from "./js/views/welcome";
 import { Usuarios } from "./js/views/usuarios"
 import { Seleccion_curso } from "./js/views/seleccion_curso";
 import { Curso } from "./js/views/curso";
+import { Curso1 } from "./js/views/curso1";
+import { Vista_Tutorial_Encender_Celular_Pregunta_Cuatro, Vista_Tutorial_Encender_Celular_Pregunta_Uno, Vista_Tutorial_Encender_Celular_Pregunta_Dos, Vista_Tutorial_Encender_Celular_Pregunta_Tres } from "./js/views/juegos/Encender_Celular";
 import { Ruleta } from "./js/views/juegos/ruleta.jsx";
 import { Quiz } from "./js/views/juegos/quiz";
+
 
 //create your first component
 export const Layout = () => {
@@ -36,6 +37,10 @@ export const Layout = () => {
 						<Route exact path="/viewajustescerrarsesion" component={ViewAjustesCerrarSesion}/>
 						<Route exact path="/viewajustesseguridad" component={ViewAjustesSeguridad}/>
 						<Route exact path="/registro" component={Formulario}/>
+						<Route exact path="/Vista_Tutorial_Encender_Celular_Pregunta_1" component={Vista_Tutorial_Encender_Celular_Pregunta_Uno}/>
+						<Route exact path="/Vista_Tutorial_Encender_Celular_Pregunta_2" component={Vista_Tutorial_Encender_Celular_Pregunta_Dos}/>
+						<Route exact path="/Vista_Tutorial_Encender_Celular_Pregunta_3" component={Vista_Tutorial_Encender_Celular_Pregunta_Tres}/>
+						<Route exact path="/Vista_Tutorial_Encender_Celular_Pregunta_4" component={Vista_Tutorial_Encender_Celular_Pregunta_Cuatro}/>
 						<Route exact path="/" component={Home}/>
 						<Route path="/demo" component={Demo} />
 						<Route exact path="/login" component={Login} />

@@ -151,3 +151,74 @@ img{
   padding-top: 150px;
   padding-bottom: 50px;
 }
+.titulos_juego_encender{
+  display: flex;
+  justify-content: center;
+}
+.botones_de_preguntas{
+  border: none;
+  background: none;
+}
+.botones_de_preguntas:hover{
+  border: none;
+  background: none;
+  outline: none;
+}
+.botones_de_preguntas:enabled{
+  border: none;
+  background: none;
+  outline: none;
+}
+.JuegoUnoEncender{
+  height: 150px;
+  width: 170px;
+}
+.ContainerJuegoDosEncender{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.JuegoDosEncender{
+  height: 400px;
+  width: 500px;
+}
+.btn-juego-dos-encender{
+  width: 100%;
+  height: 83px;
+}
+.btn-juego-dos-encender:enabled{
+  outline: none;
+}
+.contenedor_numbersKeys{
+  margin-top: 45px;
+  height: 504px;
+  padding: 0px;
+  width: 963px;
+  border: 2px black solid;
+}
+.fila_numbersKeys{
+  display: flex;
+  justify-content: center;
+}
+.numberKeyGame{
+  font-size: 77px;
+  width: 320px;
+  height: 125px;
+  border: 2px black solid;
+  border-radius: 0px;
+}
+.numberKeyGame:focus{
+  font-size: 77px;
+  width: 320px;
+  height: 125px;
+  border: 2px #007bff solid;
+  border-radius: 0px;
+}
+
+.numberKeyGame:hover{
+  font-size: 77px;
+  width: 320px;
+  height: 125px;
+  border: solid 2px black;
+  border-radius: 0px;
+}

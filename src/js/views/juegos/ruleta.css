@@ -1,84 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+/*Importado google-fonts */
+
+h1{
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Colores */
 
-/* li:first-child .text{
+.li-ruleta:first-child .texto-ruleta{
     background-color: violet;
 }
-li:nth-child(2) .text{
+.li-ruleta:nth-child(2) .texto-ruleta{
     background-color: indigo;
 }
-li:nth-child(3) .text{
+.li-ruleta:nth-child(3) .texto-ruleta{
     background-color: blue;
 }
-li:nth-child(4) .text{
+.li-ruleta:nth-child(4) .texto-ruleta{
     background-color: green;
 }
-li:nth-child(5) .text{
+.li-ruleta:nth-child(5) .texto-ruleta{
     background-color:yellow;
 }
-li:nth-child(6) .text{
+.li-ruleta:nth-child(6) .texto-ruleta{
     background-color:orange;
 }
-li:nth-child(7) .text{
+.li-ruleta:nth-child(7) .texto-ruleta{
     background-color:red;
 }
-li:nth-child(8) .text{
+.li-ruleta:nth-child(8) .texto-ruleta{
     background-color:violet;
 }
-li:nth-child(9) .text{
+.li-ruleta:nth-child(9) .texto-ruleta{
     background-color:indigo;
 }
-li:nth-child(10) .text{
+.li-ruleta:nth-child(10) .texto-ruleta{
     background-color:blue;
 }
-li:nth-child(11) .text{
+.li-ruleta:nth-child(11) .texto-ruleta{
     background-color: green;
 }
-li:nth-child(12) .text{
+.li-ruleta:nth-child(12) .texto-ruleta{
     background-color:yellow;
-} */
+} 
 
 /* Rotaciones de partes*/
 
-/* i:first-child{
+.li-ruleta:first-child{
     transform: rotate(0deg) skewY(-60deg);
 }
-li:nth-child(2){
+.li-ruleta:nth-child(2){
     transform: rotate(30deg) skewY(-60deg);
 }
-li:nth-child(3){
+.li-ruleta:nth-child(3){
     transform: rotate(60deg) skewY(-60deg);
 }
-li:nth-child(4){
+.li-ruleta:nth-child(4){
     transform: rotate(90deg) skewY(-60deg);
 }
-li:nth-child(5){
+.li-ruleta:nth-child(5){
     transform: rotate(120deg) skewY(-60deg);
 }
-li:nth-child(6){
+.li-ruleta:nth-child(6){
     transform: rotate(150deg) skewY(-60deg);
 }
-li:nth-child(7){
+.li-ruleta:nth-child(7){
     transform: rotate(180deg) skewY(-60deg);
 }
-li:nth-child(8){
+.li-ruleta:nth-child(8){
     transform: rotate(210deg) skewY(-60deg);
 }
-li:nth-child(9){
+.li-ruleta:nth-child(9){
     transform: rotate(240deg) skewY(-60deg);
 }
-li:nth-child(10){
+.li-ruleta:nth-child(10){
     transform: rotate(270deg) skewY(-60deg);
 }
-li:nth-child(11){
+.li-ruleta:nth-child(11){
     transform: rotate(300deg) skewY(-60deg);
 }
-li:nth-child(12){
+.li-ruleta:nth-child(12){
     transform: rotate(330deg) skewY(-60deg);
-} */
+} 
 
 /* Circulo contenedor */
 
-/* .circle{
+ .circulo{
     width: 25em;
     height: 25em;
     border: 1px solid black;
@@ -90,7 +97,7 @@ li:nth-child(12){
     overflow: hidden;
 }
 
-li{
+.li-ruleta{
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -99,7 +106,7 @@ li{
     height: 50%;
     transform-origin: 0% 100%;
 }
-.text{
+.texto-ruleta{
     position: absolute;
     left: -100%;
     width: 200%;
@@ -112,7 +119,7 @@ li{
     font-weight: bold;
     font-size: 18px;
 }
-.arrow{
+.flecha-ruleta{
     width: 0;
     height: 0;
     border-left: 15px solid transparent;
@@ -123,16 +130,16 @@ li{
     z-index: 1;
 }
 
-.start-rotate{
-    animation: start-rotate 1s linear infinite;
+.iniciar-rotacion{
+    animation: iniciar-rotacion 1s linear infinite;
 }
 
-@keyframes start-rotate {
+@keyframes iniciar-rotacion {
     100%{
         transform: rotate(360deg);
     }
 }
 
-.stop-rotate{
+.detener-rotacion{
     animation-play-state: paused;
-} */
+} 

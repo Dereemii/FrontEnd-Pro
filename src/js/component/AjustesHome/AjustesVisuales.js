@@ -9,7 +9,7 @@ export const AjustesVisuales = () => {
                     <h1 className="Titulo">Tamaño De Letra</h1>
                     <div className="itemVisual">
                         <button className="btnDeAjustesVisuales botonDeVisuales"> - </button>
-                        <input type="number" />
+                        <input className="inputTamañoLetra" type="number" />
                         <button className="btnDeAjustesVisuales botonDeVisuales"> + </button>
                     </div>
                 </div>

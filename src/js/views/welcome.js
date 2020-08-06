@@ -28,6 +28,7 @@ export const Welcome = () => {
                     Crear cuenta
                   </Link>
                 </div>
+
               </div>
             </div>
         </div>
