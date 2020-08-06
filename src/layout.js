@@ -15,7 +15,6 @@ import { Welcome } from "./js/views/welcome";
 import { Usuarios } from "./js/views/usuarios"
 import { Seleccion_curso } from "./js/views/seleccion_curso";
 import { Curso } from "./js/views/curso";
-import { Curso1 } from "./js/views/curso1";
 import { Vista_Tutorial_Encender_Celular_Pregunta_Cuatro, Vista_Tutorial_Encender_Celular_Pregunta_Uno, Vista_Tutorial_Encender_Celular_Pregunta_Dos, Vista_Tutorial_Encender_Celular_Pregunta_Tres } from "./js/views/juegos/Encender_Celular";
 import { Ruleta } from "./js/views/juegos/ruleta.jsx";
 import { Quiz } from "./js/views/juegos/quiz";
