@@ -53,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const datos = await resp.json();
 				console.log(datos)
 
-				if (datos.succes){
+				if (datos.msg){
 					setStore({
 						currentUser: datos.datos,
 						nombre_usuario: null,
