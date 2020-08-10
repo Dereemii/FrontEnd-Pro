@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			error: null,
 			lecciones: [],
 			preguntas: [],
-			respuestas: []
+			respuestas: [],
+			seleccion: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -143,6 +144,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.setItem("correo", JSON.stringify(store.correo));
 				localStorage.setItem("nombre_usuario", JSON.stringify(store.nombre_usuario))
 				
+			},
+			getSeleccion: (seleccion) => {
+				console.log(seleccion);
+				setStore({
+					seleccion: seleccion
+				})
+
 			}
 
 			
