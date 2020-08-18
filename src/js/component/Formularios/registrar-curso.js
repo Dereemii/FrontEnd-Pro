@@ -5,23 +5,159 @@ import { useHistory, Link } from "react-router-dom";
 export const RegistrarCurso = (props) => {
 
     const { store, actions } = useContext(Context);
+    const [nombre_leccion, setNombre_leccion] = useState("show active");
+    const [nombre_active, setNombre_active] = useState("active");
+    const [active1, setActive1] = useState("");
+    const [active2, setActive2] = useState("");
+    const [active3, setActive3] = useState("");
+    const [active4, setActive4] = useState("");
+    const [active5, setActive5] = useState("");
+    const [pregunta1, setPregunta1] = useState("");
+    const [pregunta2, setPregunta2] = useState("");
+    const [pregunta3, setPregunta3] = useState("");
+    const [pregunta4, setPregunta4] = useState("");
+    const [pregunta5, setPregunta5] = useState("");
+    const [aria_nombre, setAria_nombre] = useState("true")
+    const [aria1, setAria1] = useState("");
+    const [aria2, setAria2] = useState("");
+    const [aria3, setAria3] = useState("");
+    const [aria4, setAria4] = useState("");
+    const [aria5, setAria5] = useState("");
 
+    function seleccion_nombre(){
+        setNombre_leccion("show active");
+        setPregunta1("");
+        setPregunta2("");
+        setPregunta3("");
+        setPregunta4("");
+        setPregunta5("");
+        setNombre_active("active");
+        setActive1("");
+        setActive2("");
+        setActive3("");
+        setActive4("");
+        setActive5("");
+        setAria_nombre("true")
+        setAria1("false");
+        setAria2("false");
+        setAria3("false");
+        setAria4("false");
+        setAria5("false");
+    
+      };
+      function seleccion_p1(){
+        setNombre_leccion("");
+        setPregunta1("show active");
+        setPregunta2("");
+        setPregunta3("");
+        setPregunta4("");
+        setPregunta5("");
+        setActive1("active");
+        setActive2("");
+        setActive3("");
+        setActive4("");
+        setActive5("");
+        setAria1("true");
+        setAria_nombre("false");
+        setAria2("false");
+        setAria3("false");
+        setAria4("false");
+        setAria5("false");
+      };
+      function seleccion_p2(){
+        setNombre_leccion("");
+        setPregunta1("");
+        setPregunta2("show active");
+        setPregunta3("");
+        setPregunta4("");
+        setPregunta5("");
+        setActive1("");
+        setActive2("active");
+        setActive3("");
+        setActive4("");
+        setActive5("");
+        setAria_nombre("false");
+        setAria1("false");
+        setAria2("true");
+        setAria3("false");
+        setAria4("false");
+        setAria5("false");
+      };
+      function seleccion_p3(){
+        setNombre_leccion("");
+        setPregunta1("");
+        setPregunta2("");
+        setPregunta3("show active");
+        setPregunta4("");
+        setPregunta5("");
+        setActive1("");
+        setActive2("");
+        setActive3("active");
+        setActive4("");
+        setActive5("");
+        setAria_nombre("false");
+        setAria1("false");
+        setAria2("false");
+        setAria3("true");
+        setAria4("false");
+        setAria5("false");
+      };
+      function seleccion_p4(){
+        setNombre_leccion("");
+        setPregunta1("");
+        setPregunta2("");
+        setPregunta3("");
+        setPregunta4("show active");
+        setPregunta5("");
+        setActive1("");
+        setActive2("");
+        setActive3("");
+        setActive4("active");
+        setActive5("");
+        setAria_nombre("false");
+        setAria1("false");
+        setAria2("false");
+        setAria3("false");
+        setAria4("true");
+        setAria5("false");
+      };
+      function seleccion_p5(){
+        setNombre_leccion("");
+        setPregunta1("");
+        setPregunta2("");
+        setPregunta3("");
+        setPregunta4("");
+        setPregunta5("show active");
+        setActive1("");
+        setActive2("");
+        setActive3("");
+        setActive4("");
+        setActive5("active");
+        setAria_nombre("false");
+        setAria1("false");
+        setAria2("false");
+        setAria3("false");
+        setAria4("false");
+        setAria5("true");
+      };
+
+ 
     return (
         <>
             <div className="container">
                 <div className="row m-4 ">Registrar curso</div>
                 <nav>
                     <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a className="nav-item nav-link active" id="nav-nombre-tab" data-toggle="tab" href="#nav-nombre" role="tab" aria-controls="nav-nombre" aria-selected="true">Nombre, imagen</a>
-                        <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-pregunta1" role="tab" aria-controls="nav-pregunta1" aria-selected="false">Pregunta 1</a>
-                        <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta2" role="tab" aria-controls="nav-pregunta2" aria-selected="false">Pregunta 2</a>
-                        <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta3" role="tab" aria-controls="nav-pregunta3" aria-selected="false">Pregunta 3</a>
-                        <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta4" role="tab" aria-controls="nav-pregunta4" aria-selected="false">Pregunta 4</a>
-                        <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta5" role="tab" aria-controls="nav-pregunta5" aria-selected="false">Pregunta 5</a>
+                        <a className={"nav-item nav-link " + nombre_active} id="nav-nombre-tab" data-toggle="tab" href="#nav-nombre" role="tab" aria-controls="nav-nombre" aria-selected={aria_nombre} onClick={() => seleccion_nombre()}>Nombre, imagen</a>
+                        <a className={"nav-item nav-link " + active1} id="nav-profile-tab" data-toggle="tab" href="#nav-pregunta1" role="tab" aria-controls="nav-pregunta1" aria-selected={aria1} onClick={() => seleccion_p1()}>Pregunta 1</a>
+                        <a className={"nav-item nav-link " + active2}  id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta2" role="tab" aria-controls="nav-pregunta2" aria-selected={aria2} onClick={() => seleccion_p2()}>Pregunta 2</a>
+                        <a className={"nav-item nav-link " + active3} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta3" role="tab" aria-controls="nav-pregunta3" aria-selected={aria3} onClick={() => seleccion_p3()}>Pregunta 3</a>
+                        <a className={"nav-item nav-link " + active4} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta4" role="tab" aria-controls="nav-pregunta4" aria-selected={aria4} onClick={() => seleccion_p4()}>Pregunta 4</a>
+                        <a className={"nav-item nav-link " + active5} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta5" role="tab" aria-controls="nav-pregunta5" aria-selected={aria5} onClick={() => seleccion_p5()}>Pregunta 5</a>
                     </div>
                 </nav>
                 <div className="tab-content" id="nav-tabContent">
-                    <div className="tab-pane fade show active" id="nav-nombre" role="tabpanel" aria-labelledby="nav-nombre-tab">
+                    <div className={"tab-pane fade " + nombre_leccion} id="nav-nombre" role="tabpanel" aria-labelledby="nav-nombre-tab">
                         { !!store.msg_leccion && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_leccion}
@@ -59,31 +195,31 @@ export const RegistrarCurso = (props) => {
                             </div>
                         </form>
                             </div>
-                        <div className="row">
-                        <form className="col p-4 m-4" onSubmit={id => actions.handle_imagenes_leccion(id)}>
-                            <div className="input-group">
-                                <div class="custom-file">
-                                    <input 
-                                    type="file" 
-                                    name="imagen_leccion"
-                                    className="custom-file-input" 
-                                    id="imagen_leccion"
-                                    onChange={actions.handle_files}
-                                    required
-                                    />
-                                        <label className="custom-file-label" for="imagen_leccion">{store.imagen_leccion !== null ? store.imagen_leccion.name : "sube una imagen" }</label>
+                            <div className="container p-4">
+                            <div className="row justify-content-center">
+                                <div className="col-3">
+                                    <button className="btn btn-danger btn-block" id="nombre_leccion">
+                                        Salir
+                                    </button>
                                 </div>
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">Subir imagen</button>
+                                <div className="col-3">
+                                    <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p1()}>
+                                        Continuar
+                                    </button>
                                 </div>
+                                
                             </div>
-                        </form>
+                            </div>
+                            
+
+                        <div className="row">
+
                         </div>
                         
                         </div>
                         
                     </div>
-                    <div className="tab-pane fade" id="nav-pregunta1" role="tabpanel" aria-labelledby="nav-pregunta1-tab">
+                    <div className={"tab-pane fade " + pregunta1} id="nav-pregunta1" role="tabpanel" aria-labelledby="nav-pregunta1-tab">
                     <div className="container border">
                         { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
@@ -237,12 +373,33 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+
+                                    <div className="container">
+                                    <div className="row">
+                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-3">
+                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_nombre()}>
+                                                Anterior
+                                            </button>
+                                        </div>
+                                        <div className="col-3">
+                                            <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p2()}>
+                                                Continuar
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                                 </form>
+                                
                             </div>
+                            
                             </div>
+                            
                     </div>
-                    <div className="tab-pane fade" id="nav-pregunta2" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div className={"tab-pane fade " + pregunta2} id="nav-pregunta2" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div className="container border">
                     { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
@@ -397,12 +554,29 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    <div className="container">
+                                    <div className="row">
+                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-3">
+                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_p1()}>
+                                                Anterior
+                                            </button>
+                                        </div>
+                                        <div className="col-3">
+                                            <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p3()}>
+                                                Continuar
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                                 </form>
                             </div>
                             </div>
                     </div>
-                    <div className="tab-pane fade" id="nav-pregunta3" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div className={"tab-pane fade " + pregunta3} id="nav-pregunta3" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div className="container border">
                     { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
@@ -557,12 +731,29 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    <div className="container">
+                                    <div className="row">
+                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-3">
+                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_p2()}>
+                                                Anterior
+                                            </button>
+                                        </div>
+                                        <div className="col-3">
+                                            <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p4()}>
+                                                Continuar
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                                 </form>
                             </div>
                             </div>
                     </div>
-                    <div className="tab-pane fade" id="nav-pregunta4" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div className={"tab-pane fade " + pregunta4} id="nav-pregunta4" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div className="container border">
                     { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
@@ -717,12 +908,29 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    <div className="container">
+                                    <div className="row">
+                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-3">
+                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_p3()}>
+                                                Anterior
+                                            </button>
+                                        </div>
+                                        <div className="col-3">
+                                            <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p5()}>
+                                                Continuar
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                                 </form>
                             </div>
                             </div>
                     </div>
-                    <div className="tab-pane fade" id="nav-pregunta5" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <div className={"tab-pane fade " + pregunta5} id="nav-pregunta5" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div className="container border">
                     { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
@@ -877,7 +1085,24 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    <div className="container">
+                                    <div className="row">
+                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-3">
+                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_p4()}>
+                                                Anterior
+                                            </button>
+                                        </div>
+                                        <div className="col-3">
+                                            <Link className="btn btn-success btn-block" id="nombre_leccion" to="/">
+                                                Terminar y salir
+                                            </Link>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
                                 </form>
                             </div>
                             </div>
