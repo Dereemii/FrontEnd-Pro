@@ -13,7 +13,7 @@ export const Navbar = () => {
 	const IconoMenu = <FontAwesomeIcon icon={faBars} />
 	const { currentUser } = store;
 	const avatar = !!currentUser && currentUser !== "invitado" ? actions.obtenerAvatar(currentUser.usuario.avatar) : "../../img/iconoAvatar.png";
-
+	
 	useEffect(() => {
 		//revisar el tema seleccionado //local storage
 		// if se encuentra el tema seleccionado

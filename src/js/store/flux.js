@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			apiUrl: "http://localhost:5000",
 			usuarios: [],
 			nombre_usuario: null,
+			rolSeleccionado: null, 
 			correo: null,
 			clave: null,
 			telefono: null,
