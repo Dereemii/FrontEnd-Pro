@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import { useHistory } from "react-router-dom";
 
 import "../../styles/home.css";
 
 export const Login = props => {
   const {store, actions} = useContext(Context);
-  const {history} = props;
+  const history = useHistory();
+  const obtener_correo = store.correo;
+  
 
   return (
     <>
@@ -34,7 +37,7 @@ export const Login = props => {
         <div className="row">
             <div className="col-2"></div>
           <div className="col mr-5">
-            <form className="container px-4 py-3" onSubmit={e => actions.handleLogin(e, props.history)}>
+            <form className="container px-4 py-3" onSubmit={e => actions.handleLogin(e, history)}>
               <div className="form-group">
                 <label htmlFor="correo" className="form-label">
                   Correo electrónico

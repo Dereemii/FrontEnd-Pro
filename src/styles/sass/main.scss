@@ -1,0 +1,18 @@
+//Abstract
+
+@import "abstract/variables";
+
+//Base
+@import "base/reset";
+
+//Vendors
+
+@import "vendor/bootstrap_4.5.0/bootstrap";  //Bootstrap version 4.5
+
+//Components
+
+@import "layout/navbar";
+@import "layout/footer";
+
+//Themes
+@import "themes/cambioTema";

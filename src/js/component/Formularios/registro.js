@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../store/appContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import "../../../styles/home.css"
 
@@ -12,11 +12,26 @@ export const Formulario = (props) => {
   return (
     <>
       <div className="container">
+      { !!store.msg && (<div
+            className="alert alert-success alert-dismissible fade show"
+            role="alert"
+          >
+            <strong>Excelente!</strong> {store.msg}
+            <Link type="button" className="btn btn-success" to="/login">Login</Link>
+            <button
+              type="button"
+              className="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>)}
         <div>
           <h1 className="text-center mt-5">Registrate Aqui</h1>
           
 		  
-          <form className="container" onSubmit={e => actions.handleRegister(e, props.history)}>
+          <form className="container" onSubmit={e => actions.handleRegister(e, props.history, actions.getUsers())}>
             <div className="form-group">
               <label htmlFor="nombre_usuario" className="form-label">
                 Nombre de Usuario
@@ -79,7 +94,7 @@ export const Formulario = (props) => {
               />
             </div>
             <button type="submit" className="btn btn-primary form-control">
-              Registrar y Avanzar
+              Registrar
             </button>
           </form>
         </div>

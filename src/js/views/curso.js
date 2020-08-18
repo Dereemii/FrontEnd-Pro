@@ -6,14 +6,17 @@ import { Context } from "../store/appContext";
 import "../../styles/App.css";
 import { waitForElementToBeRemoved } from "@testing-library/react";
 import { Link } from "react-router-dom";
+import { Navbar } from "../component/navbar";
+import { Footer } from "../component/footer";
 
 
 
-export const Curso = ({match}) => {
+export const Curso = ({match}, props) => {
 
-  
+  const {history} = props;
   const { store, actions } = useContext(Context);
-  //let indice = match.params.id-1;
+  let leccion_id = match.params.id;
+  console.log("leccion id: " + leccion_id);
   const [indice, setIndice] = useState(0);
   const [respuestaA, setRespuestaA] = useState("btn btn-outline-primary mx-1 btn-block");
   const [respuestaB, setRespuestaB] = useState("btn btn-outline-primary mx-1 btn-block");
@@ -32,20 +35,31 @@ export const Curso = ({match}) => {
     setInvisible("")
     setVisible("invisible")
     setCambioColor("bg-success")
-    setMensaje(<div className="col-12 bg-success text-white"><p>Respuesta correcta, haz clic en avanzar</p></div>)
+    setMensaje(<div className="col-12 bg-success text-center text-white"><p>Respuesta correcta!</p></div>)
 
   }
 
   function respuesta_incorrecta(){
     setCambioColor("bg-danger")
-    setMensaje(<div className="col-12 bg-danger text-white"><p>Respuesta incorrecta, intentalo nuevamente</p></div>)
+    setVisible("invisible")
+    setMensaje(
+    <div className="col-12 bg-danger text-white">
+      <div className="container">
+        <div className="row justify-content-center">
+          Respuesta incorrecta
+        </div>
+        <div className="row justify-content-center mt-4">
+        <button className="btn btn-light" onClick={() => {setMensaje(null); setCambioColor(""); setVisible("visible")}}>intentalo nuevamente</button>
+        </div>
+      </div>
+    </div>)
   }
 
   function avanzar() {
 
     setIndice(indice +1);
-    console.log(indice);
-    if (indice > 3){
+    console.log("indice: "+ indice);
+    if (indice > 5){
       console.log("fin del curso")
     };
     setRespuestaA("btn btn-outline-primary mx-1 btn-block");
@@ -61,21 +75,21 @@ export const Curso = ({match}) => {
   }
 
   function seleccion_a(){
-    (actions.getSeleccion(store.respuestas[indice].opcion_a));
+    (actions.getSeleccion(store.preguntas[indice].respuestas[0].opcion_a));
     setRespuestaA("btn btn-primary mx-1 btn-block");
     setRespuestaB("btn btn-outline-primary mx-1 btn-block");
     setRespuestaC("btn btn-outline-primary mx-1 btn-block");
   }
 
   function seleccion_b(){
-    (actions.getSeleccion(store.respuestas[indice].opcion_b));
+    (actions.getSeleccion(store.preguntas[indice].respuestas[0].opcion_b));
     setRespuestaA("btn btn-outline-primary mx-1 btn-block");
     setRespuestaB("btn btn-primary mx-1 btn-block");
     setRespuestaC("btn btn-outline-primary mx-1 btn-block");
   }
 
   function seleccion_c(){
-    (actions.getSeleccion(store.respuestas[indice].opcion_c));
+    (actions.getSeleccion(store.preguntas[indice].respuestas[0].opcion_c));
     setRespuestaA("btn btn-outline-primary mx-1 btn-block");
     setRespuestaB("btn btn-outline-primary mx-1 btn-block");
     setRespuestaC("btn btn-primary mx-1 btn-block");
@@ -85,12 +99,13 @@ export const Curso = ({match}) => {
   
 
   return(
-    (indice<4)?
+    (indice<5)?
     <>
+    <Navbar/>
     <div className="container ">
     <div className="row my-3">
       <div className="col-1 m-auto text-center">
-        <button type="button" className="close" aria-label="Close">
+        <button type="button" className="close" aria-label="Close" data-toggle="modal" data-target="#salir">
           <span aria-hidden="true">
             &times;
           </span>
@@ -109,10 +124,10 @@ export const Curso = ({match}) => {
         </div>
       </div>
     </div>
-      <div className="container bg-light border rounded">
+      <div className="container">
       <div className="row py-3">
         <div className="col text-center py-2 ">
-          <strong>{store.respuestas[indice].pregunta.enunciado}</strong>
+          <strong>{store.lecciones[leccion_id-1].preguntas[indice].enunciado}</strong>
         </div>
       </div>
       <div className="row justify-content-center py-2">
@@ -124,37 +139,41 @@ export const Curso = ({match}) => {
             type="button" 
             className={respuestaA}
             onClick={() => seleccion_a()}
-            >{store.respuestas[indice].respuesta_a}</button>
+            >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_a}</button>
           </div>
             <div className="col">
             <button 
             type="button" 
             className={respuestaB}
             onClick={() => seleccion_b()}
-            >{store.respuestas[indice].respuesta_b}</button>
+            >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_b}</button>
           </div>
             <div className="col">
             <button 
             type="button" 
             className={respuestaC}
             onClick={() => seleccion_c()}
-            >{store.respuestas[indice].respuesta_c}</button>
+            >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_c}</button>
           </div>
         </div>
 
         
       </div>
       
-      <div className={"row justify-content-center p-2 " + cambioColor }>
+      <div className={"row justify-content-center rounded p-2 " + cambioColor }>
         {mensaje}
         <div className="col">
           <button type="button" className="btn btn-block btn-danger mx-1 px-3 invisible" data-toggle="modal" data-target="#salir">Salir</button>
         </div>
         <div className="col">
-          <button type="button" className={"btn btn-block btn-success mx-1 px-3 " + invisible} onClick={()=> avanzar()}>AVANZAR</button>
+          <button type="button" className={"btn btn-block btn-light mx-1 px-3 " + invisible} onClick={()=> avanzar()}>AVANZAR</button>
         </div>
         <div className="col">
-          <button type="button" className={"btn btn-block btn-secondary mx-1 px3 " + visible} onClick={() => store.seleccion === true?  respuesta_correcta() : respuesta_incorrecta()}>CALIFICAR</button>
+          <button 
+            type="button" 
+            className={"btn btn-block btn-light border-dark mx-1 px3 " + visible} 
+            onClick={() => store.seleccion === "verdadero"?  respuesta_correcta() : store.seleccion === "falso" ? respuesta_incorrecta() : null}>CALIFICAR
+          </button>
         </div>
         
         <div className="modal fade" id="salir" tabindex="-1" role="dialog" aria-labelledby="salir" aria-hidden="true">
@@ -171,28 +190,30 @@ export const Curso = ({match}) => {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-light" data-dismiss="modal">Regresar a la lección</button>
-                <button type="button" className="btn btn-danger">Abandonar la lección</button>
+                <Link type="button" className="btn btn-danger" to="/seleccion_curso">Abandonar la lección</Link>
               </div>
             </div>
           </div>
         </div>
       </div>
       </div>
+      <Footer/>
       </> : 
       <>
       <div className="container">
         <div className="row justify-content-center py-2">
           <div className="col-12 text-center">
             <h2>Bien hecho!!</h2>
-            <h4>Leccion compeltada!</h4>
-            <h4>+ 10 experiencia</h4>
+            <h5>Leccion compeltada!</h5>
+            <h5>+ 10 experiencia</h5>
           <div className="col">
-            <Link className="btn btn-success mx-1 px-3 " to="/seleccion_curso">CONTINUAR</Link>
+            <button className="btn btn-success mx-1 px-3 " onClick={() => actions.handle_regresar(props.history)}>CONTINUAR</button>
           </div>
           </div>
         </div>
         
       </div>
+      
       </>
       )
       

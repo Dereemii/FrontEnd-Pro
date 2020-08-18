@@ -1,0 +1,41 @@
+
+@media screen and (max-width: 2400px){
+    .icon-img{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .icon-img{
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .icon-img{
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 400px){
+
+    .icon-img{
+        width: 60px;
+    }
+}
+
+.icono-nav{
+    color: white;
+    font-size: 60px;
+    border: $celeste;
+    padding: 0;
+}
+
+.icono-nav:hover{
+    color: rgb(3, 46, 83);
+}
+
+.custom-toggler{
+    border: $celeste;
+}
+

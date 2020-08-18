@@ -18,6 +18,10 @@ import { Curso } from "./js/views/curso";
 import { Vista_Tutorial_Encender_Celular_Pregunta_Cuatro, Vista_Tutorial_Encender_Celular_Pregunta_Uno, Vista_Tutorial_Encender_Celular_Pregunta_Dos, Vista_Tutorial_Encender_Celular_Pregunta_Tres } from "./js/views/juegos/Encender_Celular";
 import { Ruleta } from "./js/views/juegos/ruleta.jsx";
 import { Quiz } from "./js/views/juegos/quiz";
+import { CrearCurso } from "./js/component/Formularios/crearCurso";
+import { Editar_Usuario } from "./js/component/usuario/editar_usuario";
+import { RegistrarCurso} from "./js/component/Formularios/registrar-curso"
+import { Admin_curso } from "./js/views/admin_cursos";
 
 
 //create your first component
@@ -29,7 +33,7 @@ export const Layout = () => {
 	return (
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter basename={basename}>
-					<Navbar />
+				
 					<Switch>
 						<Route exact path="/viewajustesinfopersonal" component={ViewAjustesInfoPersonal}/>
 						<Route exact path="/viewajustesvisuales" component={ViewAjustesVisuales}/>
@@ -41,17 +45,20 @@ export const Layout = () => {
 						<Route exact path="/Vista_Tutorial_Encender_Celular_Pregunta_3" component={Vista_Tutorial_Encender_Celular_Pregunta_Tres}/>
 						<Route exact path="/Vista_Tutorial_Encender_Celular_Pregunta_4" component={Vista_Tutorial_Encender_Celular_Pregunta_Cuatro}/>
 						<Route exact path="/" component={Home}/>
-						<Route path="/demo" component={Demo} />
 						<Route exact path="/login" component={Login} />
+						<Route exact path="/editar_usuario/:correo" component={Editar_Usuario}/>
 						<Route exact path="/welcome" component={Welcome} />
 						<Route exact path="/usuarios" component={Usuarios} />
-						<Route exact path="/seleccion_curso" component={Seleccion_curso} />
-						<Route exact path="/curso/:id" component={Curso}/>
+						<Route exact path="/crear_curso" component={CrearCurso}/>
+						<Route exact path="/registrar_curso" component={RegistrarCurso}/>
+						<Route exact path="/seleccion_curso/:usuario" component={Seleccion_curso} />
+						<Route exact path="/admin_curso" component={Admin_curso}/>
+						<Route exact path="/curso/:nombre_usuario/:id" component={Curso}/>
 						<Route exact path="/ruleta" component={Ruleta}/>
 						<Route exact path="/quiz" component={Quiz}/>
 						<Route render={() => <h1>No encontrado!</h1>} />
 					</Switch>
-					<Footer />
+			
 			</BrowserRouter>
 		</div>
 	);

@@ -1,0 +1,41 @@
+body{
+    color:$gris;
+    padding: 0;
+}
+
+//Temas
+
+.opcionesTema{
+    max-width:  800px;
+    margin: 0 auto;
+    text-align: right;
+    padding: 20px 0;
+    div{
+        cursor: pointer;
+        opacity: 0.5;
+        &.active{
+            opacity: 1;
+        }
+    }
+}
+
+//Id para seleccionar en local storage
+
+#sol{
+    color: $dorado;
+}
+
+#luna{
+    color: $blanco;
+}
+
+//Temas aplicados a componente
+
+.cambioTema.temaSol{
+    background-color:lightpink;
+}
+
+.cambioTema.temaLuna{
+    background-color:black;
+
+}

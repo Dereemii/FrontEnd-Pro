@@ -12,16 +12,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 			clave: null,
 			telefono: null,
 			currentUser: null,
+			isAuth: null,
 			error: null,
+			msg: null,
+			msg_leccion: null,
+			msg_pregunta: null,
+			msg_respuestas: null,
 			lecciones: [],
 			preguntas: [],
 			respuestas: [],
-			seleccion: null
+			seleccion: null,
+			nombre_leccion: null,
+			enunciado: null,
+			id_nueva_leccion: null,
+			id_nueva_pregunta: null,
+			respuesta_a: null,
+			respuesta_b: null, 
+			respuesta_c: null,
+			opcion_a: null,
+			opcion_b: null,
+			opcion_c: null,
+			imagen_leccion: null
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			handleChange: e => {
 				const {name, value} = e.target;
+				setStore({
+					[name]: value
+				})
+			},
+			handleBoolean: e => {
+				
+				const {name, value} = e.target
+				value  === "verdadero"?
+				setStore({
+					[name]: true 
+				})
+				: value  === "falso"?
+				setStore({
+					[name]: false 
+				}):
 				setStore({
 					[name]: value
 				})
@@ -32,6 +63,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const datos = await response.json();
 				setStore({
 					usuarios: datos
+				})
+			},
+			obtener_datos: () =>{
+				const store = getStore();
+				setStore({
+					nombre_usuario: store.usuarios[0].nombre_usuario,
+					correo: store.usuarios[0].correo,
+					telefono: store.usuarios[0].telefono,
 				})
 			},
 			handleRegister: async (e, history) => {
@@ -61,9 +100,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						correo: null,
 						clave: null,
 						telefono: null,
-						error: null
+						error: null,
+						msg: datos.msg
 					})
-					history.push("/")
+					
 				}else{
 					setStore({
 						error: datos.msg
@@ -71,7 +111,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				}
 			},
-			handleLogin: async (e, history) => {
+			actualizarUsuarios: async id => {
+				const store = getStore();
+				const options = {
+					method: 'PUT',
+					body: JSON.stringify({
+						"nombre_usuario": store.nombre_usuario, 
+						"correo": store.correo,
+						"telefono": store.telefono 
+					}),
+					headers: {
+                        'Content-Type': 'application/json'
+                    }
+				}
+				const resp = await fetch(store.apiUrl + "/usuario", id);
+				const datos = await resp.json();
+				console.log(datos)
+
+			},
+			handleLogin: async (e, history, correo) => {
 				e.preventDefault();
 				
 				const actions = getActions();
@@ -93,12 +151,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (datos.succes){
 					setStore({
 						currentUser: datos.datos,
-						correo: null,
 						clave: null,
 						error: null,
-						telefono: null
+						isAuth: true
 					})
-					history.push("/seleccion_curso")
+					localStorage.setItem("currentUser", JSON.stringify(datos.datos))
+					localStorage.setItem("isAuth", true)
+
+
+					history.push(`/seleccion_curso/${store.correo}`)
 				}else{
 					setStore({
 						error: datos.msg
@@ -107,6 +168,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 				actions.handleLocal();
+			},
+			isAuthenticated: () => {
+				if(localStorage.getItem("isAuth")){
+					setStore({
+						currentUser: JSON.parse(localStorage.getItem("CurrentUser")),
+						isAuth: JSON.parse(localStorage.getItem("isAuth"))
+					})
+				}
 			},
 			getTodo: async() =>{
 				const actions = getActions();
@@ -117,24 +186,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getLecciones: async() =>{
 				const store = getStore();
-				const response = await fetch(store.apiUrl + "/obtener_nombre_leccion");
+				const response = await fetch(store.apiUrl + "/leccion");
 				const datos = await response.json();
+				console.log("getLecciones");
 				setStore({
 					lecciones: datos
 				})
 			},
 			getPreguntas: async() =>{
 				const store = getStore();
-				const response = await fetch(store.apiUrl + "/obtener_pregunta");
+				const response = await fetch(store.apiUrl + "/preguntas");
 				const datos = await response.json();
+				console.log("getPreguntas");
 				setStore({
 					preguntas: datos
 				})
 			},
 			getRespuestas: async() =>{
 				const store = getStore();
-				const response = await fetch(store.apiUrl + "/obtener_respuesta");
+				const response = await fetch(store.apiUrl + "/respuestas");
 				const datos = await response.json();
+				console.log("getRespuestas");
 				setStore({
 					respuestas: datos
 				})
@@ -151,12 +223,166 @@ const getState = ({ getStore, getActions, setStore }) => {
 					seleccion: seleccion
 				})
 
+			},
+			handle_registrar_nombre_leccion: async(e) => {
+				e.preventDefault();
+				const actions = getActions();
+				const store = getStore();
+				const options = {
+					method: 'POST', 
+					body: JSON.stringify({
+						"nombre": store.nombre_leccion,
+						"puntuacion": "0"
+					}),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+				const resp = await fetch(store.apiUrl + "/leccion", options);
+				const datos = await resp.json();
+				console.log(datos)
+
+				if (datos.success && store.lecciones !== []){
+					actions.getLecciones();
+					setStore({
+						nombre_leccion: null,
+						id_nueva_leccion: store.lecciones[store.lecciones.length-1].id + 1,		
+						msg_leccion: datos.success				
+					})
+				}else{
+					setStore({
+						error: datos.msg,						
+					})
+
+				};
+
+			},
+			handle_files: async e =>{
+				const {name, files} = e.target;
+				setStore({
+					[name]: files[0]
+				})
+			},
+			get_imagen_leccion: (nombre_archivo) =>{
+				const store = getStore();
+				return  + `${store.apiUrl}/leccion-imagenes/${nombre_archivo}`
+			},
+			handle_imagenes_leccion: id => {
+				id.preventDefault();
+				const store = getStore();
+
+				let formData = new formData();
+				formData.append("imagen_leccion", store.imagen_leccion);
+				
+				fetch(`${store.apiUrl}/leccion-imagenes/${id}`,{
+					method: 'POST',
+					body: formData
+				})
+				.then(resp => resp.json())
+				.then(data => {
+					console.log(data);
+					setStore({
+						msg: data.success,
+						imagen_leccion: null
+					})
+				})
+			},
+
+			handle_registrar_pregunta: async(e) => {
+				e.preventDefault();
+				const actions = getActions();
+				const store = getStore();
+				const options = {
+					method: 'POST', 
+					body: JSON.stringify({
+						"enunciado": store.enunciado,
+						"leccion_id": store.id_nueva_leccion
+					}),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+				const resp = await fetch(store.apiUrl + "/preguntas", options);
+				const datos = await resp.json();
+				console.log(datos)
+
+				if (datos.success){
+					actions.getLecciones();
+					actions.getPreguntas();
+					actions.getRespuestas();
+					setStore({
+						enunciado: null,
+						id_nueva_pregunta: store.preguntas[store.preguntas.length-1].id+1,
+						msg_pregunta: datos.success
+					})
+				}else{
+					setStore({
+						error: datos.msg
+					})
+
+				};
+
+			},
+			handle_registrar_respuestas: async(e) => {
+				e.preventDefault();
+
+				const actions = getActions();
+				const store = getStore();
+				const options = {
+					method: 'POST', 
+					body: JSON.stringify({
+						"respuesta_a": store.respuesta_a,
+						"respuesta_b": store.respuesta_b,
+						"respuesta_c": store.respuesta_c,
+						"opcion_a": store.opcion_a,
+						"opcion_b": store.opcion_b,
+						"opcion_c": store.opcion_c,
+						"pregunta_id": store.id_nueva_pregunta
+
+					}),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+				const resp = await fetch(store.apiUrl + "/respuestas", options);
+				const datos = await resp.json();
+				console.log(datos)
+				console.log("datos.success: " + datos.success)
+
+				if (datos.sucess){
+					actions.getLecciones();
+					actions.getPreguntas();
+					actions.getRespuestas();
+					setStore({
+						respuesta_a: null,
+						respuesta_b: null,
+						respuesta_c: null,
+						opcion_a: null,
+						opcion_b: null,
+						opcion_c: null,
+						pregunta_id: null,
+						msg_respuestas: datos.success
+					})
+				}else{
+					actions.getLecciones();
+					actions.getPreguntas();
+					actions.getRespuestas();
+					setStore({
+						error: datos,
+					})
+
+				};
+
+			},
+			handle_regresar: (history) => {
+				const store = getStore();
+
+				return history.push(`/`)
+
 			}
 
-			
-			
-		}
-	};
+	},
 };
+}
 
 export default getState;
