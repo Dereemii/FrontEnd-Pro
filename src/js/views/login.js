@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import "../../styles/home.css";
 
@@ -54,9 +54,9 @@ export const Login = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="clave" className="form-label">clave</label>
+                <label htmlFor="clave" className="form-label">Clave</label>
                 <input
-                  type="clave"
+                  type="password"
                   id="clave"
                   name="clave"
                   className="form-control"
@@ -68,10 +68,14 @@ export const Login = props => {
               </div>
               
               <button className="btn btn-primary btn-lg btn-block">
-                ingresar
+                Ingresar
               </button>
+              <Link className="btn btn-success btn-lg btn-block my-3" to={"/welcome"}>
+                Regresar
+              </Link>
             </form>
           </div>
+         
           <div className="col-2"></div>
         </div>
       </div>
