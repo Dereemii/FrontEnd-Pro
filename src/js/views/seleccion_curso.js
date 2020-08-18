@@ -10,16 +10,14 @@ export const Seleccion_curso = () => {
     const { store, actions } = useContext(Context);
     const { currentUser } = store;
     const history = useHistory();
-    const name = !!currentUser ? currentUser.usuario.nombre_usuario : "Invitado"
+    const name = !!currentUser ? currentUser.usuario.nombre_usuario : "Invitado";
 
-    useEffect(() => {
-        if(!store.isAuth) history.push("/login");
-        
-    }, [])
+    useEffect(() => { actions.autenticacion(); if (!store.estaAutenticado) history.push("/")
+     else history.push("seleccion_curso"); }, []);
 
     return (
         <>
-        <Navbar/>
+            <Navbar />
             <div className="container">
                 <div className="row">
                     <div className="col mt-5 mb-2 text-center text-white bg-info">
@@ -29,17 +27,17 @@ export const Seleccion_curso = () => {
                 <div className="row justify-content-center">
                     {store.lecciones.map((item, index) => (
                         <div className="card m-4" key={item.index}>
-                        <div className="card text-center" >
-                            <img className="card-img-top" src={`../../img/${item.nombre}.jpg`} alt="Card image cap"/>
+                            <div className="card text-center" >
+                                <img className="card-img-top" src={`../../img/${item.nombre}.jpg`} alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">{item.nombre}</h5>
                                     <Link to={`/curso/${store.correo}/${item.id}`} className="btn btn-primary">Comenzar</Link>
                                 </div>
-                        </div>
+                            </div>
                         </div>))}
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
-        );
+    );
 };

@@ -13,6 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			telefono: null,
 			currentUser: null,
 			isAuth: null,
+			estaAutenticado: null,
 			error: null,
 			msg: null,
 			msg_leccion: null,
@@ -177,6 +178,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				}
 			},
+			autenticacion: () => { const store = getStore(); setStore({ currentUser: JSON.parse(localStorage.getItem("currentUser")),
+			 estaAutenticado: JSON.parse(localStorage.getItem("estaAut")) }); console.log(store.currentUser, store.estaAutenticado); },
+
+
 			getTodo: async() =>{
 				const actions = getActions();
 				actions.getLecciones();
