@@ -19,8 +19,7 @@ export const Footer = () => {
 
 
 	return (
-		<>
-			<footer className="bg-info pt-5  text-center ">
+			<footer className="pt-5 fixed-bottom text-center ">
 				<div className="bordeIconos my-3 d-inline">
 					<span  id="luna" onClick={actions.oscuro}className="iconoFooter px-4 active ">{IconoLuna}</span>
 					<span id="sol" onClick={actions.claro} className="iconoFooter px-4 active">{IconoSol}</span>
@@ -38,7 +37,6 @@ export const Footer = () => {
 				</div>
 
 			</footer>
-		</>
 	);
 };
 

@@ -207,7 +207,7 @@ export const Curso = ({match}, props) => {
             <h5>Leccion compeltada!</h5>
             <h5>+ 10 experiencia</h5>
           <div className="col">
-            <button className="btn btn-success mx-1 px-3 " onClick={() => actions.handle_regresar(props.history)}>CONTINUAR</button>
+            <Link className="btn btn-success mx-1 px-3 " to="/seleccion_curso/invitado">CONTINUAR</Link>
           </div>
           </div>
         </div>

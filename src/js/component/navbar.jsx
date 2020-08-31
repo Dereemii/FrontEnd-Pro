@@ -7,14 +7,14 @@ import { Context } from "../store/appContext";
 
 
 export const Navbar = () => {
-	
+
 	const { actions, store } = useContext(Context);
 	const history = useHistory();
 	const IconoMenu = <FontAwesomeIcon icon={faBars} />
 	const { currentUser } = store;
 	const avatar = !!currentUser && currentUser !== "invitado" ? actions.obtenerAvatar(currentUser.usuario.avatar) : "../../img/iconoAvatar.png";
-	
-	useEffect(() => {
+
+	/* useEffect(() => {
 		//revisar el tema seleccionado //local storage
 		// if se encuentra el tema seleccionado
 		if (!store.estaAutenticado) history.push("/");
@@ -24,13 +24,35 @@ export const Navbar = () => {
 			console.log(colorActual)
 			document.body.classList.add(colorActual)
 		}
-	}, []);
+	}, []); */
 
 	return (
 		<>
 			<div className="container-fluid p-0 m-0">
 				<div>
-					<nav className="navbar navbar-expand-lg navbar-light bg-info border border-light">
+					<nav className="navbar navbar-expand-lg navbar-light ">
+						<Link className="navbar-brand text-light" to="/">Navbar</Link>
+						<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+							<span className="navbar-toggler-icon"></span>
+						</button>
+						<div className="collapse navbar-collapse" id="navbarNav">
+							<ul className="navbar-nav">
+								<li className="nav-item active">
+									<Link className="nav-link text-light" to="/">Puntos <span className="sr-only">(current)</span></Link>
+								</li>
+								<li className="nav-item ">
+									<Link className="nav-link text-light" to="/">Ajustes</Link>
+								</li>
+								<li className="nav-item">
+									<Link className="nav-link text-light" to="/">Adminisitrador</Link>
+								</li>
+								<li className="nav-item">
+									<Link className="nav-link text-light" to="/">Yo</Link>
+								</li>
+							</ul>
+						</div>
+					</nav>
+					{/* <nav className="navbar navbar-expand-lg navbar-light bg-info">
 						<button className="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 							aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 							<span className="icono-nav ml-auto" title="MENU" >{IconoMenu}</span>
@@ -75,7 +97,7 @@ export const Navbar = () => {
 								</div>
 							</div>
 						</div>
-					</nav>
+					</nav> */}
 				</div>
 			</div>
 		</>

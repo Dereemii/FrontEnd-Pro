@@ -51,9 +51,9 @@ export const Layout = () => {
 						<Route exact path="/usuarios" component={Usuarios} />
 						<Route exact path="/crear_curso" component={CrearCurso}/>
 						<Route exact path="/registrar_curso" component={RegistrarCurso}/>
-						<Route exact path="/seleccion_curso/:usuario" component={Seleccion_curso} />
+						<Route exact path="/seleccion_curso" component={Seleccion_curso} />
 						<Route exact path="/admin_curso" component={Admin_curso}/>
-						<Route exact path="/curso/:nombre_usuario/:id" component={Curso}/>
+						<Route exact path="/curso/:id" component={Curso}/>
 						<Route exact path="/ruleta" component={Ruleta}/>
 						<Route exact path="/quiz" component={Quiz}/>
 						<Route render={() => <h1>No encontrado!</h1>} />

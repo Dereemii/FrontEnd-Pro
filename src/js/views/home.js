@@ -8,21 +8,20 @@ export const Home = () => {
 
   return(
     <>
-      <div className="container square">
+      <div className="container">
           <div className="row my-5">
-            <div className="col text-center">
-              <h3>Bienvenido</h3>
-            </div>
+            <div className="col"></div>
           </div>
-          <div className="row my-5">
-            <div className="col">
-              <Link className="btn btn-primary btn-lg btn-block my-2" to={"/welcome"}>
+          <div className="row my-5 justify-content-center">
+            <form className="col-md-auto p-5 align-self-center text-center rounded">
+            <h4 className="my-4">Bienvenido</h4>
+              <Link className="btn btn-primary btn-md btn-block my-4" to={"/welcome"}>
                   Comienza
               </Link>
-              <Link className="btn btn-success btn-lg btn-block my-3" to={"/login"}>
+              <Link className="btn btn-success btn-md btn-block my-4" to={"/login"}>
                   Ya tengo una cuenta
               </Link>
-            </div>
+            </form>
           </div>
         </div>
       </>

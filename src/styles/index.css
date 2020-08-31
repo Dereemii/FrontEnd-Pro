@@ -6,11 +6,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: linear-gradient(120deg, rgb(66, 181, 248), rgb(161, 2, 161)); */
 }
-
+/* h3{
+  color:rgba(255, 255, 255, 0.911);
+}
+h4{
+  color:rgba(255, 255, 255, 0.911);
+}
+h5{
+  color:rgba(255, 255, 255, 0.911);
+} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+nav{
+  background-color: #00BCD4; 
+}
+/* #1A1A2E 
+#16213E
+#0F3460 */
+footer{
+  background-color:#00BCD4;
 }
 .navbarAjustes{
   border: none;
@@ -39,7 +57,10 @@ code {
 img{
   width: 80px;
 }
-
+form{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background-color: white; */
+}
 
 .numeroTelefono{
   display: block ruby;
@@ -51,6 +72,7 @@ img{
 .numeroTelefono input{
   width: 95.5%
 }
+
 .btn-de-navajustes{
   border: 1px solid black;
   color: black;

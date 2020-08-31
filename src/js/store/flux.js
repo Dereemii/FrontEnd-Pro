@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			clave: null,
 			telefono: null,
 			currentUser: null,
-			isAuth: null,
+			estaAut: null,
 			estaAutenticado: null,
 			error: null,
 			msg: null,
@@ -83,6 +83,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			handleRegister: async (e, history) => {
 				e.preventDefault();
+				let regexCorreo = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 				const store = getStore();
 				const options = {
@@ -101,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const datos = await resp.json();
 				console.log(datos)
 
-				if (datos.msg) {
+				if (datos.success) {
 					setStore({
 						currentUser: datos.datos,
 						nombre_usuario: null,
@@ -109,7 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						clave: null,
 						telefono: null,
 						error: null,
-						msg: datos.msg
+						msg: datos.success
 					})
 
 				} else {
@@ -167,7 +168,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					localStorage.setItem("isAuth", true)
 
 
-					history.push(`/seleccion_curso/${store.correo}`)
+					history.push("/seleccion_curso")
 				} else {
 					setStore({
 						error: datos.msg
@@ -177,20 +178,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				actions.handleLocal();
 			},
-			isAuthenticated: () => {
-				if (localStorage.getItem("isAuth")) {
-					setStore({
-						currentUser: JSON.parse(localStorage.getItem("CurrentUser")),
-						isAuth: JSON.parse(localStorage.getItem("isAuth"))
-					})
-				}
-			},
-			autenticacion: () => {
+			/* autenticacion: () => {
 				const store = getStore(); setStore({
 					currentUser: JSON.parse(localStorage.getItem("currentUser")),
 					estaAutenticado: JSON.parse(localStorage.getItem("estaAut"))
 				}); console.log(store.currentUser, store.estaAutenticado);
-			},
+			}, */
 
 			claro: () => {
 				const store = getStore();
@@ -420,7 +413,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			handle_regresar: (history) => {
 				const store = getStore();
 
-				return history.push(`/`)
+				return history.push("/")
 
 			},
 			cerrarSesion: (history) => {
@@ -481,6 +474,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 				.catch(error => console.error(error))
 			}
+
 		}
 	};
 };
