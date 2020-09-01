@@ -9,7 +9,7 @@ export const Welcome = () => {
     <>
       <div className="container my-5">
           <div className="row justify-content-center">
-            <form className="col-md-auto mt-4 pt-4 rounded">
+            <form className="col-md-auto mt-4 pt-4">
               <div className="row my-3 mx-3 justify-content-center">
                 <div className="col align-self-center text-center">
                 <h5 className="text-center">¿ No tienes cuenta ? </h5>
