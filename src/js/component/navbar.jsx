@@ -13,7 +13,7 @@ export const Navbar = () => {
 	const IconoMenu = <FontAwesomeIcon icon={faBars} />
 	const { currentUser } = store;
 	const avatar = !!currentUser && currentUser !== "invitado" ? actions.obtenerAvatar(currentUser.usuario.avatar) : "../../img/iconoAvatar.png";
-
+	const name = !!currentUser ? currentUser.usuario.nombre_usuario : "Invitado";
 	/* useEffect(() => {
 		//revisar el tema seleccionado //local storage
 		// if se encuentra el tema seleccionado
@@ -47,7 +47,7 @@ export const Navbar = () => {
 									<Link className="nav-link text-light" to="/">Adminisitrador</Link>
 								</li>
 								<li className="nav-item">
-									<Link className="nav-link text-light" to="/">Yo</Link>
+									<Link className="nav-link text-light" to="/">{name}</Link>
 								</li>
 							</ul>
 						</div>

@@ -33,13 +33,14 @@ nav{
 .curso{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* background-color: rgba(216, 247, 244, 0.918); */
-  background: ghostwhite;
+  background: rgba(248, 248, 255, 0.897);
   min-height: 70vh;
   border-radius: 20px;
 }
 .contenido{
   min-height: 40vh;
 }
+
 .imagen-pregunta{
   min-height: 35vh;
   min-width: 40vh;
@@ -63,6 +64,17 @@ nav{
 .picture-knowledge{
   height: 30vh;
   width: 30vh;
+}
+.tarjeta{
+  border-radius: 20px;
+  background-color: rgba(34, 51, 68, 0.801);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #fff;
+}
+
+.tarjeta-img-top{
+  min-width: 210px;
+  border-radius: 20px 20px 0 0;
 }
 .navbarAjustes{
   border: none;
