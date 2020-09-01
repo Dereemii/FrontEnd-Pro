@@ -7,7 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: linear-gradient(120deg, rgb(66, 181, 248), rgb(161, 2, 161));
-}
+    }
 /* h3{
   color:rgba(255, 255, 255, 0.911);
 }
@@ -23,7 +23,6 @@ code {
 }
 nav{
   /* background-color: #00BCD4;  */
-}
 /* #1A1A2E 
 #16213E
 #0F3460 */
