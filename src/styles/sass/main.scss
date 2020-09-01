@@ -5,12 +5,8 @@
 //Base
 @import "base/reset";
 
-//Vendors
-
-@import "vendor/bootstrap_4.5.0/bootstrap";  //Bootstrap version 4.5
-
 //Components
-
+@import "components/buttons";
 @import "layout/navbar";
 @import "layout/footer";
 
