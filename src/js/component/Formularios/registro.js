@@ -117,7 +117,7 @@ export const Formulario = (props) => {
           </div>)}
         <div className="container">
           <div className="row justify-content-center">
-            <form className="col-md-auto mt-5 px-5 rounded" onSubmit={e => actions.handleRegister(e, props.history, actions.getUsers())}  >
+            <form className="col-md-auto mt-5 px-5" onSubmit={e => actions.handleRegister(e, props.history, actions.getUsers())}  >
               <div className="row justify-content-center">
                 <div className="col-md-auto">
                   <h4 className="col my-4">Registrate Aqui</h4>

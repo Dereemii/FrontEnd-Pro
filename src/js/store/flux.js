@@ -166,7 +166,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					localStorage.setItem("currentUser", JSON.stringify(datos.datos))
 					localStorage.setItem("isAuth", true)
-
+					
+					
 
 					history.push("/seleccion_curso")
 				} else {

@@ -9,11 +9,9 @@ export const Login = props => {
   const history = useHistory();
 
   const [feedbackCorreo, setFeedbackCorreo] = useState("");
-  const [validarCorreo, setValidarCorreo] = useState("");
   const [mensajeCorreo, setMensajeCorreo] = useState("");
 
   const [feedbackClave, setFeedbackClave] = useState("");
-  const [validarClave, setValidarClave] =useState("");
   const [mensajeClave, setMensajeClave] = useState("");
 
   function es_correo(){
