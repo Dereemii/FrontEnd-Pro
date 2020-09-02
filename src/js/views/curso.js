@@ -29,7 +29,8 @@ export const Curso = ({match}, props) => {
   
 
   let porcentaje = [{"width": "0%"}, {"width": "20%"}, {"width": "40%"}, {"width": "60%"}, {"width": "80%"} , {"width": "100%"}]
-  let mystyle = porcentaje[indice+1];
+  let mystyle = porcentaje[indice];
+  let height_style = {height: "30px"}
  
 
   function respuesta_correcta(){
@@ -117,79 +118,87 @@ export const Curso = ({match}, props) => {
     <>
     <Navbar/>
     <div className="container">
-    <div className="curso mt-3">
-    <div className="row mr-2">
-      <div className="col-1 m-auto text-center">
-        <button type="button" className="close" aria-label="Close" data-toggle="modal" data-target="#salir">
-          <span aria-hidden="true">
-            &times;
-          </span>
-        </button>
-      </div>
-      <div className="col-10 m-auto text-center">
-        <div className="progress my-4" >
-          <div
-            className="progress-bar progress-bar-striped active bg-info my-2"
-            role="progressbar"
-            style= {mystyle}
-            aria-valuenow={indice*20}
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-        </div>
-      </div>
-    </div>
-      <div className="contenido">
-        <div className="row py-3">
-          <div className="col text-center py-2 ">
-            <strong>{store.lecciones[leccion_id-1].preguntas[indice].enunciado}</strong>
+      <div className="curso mt-3">
+        <div className="row mr-2">
+          <div className="col-1 m-auto text-center">
+            <button type="button" className="close" aria-label="Close" data-toggle="modal" data-target="#salir">
+              <span aria-hidden="true">
+                &times;
+              </span>
+            </button>
+          </div>
+          <div className="col-10 m-auto text-center">
+            <div className="progress my-4" style={height_style}>
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated rounded my-2"
+                role="progressbar"
+                style= {mystyle}
+                aria-valuenow={indice*20}
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
           </div>
         </div>
-        <div className="imagen-pregunta row justify-content-center py-2">
-          <img className="imagenes img-fluid p-2" src={`../../img/iconos.jpg`} alt="Responive image"/>
-        </div>
-        <div className="container">
-          <div className="row justify-content-center py-3">
-                <div className="col">
-                <button 
-                type="button" 
-                className={respuestaA}
-                onClick={() => seleccion_a()}
-                >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_a}</button>
-              </div>
-                <div className="col">
-                <button 
-                type="button" 
-                className={respuestaB}
-                onClick={() => seleccion_b()}
-                >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_b}</button>
-              </div>
-                <div className="col">
-                <button 
-                type="button" 
-                className={respuestaC}
-                onClick={() => seleccion_c()}
-                >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_c}</button>
-              </div>
+        <div className="contenido">
+          <div className="row py-3">
+            <div className="col text-center py-2 ">
+              <strong>{store.lecciones[leccion_id-1].preguntas[indice].enunciado}</strong>
             </div>
-        </div> 
-      </div>
-      <div className="comtainer">
-        <div className="row justify-content-center my-1 ">
-          {mensaje}
-            <div className={"col-4 " + visible}>
-              <button 
+          </div>
+          <div className="container border">
+            <div className="row justify-content-center py-2 border">
+              <div className="col border">
+                <img className="imagen-pregunta img-fluid p-2 border" src={`../../img/iconos.jpg`} alt="Responsive image"/>
+              </div>          
+            </div>
+          </div>
+          
+          <div className="container">
+            <div className="row justify-content-center py-3">
+              <div className="col">
+                <button 
                   type="button" 
-                  className="btn btn-outline-dark btn-block mx-1"
-                  onClick={() => store.seleccion === "verdadero"?  respuesta_correcta() : store.seleccion === "falso" ? respuesta_incorrecta() : null}>CALIFICAR
+                  className={respuestaA}
+                  onClick={() => seleccion_a()}
+                  >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_a}
                 </button>
+              </div>
+              <div className="col">
+                <button 
+                  type="button" 
+                  className={respuestaB}
+                  onClick={() => seleccion_b()}
+                  >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_b}
+                </button>
+              </div>
+              <div className="col">
+                <button 
+                  type="button" 
+                  className={respuestaC}
+                  onClick={() => seleccion_c()}
+                  >{store.lecciones[leccion_id-1].preguntas[indice].respuestas[0].respuesta_c}
+                </button>
+              </div>
             </div>
+          </div> 
         </div>
-      </div>
-      
-      </div>
+        <div className="comtainer">
+          <div className="row justify-content-center my-1 ">
+            {mensaje}
+              <div className={"col-4 " + visible}>
+                <button 
+                    type="button" 
+                    className="btn btn-outline-dark btn-block mx-1"
+                    onClick={() => store.seleccion === "verdadero"?  respuesta_correcta() : store.seleccion === "falso" ? respuesta_incorrecta() : null}>CALIFICAR
+                  </button>
+              </div>
+          </div>
+        </div>
+        
+        </div>
     </div>
-    <div className="modal fade" id="salir" tabindex="-1" role="dialog" aria-labelledby="salir" aria-hidden="true">
+      <div className="modal fade" id="salir" tabindex="-1" role="dialog" aria-labelledby="salir" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
                 <div className="modal-header">
@@ -213,6 +222,7 @@ export const Curso = ({match}, props) => {
       </> : 
       <>
       <div className="container">
+      <Navbar/>
         <div className="curso mt-4">
           <div className="row justify-content-center py-2">
             <div className="col-12 text-center mt-4">
@@ -224,11 +234,12 @@ export const Curso = ({match}, props) => {
               <br/>
               <br/>
             <div className="col">
-              <Link className="btn btn-success mx-1 px-3 " to="/seleccion_curso/invitado">CONTINUAR</Link>
+              <Link className="btn btn-success mx-1 px-3 " to="/seleccion_curso">CONTINUAR</Link>
             </div>
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
       
       </>

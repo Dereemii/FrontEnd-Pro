@@ -31,25 +31,33 @@ export const Navbar = () => {
 			<div className="container-fluid p-0 m-0">
 				<div>
 					<nav className="navbar navbar-expand-lg navbar-light ">
-						<Link className="navbar-brand text-light" to="/">Navbar</Link>
-						<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-							<span className="navbar-toggler-icon"></span>
-						</button>
-						<div className="collapse navbar-collapse" id="navbarNav">
-							<ul className="navbar-nav">
-								<li className="nav-item active">
-									<Link className="nav-link text-light" to="/">Puntos <span className="sr-only">(current)</span></Link>
-								</li>
-								<li className="nav-item ">
-									<Link className="nav-link text-light" to="/">Ajustes</Link>
-								</li>
-								<li className="nav-item">
-									<Link className="nav-link text-light" to="/">Adminisitrador</Link>
-								</li>
-								<li className="nav-item">
-									<Link className="nav-link text-light" to="/">{name}</Link>
-								</li>
-							</ul>
+						<div className="row">
+							<div className="col">
+								<Link className="navbar-brand text-light mr-5" to="/">TataExpert</Link>
+							</div>
+							<div className="col">
+								<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+									<span className="navbar-toggler-icon"></span>
+								</button>
+							</div>
+							<div className="col">
+								<div className="collapse navbar-collapse" id="navbarNav">
+									<ul className="navbar-nav">
+										<li className="nav-item active">
+											<Link className="nav-link text-light ml-5" to="/">Puntos <span className="sr-only">(current)</span></Link>
+										</li>
+										<li className="nav-item ">
+											<Link className="nav-link text-light" to="/">Ajustes</Link>
+										</li>
+										<li className="nav-item">
+											<Link className="nav-link text-light" to="/">Adminisitrador</Link>
+										</li>
+										<li className="nav-item">
+											<Link className="nav-link text-light" to="/">{name}</Link>
+										</li>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</nav>
 					{/* <nav className="navbar navbar-expand-lg navbar-light bg-info">

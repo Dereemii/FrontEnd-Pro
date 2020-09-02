@@ -1,34 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
 body {
   margin: 0;
   font-size: x-large;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Didact Gothic', sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
   background-image: linear-gradient(120deg, rgb(66, 181, 248), rgb(161, 2, 161));
     }
-/* h3{
-  color:rgba(255, 255, 255, 0.911);
-}
-h4{
-  color:rgba(255, 255, 255, 0.911);
-}
-h5{
-  color:rgba(255, 255, 255, 0.911);
-} 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
 nav{
-  /* background-color: #00BCD4;  */
-/* #1A1A2E 
-#16213E
-#0F3460 */
-/* footer{
-  background-color:#00BCD4;
-} */
+  background-color: rgba(34, 51, 68, 0.582);
+  font-size: 17px;
+}
+footer{
+  background-color: rgba(34, 51, 68, 0.582);
+}
 .curso{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* background-color: rgba(216, 247, 244, 0.918); */
@@ -41,8 +31,8 @@ nav{
 }
 
 .imagen-pregunta{
-  min-height: 35vh;
-  min-width: 40vh;
+  height: 300px;
+  width: 300px;
 }
 .respuesta_correcta{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -69,11 +59,15 @@ nav{
   background-color: rgba(34, 51, 68, 0.801);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: #fff;
+  transition: transform .2s
 }
 
 .tarjeta-img-top{
-  min-width: 210px;
+  min-width: 150px;
   border-radius: 20px 20px 0 0;
+}
+.tarjeta:hover {
+  transform: scale(1.1);
 }
 .navbarAjustes{
   border: none;

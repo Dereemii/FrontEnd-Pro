@@ -21,7 +21,6 @@ export const Seleccion_curso = () => {
             <div className="container">
                 <div className="row">
                     <div className="col mt-5 mb-2 text-center text-white rounded">
-                        <h4>{name}</h4>
                         <h4>Selecciona un curso</h4></div>
                 </div>
                 <div className="row justify-content-center">
