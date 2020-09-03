@@ -19,6 +19,17 @@ nav{
 footer{
   background-color: rgba(34, 51, 68, 0.582);
 }
+/* Link .tarjeta-boton{
+  text-decoration: none;
+}
+.tarjeta-boton{
+  text-decoration: none;
+  font-size: 20px;
+  padding: 2px;
+  color: whitesmoke;
+  background-color: blue;
+  border-radius: 15px;
+} */
 .curso{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   /* background-color: rgba(216, 247, 244, 0.918); */
@@ -59,16 +70,51 @@ footer{
   background-color: rgba(34, 51, 68, 0.801);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   color: #fff;
-  transition: transform .2s
+  transition: transform .2s;
+  margin: 30px 10px;
 }
+/* .tarjeta-cuerpo{
+  position: relative;
+  margin-top: -100px;
+  visibility: hidden;
+  
+} */
+/* .tarjeta-contenido{
+  margin-bottom: 100px;
+} */
 
 .tarjeta-img-top{
+  position: relative;
   min-width: 150px;
   border-radius: 20px 20px 0 0;
+  /* border-radius: 20px 20px 0 0; */
+  transition: transform .2s;
+  z-index: 2;
+}
+.oculto{
+  /* display: none;
+  transition: 0.3s ease-in-out; */
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 60px;
+  z-index: 1;
 }
 .tarjeta:hover {
-  transform: scale(1.1);
+  transform: scale(1.2) translateY(5%);
 }
+.tarjeta:hover .tarjeta-img-top{
+  transform: scale(0.7) translateY(-40%);
+  border-radius: 20px;
+}
+.tarjeta-img-top:hover {
+  transform: scale(0.8);
+}
+.tajeta:hover + .oculto{
+  display: block;
+  visibility: visible;
+}
+
 .navbarAjustes{
   border: none;
   font-size: 33px;

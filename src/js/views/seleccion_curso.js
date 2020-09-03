@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Link, useHistory } from "react-router-dom";
 import TataExpert from "../../img/tataexpert.JPG";
@@ -12,8 +12,14 @@ export const Seleccion_curso = () => {
     const history = useHistory();
     const name = !!currentUser ? currentUser.usuario.nombre_usuario : "Invitado";
 
+    const [ocultar, setOcultar]= useState(" d-none")
+
+
     /* useEffect(() => { actions.autenticacion(); if (!store.estaAutenticado) history.push("/")
      else history.push("seleccion_curso"); }, []); */
+    function ocultarBoton(){
+
+    }
 
     return (
         <>
@@ -28,9 +34,10 @@ export const Seleccion_curso = () => {
                         <div className="tarjeta m-4 border-0" key={item.index}>
                             <div className="tarjeta-contenido text-center border-0" >
                                 <img className="tarjeta-img-top" src={`../../img/${item.nombre}.jpg`} alt="Card image cap" />
-                                <div className="card-body">
-                                    <h5 className="card-title">{item.nombre}</h5>
-                                    <Link to={`/curso/${item.id}`} className="btn btn-primary">Comenzar</Link>
+                                <div className="tarjeta-cuerpo my-3">
+                                <Link to={`/curso/${item.id}`} className={"oculto btn btn-primary"} >Comenzar</Link>
+                                    <h5 className="tarjeta-titulo">{item.nombre}</h5>
+                                    
                                 </div>
                             </div>
                         </div>))}

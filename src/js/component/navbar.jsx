@@ -30,23 +30,18 @@ export const Navbar = () => {
 		<>
 			<div className="container-fluid p-0 m-0">
 				<div>
-					<nav className="navbar navbar-expand-lg navbar-light ">
-						<div className="row">
-							<div className="col">
-								<Link className="navbar-brand text-light mr-5" to="/">TataExpert</Link>
-							</div>
-							<div className="col">
+					<nav className="navbar navbar-expand-lg navbar-light justify-content-center">
+						<div className="row justify-content-center">
+								<Link className="navbar-brand text-light" to="/">TataExpert</Link>
 								<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 									<span className="navbar-toggler-icon"></span>
 								</button>
-							</div>
-							<div className="col">
 								<div className="collapse navbar-collapse" id="navbarNav">
-									<ul className="navbar-nav">
+									<ul className="navbar-nav ml-5">
 										<li className="nav-item active">
-											<Link className="nav-link text-light ml-5" to="/">Puntos <span className="sr-only">(current)</span></Link>
+											<Link className="nav-link text-light " to="/">Puntos <span className="sr-only">(current)</span></Link>
 										</li>
-										<li className="nav-item ">
+										<li className="nav-item">
 											<Link className="nav-link text-light" to="/">Ajustes</Link>
 										</li>
 										<li className="nav-item">
@@ -56,7 +51,6 @@ export const Navbar = () => {
 											<Link className="nav-link text-light" to="/">{name}</Link>
 										</li>
 									</ul>
-								</div>
 							</div>
 						</div>
 					</nav>
