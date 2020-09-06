@@ -43,7 +43,7 @@ export const Layout = () => {
 						<Route exact path="/Vista_Tutorial_Encender_Celular_Pregunta_4" component={Vista_Tutorial_Encender_Celular_Pregunta_Cuatro}/>
 						<Route exact path="/" component={Home}/>
 						<Route exact path="/login" component={Login} />
-						<Route exact path="/editar_usuario/" component={Editar_Usuario}/>
+						<Route exact path="/editar_usuario" component={Editar_Usuario}/>
 						<Route exact path="/welcome" component={Welcome} />
 						<Route exact path="/administrador" component={Administrador}/>
 						<Route exact path="/usuarios" component={Usuarios} />
