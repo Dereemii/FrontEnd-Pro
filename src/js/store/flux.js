@@ -1,4 +1,4 @@
-import { get } from "jquery";
+import { get, data } from "jquery";
 import { act } from "react-dom/test-utils";
 
 const getState = ({ getStore, getActions, setStore }) => {
@@ -23,6 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			lecciones: [],
 			preguntas: [],
 			respuestas: [],
+			avatares: [],
 			seleccion: null,
 			nombre_leccion: null,
 			enunciado: null,
@@ -42,6 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			// Use getActions to call a function within a fuction
 			obtenerAvatar: (filename) => {
 				const store = getStore();
+				console.log("ObtenerAvatar, filename :" + filename)
 				return `${store.apiUrl}/fotoperfil/${filename}`
 			},
 			handleChange: e => {
@@ -157,18 +159,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const datos = await resp.json();
 				console.log(datos)
 
-				if (datos.succes) {
+				if (datos.success) {
 					setStore({
 						currentUser: datos.datos,
 						clave: null,
 						error: null,
-						isAuth: true
+						isAuth: true,
+
 					})
+					/* actions.obtenerAvatar() */
 					localStorage.setItem("currentUser", JSON.stringify(datos.datos))
 					localStorage.setItem("isAuth", true)
-					
-					
-
 					history.push("/seleccion_curso")
 				} else {
 					setStore({
@@ -179,12 +180,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				actions.handleLocal();
 			},
-			/* autenticacion: () => {
+			autenticacion: () => {
 				const store = getStore(); setStore({
 					currentUser: JSON.parse(localStorage.getItem("currentUser")),
 					estaAutenticado: JSON.parse(localStorage.getItem("estaAut"))
 				}); console.log(store.currentUser, store.estaAutenticado);
-			}, */
+			},
 
 			claro: () => {
 				const store = getStore();
@@ -386,7 +387,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(datos)
 				console.log("datos.success: " + datos.success)
 
-				if (datos.sucess) {
+				if (datos.success) {
 					actions.getLecciones();
 					actions.getPreguntas();
 					actions.getRespuestas();
@@ -424,6 +425,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					error: null,
 					estaAutenticado: false,
 					currentUser: null,
+					correo: null
 				});
 				history.push("/");
 
@@ -443,7 +445,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					[name]: files[0]
 				});
 			},
-			actualizarAvatar: (e, history) => {
+			actualizarAvatar: async(e, history) => {
 				e.preventDefault();
 
 				const store = getStore();
@@ -457,13 +459,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Authorization":`Bearer ${store.currentUser.access_token}`
 					}
 				})
-				.then(resp => resp.json())
-				.then(data => {
+				.then( resp => resp.json())
+				.then( data => {
 					console.log(data)
 					const {currentUser} = store;
 					currentUser["usuario"] = data.usuario
 					setStore({
-						msg: data.msg,
+						msg: data.success,
 						currentUser: currentUser,
 						avatar:null
 					})
@@ -471,9 +473,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					localStorage.removeItem("currentUser");
 					localStorage.setItem("currentUser", JSON.stringify(store.currentUser))
 					localStorage.setItem("estaAut", true)
-					history.push("/vistajustesvisuales")
 				})
-				.catch(error => console.error(error))
+				.catch(error => {
+					console.error(error)
+					setStore({
+						error: data.msg
+					})
+				})
 			}
 
 		}

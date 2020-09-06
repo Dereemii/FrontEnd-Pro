@@ -22,6 +22,7 @@ import { CrearCurso } from "./js/component/Formularios/crearCurso";
 import { Editar_Usuario } from "./js/component/usuario/editar_usuario";
 import { RegistrarCurso} from "./js/component/Formularios/registrar-curso"
 import { Admin_curso } from "./js/views/admin_cursos";
+import { Administrador } from "./js/views/administrador" 
 
 
 //create your first component
@@ -46,8 +47,9 @@ export const Layout = () => {
 						<Route exact path="/Vista_Tutorial_Encender_Celular_Pregunta_4" component={Vista_Tutorial_Encender_Celular_Pregunta_Cuatro}/>
 						<Route exact path="/" component={Home}/>
 						<Route exact path="/login" component={Login} />
-						<Route exact path="/editar_usuario/:correo" component={Editar_Usuario}/>
+						<Route exact path="/editar_usuario/" component={Editar_Usuario}/>
 						<Route exact path="/welcome" component={Welcome} />
+						<Route exact path="/administrador" component={Administrador}/>
 						<Route exact path="/usuarios" component={Usuarios} />
 						<Route exact path="/crear_curso" component={CrearCurso}/>
 						<Route exact path="/registrar_curso" component={RegistrarCurso}/>

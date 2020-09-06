@@ -13,7 +13,7 @@ export const Welcome = () => {
               <div className="row my-3 mx-3 justify-content-center">
                 <div className="col align-self-center text-center">
                 <h5 className="text-center">¿ No tienes cuenta ? </h5>
-                  <Link className="btn btn-success btn-md btn-block my-5" to={"/seleccion_curso/invitado"} onClick={() =>{actions.getTodo()}}>
+                  <Link className="btn btn-success btn-md btn-block my-5" to={"/seleccion_curso"} onClick={() =>{actions.getTodo()}}>
                     Ingresa como invitado
                   </Link>
                   <h5>o crea una cuenta</h5>

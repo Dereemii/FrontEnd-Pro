@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../store/appContext";
 import { useHistory, Link } from "react-router-dom";
+import { Navbar } from "../navbar";
+import { Footer } from "../footer";
 
 export const RegistrarCurso = (props) => {
 
@@ -144,6 +146,7 @@ export const RegistrarCurso = (props) => {
  
     return (
         <>
+        <Navbar/>
             <div className="container">
                 <div className="row m-4 ">Registrar curso</div>
                 <nav>
@@ -1110,7 +1113,7 @@ export const RegistrarCurso = (props) => {
 
                 </div>
             </div>
-
+            <Footer/>
         </>
     );
 };
