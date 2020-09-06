@@ -30,7 +30,7 @@ const ThemeMode = () => {
     return (
         <>
             <div onClick={handleButton}>
-                <button onClick={actions.handleTheme} className="switch" id={switchButton.current}>
+                <button onClick={actions.handleTheme} className="switch border-0" id={switchButton.current}>
                     <span >{IconoSol}</span>
                     <span>{IconoLuna}</span>
                 </button>

@@ -148,18 +148,23 @@ export const RegistrarCurso = (props) => {
     return (
         <>
         <Navbar/>
-            <div className="container">
-            <div className="row m-4 font-weight-bold tituloRegistrar">Registrar curso</div>
-                <nav>
-                    <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a className={"nav-item nav-link " + nombre_active} id="nav-nombre-tab" data-toggle="tab" href="#nav-nombre" role="tab" aria-controls="nav-nombre" aria-selected={aria_nombre} onClick={() => seleccion_nombre()}>Nombre, imagen</a>
-                        <a className={"nav-item nav-link " + active1} id="nav-profile-tab" data-toggle="tab" href="#nav-pregunta1" role="tab" aria-controls="nav-pregunta1" aria-selected={aria1} onClick={() => seleccion_p1()}>Pregunta 1</a>
-                        <a className={"nav-item nav-link " + active2}  id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta2" role="tab" aria-controls="nav-pregunta2" aria-selected={aria2} onClick={() => seleccion_p2()}>Pregunta 2</a>
-                        <a className={"nav-item nav-link " + active3} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta3" role="tab" aria-controls="nav-pregunta3" aria-selected={aria3} onClick={() => seleccion_p3()}>Pregunta 3</a>
-                        <a className={"nav-item nav-link " + active4} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta4" role="tab" aria-controls="nav-pregunta4" aria-selected={aria4} onClick={() => seleccion_p4()}>Pregunta 4</a>
-                        <a className={"nav-item nav-link " + active5} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta5" role="tab" aria-controls="nav-pregunta5" aria-selected={aria5} onClick={() => seleccion_p5()}>Pregunta 5</a>
+            <div className="container ">
+            
+            <div className="row m-4 font-weight-bold tituloRegistrar">Registrar curso <span className="mx-5"><ThemeMode /></span> {/* Agrego para revisar */}</div>
+                <nav className="navRegistrarCurso border-0">
+{/*------------------------------------ AGREGO CLASE: itemNav--------------------------------------------------*/}  
+                    <div className="nav nav-tabs navRegistrarCurso border-0" id="nav-tab" role="tablist">
+                        <a className={"nav-item nav-link " + nombre_active + "itemNav"} id="nav-nombre-tab" data-toggle="tab" href="#nav-nombre" role="tab" aria-controls="nav-nombre" aria-selected={aria_nombre} onClick={() => seleccion_nombre()}>Nombre, imagen</a>
+                        <a className={"nav-item nav-link " + active1 + "itemNav"} id="nav-profile-tab" data-toggle="tab" href="#nav-pregunta1" role="tab" aria-controls="nav-pregunta1" aria-selected={aria1} onClick={() => seleccion_p1()}>Pregunta 1</a>
+                        <a className={"nav-item nav-link " + active2 + "itemNav"}  id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta2" role="tab" aria-controls="nav-pregunta2" aria-selected={aria2} onClick={() => seleccion_p2()}>Pregunta 2</a>
+                        <a className={"nav-item nav-link " + active3 + "itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta3" role="tab" aria-controls="nav-pregunta3" aria-selected={aria3} onClick={() => seleccion_p3()}>Pregunta 3</a>
+                        <a className={"nav-item nav-link " + active4 + "itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta4" role="tab" aria-controls="nav-pregunta4" aria-selected={aria4} onClick={() => seleccion_p4()}>Pregunta 4</a>
+                        <a className={"nav-item nav-link " + active5 + "itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta5" role="tab" aria-controls="nav-pregunta5" aria-selected={aria5} onClick={() => seleccion_p5()}>Pregunta 5</a>
                     </div>
                 </nav>
+
+{/* ------------------------------- SECCION PAGINA 1 - INGRESA EL NOMBRE DE LA LECCIÓN -------------------------- */}
+
                 <div className="tab-content" id="nav-tabContent">
                     <div className={"tab-pane fade " + nombre_leccion} id="nav-nombre" role="tabpanel" aria-labelledby="nav-nombre-tab">
                         { !!store.msg_leccion && (
@@ -169,9 +174,9 @@ export const RegistrarCurso = (props) => {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>)}
-                        <div className="container border">
+                        <div className="container border-0">
                             <div className="row">
-                            <form className="col border pt-4" onSubmit={e => actions.handle_registrar_nombre_leccion(e)}>
+                            <form className="col border-0 pt-4" onSubmit={e => actions.handle_registrar_nombre_leccion(e)}>
                             <div className="form-row">
                                 <span htmlFor="nombre_usuario" className="form-label">
                                     Ingresa el nombre de la leccion
@@ -192,7 +197,7 @@ export const RegistrarCurso = (props) => {
                                     />
                                 </div>
                                 <div className="col-3">
-                                    <button type="submit" className="btn btn-primary form-control mb-4">
+                                    <button type="submit" className="btn button1  mb-4">
                                         Registrar nombre
                                     </button>
                                 </div>
@@ -202,7 +207,7 @@ export const RegistrarCurso = (props) => {
                             <div className="container p-4">
                             <div className="row justify-content-center">
                                 <div className="col-3">
-                                    <button className="btn btn-danger btn-block" id="nombre_leccion">
+                                    <button className="btn button4 btn-block" id="nombre_leccion">
                                         Salir
                                     </button>
                                 </div>
@@ -224,7 +229,7 @@ export const RegistrarCurso = (props) => {
                         
                     </div>
                     <div className={"tab-pane fade " + pregunta1} id="nav-pregunta1" role="tabpanel" aria-labelledby="nav-pregunta1-tab">
-                    <div className="container border">
+                    <div className="container border-0">
                         { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_pregunta}
@@ -232,15 +237,15 @@ export const RegistrarCurso = (props) => {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>)}
-                            <form className="container border mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
                                 <div className="form-row">
-                                    <span>Agregar pregunta 1</span>
+                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 1</span>
                                 </div>
                                     <div className="form-row mt-4 justify-content-center">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_leccion"
@@ -274,13 +279,14 @@ export const RegistrarCurso = (props) => {
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn btn-primary form-control mb-4">
+                                    <button type="submit" className="btn button1 mb-4">
                                         Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
                                 </form>
-                            <div className="container border mt-4 py-4">
+ {/*----------------------- SECCION AGREGAR RESPUESTAS PREGUNTA 1 -------------------------------------*/}
+                            <div className="container border-0 mt-4 py-4">
                             { !!store.msg_respuestas && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_respuestas}
@@ -289,14 +295,15 @@ export const RegistrarCurso = (props) => {
                             </button>
                         </div>)}
                                 <div className="row m-2">
-                                    <span>Agregar respuestas  </span>
+                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 1  </span>
                                 </div>                               
-                                <form onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
+{/*----------------------- INPUT : ID DE LA PREGUNTA 1 -------------------------------------*/} 
                                 <div className="form-group row mt-4">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getLecciones()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -311,6 +318,7 @@ export const RegistrarCurso = (props) => {
                                         </div>
 
                                     </div>
+{/*----------------------- SECCION RESPUESTAS DE INPUTS: PREGUNTA 1-------------------------------------*/}
                                     <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
@@ -380,11 +388,11 @@ export const RegistrarCurso = (props) => {
 
                                     <div className="container">
                                     <div className="row">
-                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                     </div>
                                     <div className="row justify-content-center m-4">
                                         <div className="col-3">
-                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_nombre()}>
+                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_nombre()}>
                                                 Anterior
                                             </button>
                                         </div>
@@ -404,7 +412,7 @@ export const RegistrarCurso = (props) => {
                             
                     </div>
                     <div className={"tab-pane fade " + pregunta2} id="nav-pregunta2" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div className="container border">
+                    <div className="container border-0">
                     { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_pregunta}
@@ -412,15 +420,15 @@ export const RegistrarCurso = (props) => {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>)}
-                            <form className="container border mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
                                 <div className="form-row">
-                                    <span>Agregar pregunta 2</span>
+                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 2</span>
                                 </div>
                                     <div className="form-row mt-4 justify-content-center">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_leccion"
@@ -454,13 +462,13 @@ export const RegistrarCurso = (props) => {
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn btn-primary form-control mb-4">
+                                    <button type="submit" className="btn button1  mb-4">
                                         Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
                                 </form>
-                            <div className="container border mt-4 py-4">
+                            <div className="container border-0 mt-4 py-4">
                             { !!store.msg_respuestas && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_respuestas}
@@ -469,14 +477,16 @@ export const RegistrarCurso = (props) => {
                             </button>
                         </div>)}
                                 <div className="row m-2">
-                                    <span>Agregar respuestas  </span>
+                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 2  </span>
                                 </div>                               
-                                <form onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
+    {/*----------------------- INPUT : ID DE LA PREGUNTA 2 -------------------------------------*/} 
+                            
                                 <div className="form-row mt-4">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -492,7 +502,8 @@ export const RegistrarCurso = (props) => {
                                         </div>
 
                                     </div>
-                                    <div className="form-row">
+{/* ------------------------INPUTS PREGUNTAS 2 ---------------------------------- */}
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
                                             <input
@@ -514,7 +525,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row">
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta B</label>
                                             <input
@@ -536,7 +547,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row">
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta C</label>
                                             <input
@@ -560,11 +571,11 @@ export const RegistrarCurso = (props) => {
                                     </div>
                                     <div className="container">
                                     <div className="row">
-                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                     </div>
                                     <div className="row justify-content-center m-4">
                                         <div className="col-3">
-                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_p1()}>
+                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p1()}>
                                                 Anterior
                                             </button>
                                         </div>
@@ -581,7 +592,7 @@ export const RegistrarCurso = (props) => {
                             </div>
                     </div>
                     <div className={"tab-pane fade " + pregunta3} id="nav-pregunta3" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div className="container border">
+                    <div className="container border-0">
                     { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_pregunta}
@@ -589,15 +600,15 @@ export const RegistrarCurso = (props) => {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>)}
-                            <form className="container border mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
                                 <div className="form-row">
-                                    <span>Agregar pregunta 3</span>
+                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 3</span>
                                 </div>
                                     <div className="form-row mt-4 justify-content-center">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_leccion"
@@ -631,13 +642,13 @@ export const RegistrarCurso = (props) => {
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn btn-primary form-control mb-4">
+                                    <button type="submit" className="btn button1   mb-4">
                                         Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
                                 </form>
-                            <div className="container border mt-4 py-4">
+                            <div className="container border-0 mt-4 py-4">
                             { !!store.msg_respuestas && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_respuestas}
@@ -646,14 +657,15 @@ export const RegistrarCurso = (props) => {
                             </button>
                         </div>)}
                                 <div className="row m-2">
-                                    <span>Agregar respuestas  </span>
+                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 3  </span>
                                 </div>                               
-                                <form onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
+{/*----------------------- INPUT : ID DE LA PREGUNTA 3 -------------------------------------*/} 
                                 <div className="form-row mt-4">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -669,7 +681,9 @@ export const RegistrarCurso = (props) => {
                                         </div>
 
                                     </div>
-                                    <div className="form-row">
+{/* ----------------------INPUTS - RESPUESTAS-  PREGUNTA: 3 ------------------------------ */}
+
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
                                             <input
@@ -691,7 +705,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row">
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta B</label>
                                             <input
@@ -713,7 +727,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row">
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta C</label>
                                             <input
@@ -737,11 +751,11 @@ export const RegistrarCurso = (props) => {
                                     </div>
                                     <div className="container">
                                     <div className="row">
-                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                     </div>
                                     <div className="row justify-content-center m-4">
                                         <div className="col-3">
-                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_p2()}>
+                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p2()}>
                                                 Anterior
                                             </button>
                                         </div>
@@ -758,7 +772,7 @@ export const RegistrarCurso = (props) => {
                             </div>
                     </div>
                     <div className={"tab-pane fade " + pregunta4} id="nav-pregunta4" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div className="container border">
+                    <div className="container border-0">
                     { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_pregunta}
@@ -766,15 +780,15 @@ export const RegistrarCurso = (props) => {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>)}
-                            <form className="container border mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
                                 <div className="form-row">
-                                    <span>Agregar pregunta 4</span>
+                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 4</span>
                                 </div>
                                     <div className="form-row mt-4 justify-content-center">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_leccion"
@@ -808,13 +822,13 @@ export const RegistrarCurso = (props) => {
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn btn-primary form-control mb-4">
+                                    <button type="submit" className="btn button1   mb-4">
                                         Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
                                 </form>
-                            <div className="container border mt-4 py-4">
+                            <div className="container border-0 mt-4 py-4">
                             { !!store.msg_respuestas && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_respuestas}
@@ -823,14 +837,16 @@ export const RegistrarCurso = (props) => {
                             </button>
                         </div>)}
                                 <div className="row m-2">
-                                    <span>Agregar respuestas  </span>
+                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 4  </span>
                                 </div>                               
-                                <form onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
+  {/*----------------------- INPUT : ID DE LA PREGUNTA 4 -------------------------------------*/} 
+
                                 <div className="form-row mt-4">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -846,7 +862,8 @@ export const RegistrarCurso = (props) => {
                                         </div>
 
                                     </div>
-                                    <div className="form-row">
+{/* ------------------------INPUTS PREGUNTAS 4 ---------------------------------- */}
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
                                             <input
@@ -868,7 +885,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row">
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta B</label>
                                             <input
@@ -890,7 +907,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row">
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta C</label>
                                             <input
@@ -914,11 +931,11 @@ export const RegistrarCurso = (props) => {
                                     </div>
                                     <div className="container">
                                     <div className="row">
-                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                     </div>
                                     <div className="row justify-content-center m-4">
                                         <div className="col-3">
-                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_p3()}>
+                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p3()}>
                                                 Anterior
                                             </button>
                                         </div>
@@ -935,7 +952,7 @@ export const RegistrarCurso = (props) => {
                             </div>
                     </div>
                     <div className={"tab-pane fade " + pregunta5} id="nav-pregunta5" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div className="container border">
+                    <div className="container border-0">
                     { !!store.msg_pregunta && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_pregunta}
@@ -943,15 +960,15 @@ export const RegistrarCurso = (props) => {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>)}
-                            <form className="container border mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
                                 <div className="form-row">
-                                    <span>Agregar pregunta 5</span>
+                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 5</span>
                                 </div>
                                     <div className="form-row mt-4 justify-content-center">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_leccion"
@@ -985,13 +1002,13 @@ export const RegistrarCurso = (props) => {
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn btn-primary form-control mb-4">
+                                    <button type="submit" className="btn button1 mb-4">
                                         Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
                                 </form>
-                            <div className="container border mt-4 py-4">
+                            <div className="container border-0 mt-4 py-4">
                             { !!store.msg_respuestas && (
                         <div className="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Excelente!</strong> {store.msg_respuestas}
@@ -1000,14 +1017,16 @@ export const RegistrarCurso = (props) => {
                             </button>
                         </div>)}
                                 <div className="row m-2">
-                                    <span>Agregar respuestas  </span>
+                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 5  </span>
                                 </div>                               
-                                <form onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
+   {/*----------------------- INPUT : ID DE LA PREGUNTA 5 -------------------------------------*/} 
+
                                 <div className="form-row mt-4">
                                         <div className="col-4">
                                             <div className="input-group mb-3">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn btn-outline-primary" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -1023,7 +1042,8 @@ export const RegistrarCurso = (props) => {
                                         </div>
 
                                     </div>
-                                    <div className="form-row">
+{/* ------------------------INPUTS PREGUNTAS 5 ---------------------------------- */}
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
                                             <input
@@ -1045,7 +1065,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row">
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta B</label>
                                             <input
@@ -1067,7 +1087,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row">
+                                    <div className="form-row p-1">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta C</label>
                                             <input
@@ -1091,11 +1111,11 @@ export const RegistrarCurso = (props) => {
                                     </div>
                                     <div className="container">
                                     <div className="row">
-                                        <button type="submit" className="btn btn-primary mt-3">Registrar respuestas</button>
+                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                     </div>
                                     <div className="row justify-content-center m-4">
                                         <div className="col-3">
-                                            <button className="btn btn-danger btn-block" id="nombre_leccion" onClick={() => seleccion_p4()}>
+                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p4()}>
                                                 Anterior
                                             </button>
                                         </div>
@@ -1114,7 +1134,6 @@ export const RegistrarCurso = (props) => {
 
                 </div>
             </div>
-            <Footer/>
         </>
     );
 };

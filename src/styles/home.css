@@ -292,10 +292,12 @@ body.dark .bienvenido {
 .itemNav {
   padding: 10px;
   color: white;
+  border: none;
 }
 
 .itemNav:hover {
   color: #ce93d8;
+  border: none;
 }
 
 .itemNav:active {
