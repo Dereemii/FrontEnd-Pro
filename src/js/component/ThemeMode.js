@@ -10,7 +10,7 @@ const ThemeMode = () => {
 
     let switchButton = useRef("0");
 
-    //Cambia #ID del botón
+    //--------------------Cambia #ID del botón-------------------------
     const handleButton = () => {
           if (localStorage.getItem("darkTheme") === "true"){
              switchButton.current = "active"
