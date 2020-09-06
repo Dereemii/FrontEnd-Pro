@@ -46,7 +46,7 @@ export const Navbar = () => {
 										<li className="nav-item dropdown">
 											<img 
 											src={avatar} 
-											className="rounded-circle nav-link dropdown-toggle" 
+											className="rounded-circle nav-link dropdown-toggle imgTarjeta" 
 											alt="img-fluid" 
 											width="10"
 											id="navbarDropdown"
