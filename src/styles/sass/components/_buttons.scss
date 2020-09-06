@@ -1,28 +1,121 @@
-.home{
-    width: 300px;
+//BOTON 1 ------------- BOTON DE COLOR AZUL - CELESTE -----------------------------------//
+
+.button1 {
+  background-color: $botonClaro1;
+  color: white;
+
+  body.dark & {
+    background-color: $botonDark1;
+  }
 }
 
-.button1{
-    background-color:#26c6da     ;
-    color: white  ;
+.button1:hover {
+  background-color: $botonClaroHover1;
+  color: white;
+
+  body.dark & {
+    background-color: $botonHoverDark1;
+  }
 }
 
-.button1:hover{
-    background-color: #0091ea  ;
-    color: white ;
+// ------ BOTON 2 ----------- BOTON DE COLOR VERDE - VERDE OSCURO ----------------- //
+.button2 {
+  background-color: $botonClaro2;
+  border-color: #66bb6a;
+  color: white;
 
-    
+  body.dark & {
+    background-color: $botonDark2;
+    border-color: #00838f;
+  }
 }
 
-.button2{
-    background-color:#00c853  ;
-    border-color: #66bb6a  ;
-    color: white ;
- 
+.button2:hover {
+  background-color: $botonHoverClaro2;
+  color: white;
+
+  body.dark & {
+    background-color: $botonHoverDark2;
+  }
+}
+//----------------------BOTON 3 DE COLOR ROSADO ---------------------------------------------//
+
+.button3 {
+  background-color: #ff4081;
+  color: white;
+
+  body.dark & {
+    background-color: #c2185b;
+  }
 }
 
-.button2:hover{
-    background-color:#66bb6a ;
-    color:white;
+.button3:hover {
+  background-color: #f50057;
+  color: white;
 
+  body.dark & {
+    background-color: #d81b60;
+  }
 }
+
+//--------------------------BOTON 4 : NARANJO ----------------------------------------------//
+
+.button4 {
+  background-color: #f57f17;
+  color: white;
+
+  body.dark & {
+    background-color: #d84315;
+    color: white;
+  }
+}
+
+.button4:hover {
+    background-color: #ffc107 ;
+    color: white;
+  
+    body.dark & {
+      background-color: #ef5350 ;
+      color: white;
+    }
+  }
+
+  
+//--------------------------BOTON 5 : AZUL ----------------------------------------------//
+
+.button5 {
+  background-color: #40a8c4;
+  border-color:#40a8c4;
+  color: white;
+
+  body.dark & {
+    background-color: #4e89ae;
+    color: white;
+    border-color:#515070;
+  }
+}
+
+.button5:hover {
+    background-color: #4e89ae;
+    color: white;
+    border-color: #43658b;
+  
+    body.dark & {
+      background-color: #07689f ;
+      color: white;
+    }
+  }
+//---------------------------------BOTON DE ID EN REGISTRAR  CURSOS -------------------------------//
+
+.button-outline {
+  color: white;
+  border: 1px solid #b39ddb;
+  background-color: rgba(227, 242, 253, 0.2);
+
+  body.dark & {
+    border: 1px solid #616161 ;
+  }
+}
+
+
+

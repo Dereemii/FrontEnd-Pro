@@ -1,3 +1,354 @@
-.square{
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+.button1 {
+  background-color: #26c6da;
+  color: white;
+}
+body.dark .button1 {
+  background-color: #318fb5;
+}
+
+.button1:hover {
+  background-color: #0091ea;
+  color: white;
+}
+body.dark .button1:hover {
+  background-color: #64b5f6;
+}
+
+.button2 {
+  background-color: #00c853;
+  border-color: #66bb6a;
+  color: white;
+}
+body.dark .button2 {
+  background-color: #26a69a;
+  border-color: #00838f;
+}
+
+.button2:hover {
+  background-color: #66bb6a;
+  color: white;
+}
+body.dark .button2:hover {
+  background-color: #4db6ac;
+}
+
+.button3 {
+  background-color: #ff4081;
+  color: white;
+}
+body.dark .button3 {
+  background-color: #c2185b;
+}
+
+.button3:hover {
+  background-color: #f50057;
+  color: white;
+}
+body.dark .button3:hover {
+  background-color: #d81b60;
+}
+
+.button4 {
+  background-color: #f57f17;
+  color: white;
+}
+body.dark .button4 {
+  background-color: #d84315;
+  color: white;
+}
+
+.button4:hover {
+  background-color: #ffc107;
+  color: white;
+}
+body.dark .button4:hover {
+  background-color: #ef5350;
+  color: white;
+}
+
+.button5 {
+  background-color: #40a8c4;
+  border-color: #40a8c4;
+  color: white;
+}
+body.dark .button5 {
+  background-color: #4e89ae;
+  color: white;
+  border-color: #515070;
+}
+
+.button5:hover {
+  background-color: #4e89ae;
+  color: white;
+  border-color: #43658b;
+}
+body.dark .button5:hover {
+  background-color: #07689f;
+  color: white;
+}
+
+.button-outline {
+  color: white;
+  border: 1px solid #b39ddb;
+  background-color: rgba(227, 242, 253, 0.2);
+}
+body.dark .button-outline {
+  border: 1px solid #616161;
+}
+
+.switch {
+  font-size: 15px;
+  background: #1e5f74;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  display: flex;
+  outline: none;
+  cursor: pointer;
+}
+.switch::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #F1F1F1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: 0.3s ease all;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.switch#active {
+  background: orange;
+  color: #000;
+}
+.switch#active::after {
+  right: 0;
+  left: unset;
+}
+.switch span {
+  width: 30px;
+  width: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
+}
+
+.tarjeta {
+  /*   display: flex; */
+  border-radius: 20px;
+  background-color: rgba(34, 51, 68, 0.801);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #fff;
+  transition: transform 0.2s;
+  margin: 30px 10px;
+}
+
+.tarjeta-contactos {
+  /*   display: flex; */
+  border-radius: 20px;
+  width: 350px;
+  background-color: rgba(34, 51, 68, 0.801);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: #fff;
+  transition: transform 0.2s;
+  margin: 30px 10px;
+}
+
+.tarjeta-img-top {
+  position: relative;
+  min-width: 150px;
+  border-radius: 20px 20px 0 0;
+  /* border-radius: 20px 20px 0 0; */
+  transition: transform 0.2s;
+  z-index: 2;
+}
+
+.tarjeta-foto-perfil {
+  position: relative;
+  min-width: 150px;
+  border-radius: 20px 20px 0 0;
+  transition: transform 0.2s;
+  z-index: inherit;
+}
+
+.tarjeta-titulo {
+  /* display: none;
+  transition: 0.3s ease-in-out; */
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 60px;
+  z-index: 1;
+}
+
+.tarjeta:hover {
+  transform: scale(1.2) translateY(5%);
+}
+
+.tarjeta:hover .tarjeta-img-top {
+  transform: scale(0.7) translateY(-40%);
+  border-radius: 20px;
+}
+
+.tarjeta-img-top:hover {
+  transform: scale(0.8);
+}
+
+.tajeta:hover + .oculto {
+  display: block;
+  visibility: visible;
+}
+
+.imgTarjeta {
+  width: 80px;
+}
+
+/* -------------- FIN DE LAS CARDS ----------- */
+form {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgba(114, 163, 243, 0.25);
+  /* background-color: #00BCD4; */
+  border-radius: 20px;
+}
+body.dark form {
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-size: x-large;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 50px;
+  font-family: "Didact Gothic", sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(120deg, #42b5f8, #a102a1);
+  transition: 0.3s ease all;
+}
+body.dark {
+  background-image: linear-gradient(120deg, #18191a, #193653);
+}
+
+/* -----------------------------------BARRA DE NAVEGACION --------------------------------------*/
+nav {
+  background-color: rgba(34, 51, 68, 0.582);
+  font-size: 17px;
+}
+body.dark nav {
+  background-color: rgba(24, 25, 26, 0.856);
+}
+
+.iconoNav {
+  color: white;
+  background-image: none;
+  font-size: 24px;
+}
+body.dark .iconoNav {
+  color: #e4e6eb;
+}
+
+/* -----------------------------------FOOTER ---------------------------------------------------*/
+footer {
+  background-color: rgba(34, 51, 68, 0.582);
+  position: absolute;
+  bottom: 0;
+  margin-top: auto;
+}
+body.dark footer {
+  background-color: rgba(24, 25, 26, 0.856);
+}
+
+.bienvenido {
+  color: black;
+}
+body.dark .bienvenido {
+  color: white;
+}
+
+.picture-coach {
+  height: 30vh;
+  width: 35vh;
+}
+
+.navRegistrarCurso {
+  /*  background-color: rgba(34, 51, 68, 0.7); */
+  border-radius: 0.5em;
+  font-size: 20px;
+}
+
+.itemNav {
+  padding: 10px;
+  color: white;
+}
+
+.itemNav:hover {
+  color: #ce93d8;
+}
+
+.itemNav:active {
+  color: #ce93d8;
+}
+
+.itemNav:visited {
+  color: #ce93d8;
+}
+
+.tituloRegistrar {
+  color: black;
+}
+body.dark .tituloRegistrar {
+  color: white;
+}
+
+.cursoContainer {
+  background-color: rgba(103, 58, 183, 0.3);
+  border-radius: 1em;
+  padding-bottom: 0.8em;
+  margin-top: 1em;
+}
+
+.curso {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* background-color: rgba(216, 247, 244, 0.918); */
+  background-color: rgba(228, 230, 235, 0.3);
+  min-height: 70vh;
+  border-radius: 20px;
+}
+
+.contenido {
+  min-height: 40vh;
+}
+
+.imagen-pregunta {
+  height: 300px;
   width: 300px;
 }
+
+.respuesta_correcta {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: rgba(47, 240, 30, 0.6);
+  min-height: 10vh;
+  border-radius: 20px;
+}
+
+.respuesta_incorrecta {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: rgba(248, 83, 83, 0.6);
+  min-height: 10vh;
+  border-radius: 20px;
+}
+
+/*# sourceMappingURL=home.css.map */

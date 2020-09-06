@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../../store/appContext";
 import { useHistory, Link } from "react-router-dom";
+import ThemeMode from "../ThemeMode";
 
-import "../../../styles/home.css"
 
 export const Formulario = (props) => {
 
@@ -86,6 +86,7 @@ export const Formulario = (props) => {
   return (
     <>
       <div className="container">
+      <ThemeMode />  {/* Lo agrego para ir probando */}
       { !!store.msg && (<div
             className="alert alert-success alert-dismissible fade show"
             role="alert"
@@ -208,14 +209,14 @@ export const Formulario = (props) => {
               </div>
               <div className="row justify-content-center my-2 mt-4">
                 <div className="col">
-                  <button type="submit" className="btn btn-primary form-control mb-3">
+                  <button type="submit" className="btn button1 form-control mb-3">
                     Registrar
                   </button>
                 </div>
               </div>
               <div className="row justify-content-center my-2 mt-4">
                 <div className="col">
-                  <Link type="button" className="btn btn-success form-control mb-3" to="/">
+                  <Link type="button" className="btn button2 form-control mb-3" to="/">
                     Regresar
                   </Link>
                 </div>

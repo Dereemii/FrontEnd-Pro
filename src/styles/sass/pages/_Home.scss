@@ -1,0 +1,15 @@
+//Bienvenido -- Titulo
+.bienvenido{
+    color: black;
+
+    body.dark & {
+        color: white;
+    }
+}
+
+.picture-coach{
+    height: 30vh;
+    width: 35vh;
+  }
+
+

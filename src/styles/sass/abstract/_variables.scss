@@ -1,13 +1,26 @@
 
-//Colores
+ // ------------------Colores Botones----------------------
+//Tema día
 
-$celeste: #17a2b8 ;
-$negro: black;
-$dorado: #efbf0d;
-$amarillo:yellow;
-$blanco: white;
-$gris: #222;
+//BOTON 1 -- CELESTE 
+ $botonClaro1:#26c6da;
+ $botonClaroHover1: #0091ea;
+
+ //BOTON 2 - VERDE
+ $botonClaro2: #00c853;
+ $botonHoverClaro2: #66bb6a;
+ 
+
+
+ //Tema dark
+ //BOTON 1 -- CELESTE
+ $botonDark1: #318fb5;
+ $botonHoverDark1: #64b5f6;
+
+ //BOTON 2 - VERDE 
+ $botonDark2: #26a69a;
+ $botonHoverDark2: #4db6ac;
+ 
 
 //Tipografía
 
-$Opensans: 'Open Sans', sans-serif;

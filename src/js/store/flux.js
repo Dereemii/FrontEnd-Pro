@@ -36,11 +36,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			opcion_b: null,
 			opcion_c: null,
 			imagen_leccion: null,
-			tema: null,
+			theme: null,
 			avatar: null,
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
+			handleTheme: () => {
+				document.body.classList.toggle("dark");
+				setStore({ theme: "dark" })
+				//localStorage.setItem('darkTheme', 'true');
+				if(document.body.classList.contains("dark")){
+					localStorage.setItem("darkTheme", "true");
+				} else {
+					localStorage.setItem("darkTheme", "false")
+				}
+			},
 			obtenerAvatar: (filename) => {
 				const store = getStore();
 				console.log("ObtenerAvatar, filename :" + filename)

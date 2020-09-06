@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { useHistory, Link } from "react-router-dom";
-
-import "../../styles/home.css";
+import ThemeMode from "../component/ThemeMode";
 
 export const Login = props => {
   const {store, actions} = useContext(Context);
@@ -40,6 +39,7 @@ export const Login = props => {
   return (
     <>
       <div className="container my-5">
+      <ThemeMode />  {/* Lo agrego para ir probando */}
       { !!store.error && (<div
             className="alert alert-warning alert-dismissible fade show"
             role="alert"
@@ -106,10 +106,10 @@ export const Login = props => {
                     
                   </div>
                   
-                  <button className="btn btn-primary btn-block mt-4">
+                  <button className="btn button1 btn-block mt-4">
                     Ingresar
                   </button>
-                  <Link className="btn btn-success btn-block my-3" to={"/welcome"}>
+                  <Link className="btn button2 btn-block my-3" to={"/welcome"}>
                     Regresar
                   </Link>
                 </form>

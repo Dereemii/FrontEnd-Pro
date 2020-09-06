@@ -33,9 +33,9 @@ export const Seleccion_curso = () => {
                     {store.lecciones.map((item, index) => (
                         <div className="tarjeta m-4 border-0" key={item.index*33}>
                             <div className="tarjeta-contenido text-center border-0" >
-                                <img className="tarjeta-img-top" src={`../../img/${item.nombre}.jpg`} alt="Card image cap" />
+                                <img className="tarjeta-img-top imgTarjeta" src={`../../img/${item.nombre}.jpg`} alt="Card image cap" />
                                 <div className="tarjeta-cuerpo my-3">
-                                    <Link to={`/curso/${item.id}`} className={"oculto btn btn-primary"} key={item.index*2}>Comenzar</Link>
+                                    <Link to={`/curso/${item.id}`} className={"oculto btn btn-primary + button5"} key={item.index*2}>Comenzar</Link>
                                     <h5 className="tarjeta-titulo" key={item.index*3}>{item.nombre} </h5>
                                 </div>
                             </div>

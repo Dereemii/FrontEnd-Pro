@@ -1,10 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Home } from "./js/views/home";
-import { Demo } from "./js/views/demo";
 import injectContext from "./js/store/appContext";
-import { Navbar } from "./js/component/navbar.jsx";
-import { Footer } from "./js/component/footer";
 import Formulario from "./js/component/Formularios/registro";
 import { ViewAjustesInfoPersonal } from "./js/views/ajustesHome/InfoPersonal";
 import ViewAjustesSeguridad from "./js/views/ajustesHome/Seguridad";
@@ -16,7 +13,6 @@ import { Usuarios } from "./js/views/usuarios"
 import { Seleccion_curso } from "./js/views/seleccion_curso";
 import { Curso } from "./js/views/curso";
 import { Vista_Tutorial_Encender_Celular_Pregunta_Cuatro, Vista_Tutorial_Encender_Celular_Pregunta_Uno, Vista_Tutorial_Encender_Celular_Pregunta_Dos, Vista_Tutorial_Encender_Celular_Pregunta_Tres } from "./js/views/juegos/Encender_Celular";
-import { Ruleta } from "./js/views/juegos/ruleta.jsx";
 import { Quiz } from "./js/views/juegos/quiz";
 import { CrearCurso } from "./js/component/Formularios/crearCurso";
 import { Editar_Usuario } from "./js/component/usuario/editar_usuario";
@@ -56,7 +52,6 @@ export const Layout = () => {
 						<Route exact path="/seleccion_curso" component={Seleccion_curso} />
 						<Route exact path="/admin_curso" component={Admin_curso}/>
 						<Route exact path="/curso/:id" component={Curso}/>
-						<Route exact path="/ruleta" component={Ruleta}/>
 						<Route exact path="/quiz" component={Quiz}/>
 						<Route render={() => <h1>No encontrado!</h1>} />
 					</Switch>

@@ -1,0 +1,31 @@
+.navRegistrarCurso{
+   /*  background-color: rgba(34, 51, 68, 0.7); */
+    border-radius: 0.5em;
+     font-size: 20px;
+}
+
+.itemNav{
+    padding: 10px;
+    color: white;
+}
+
+
+.itemNav:hover{
+    color: #ce93d8 ;
+}
+
+.itemNav:active{
+    color: #ce93d8 ;
+}
+
+.itemNav:visited{
+    color: #ce93d8 ;
+}
+
+.tituloRegistrar{
+    color: black;
+
+    body.dark &{
+        color:white;
+    }
+}

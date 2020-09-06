@@ -1,0 +1,65 @@
+.tarjeta{
+  /*   display: flex; */
+    border-radius: 20px;
+    background-color: rgba(34, 51, 68, 0.801);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #fff;
+    transition: transform .2s;
+    margin: 30px 10px;
+  }
+  .tarjeta-contactos{
+    /*   display: flex; */
+      border-radius: 20px;
+      width: 350px;
+      background-color: rgba(34, 51, 68, 0.801);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      color: #fff;
+      transition: transform .2s;
+      margin: 30px 10px;
+    }
+  
+  .tarjeta-img-top{
+    position: relative;
+    min-width: 150px;
+    border-radius: 20px 20px 0 0;
+    /* border-radius: 20px 20px 0 0; */
+    transition: transform .2s;
+    z-index: 2;
+  }
+  .tarjeta-foto-perfil{
+    position: relative;
+    min-width: 150px;
+    border-radius: 20px 20px 0 0;
+    transition: transform .2s;
+    z-index: inherit;
+  }
+  .tarjeta-titulo{
+    /* display: none;
+    transition: 0.3s ease-in-out; */
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 60px;
+    z-index: 1;
+  }
+  .tarjeta:hover {
+    transform: scale(1.2) translateY(5%);
+  }
+  .tarjeta:hover .tarjeta-img-top{
+    transform: scale(0.7) translateY(-40%);
+    border-radius: 20px;
+  }
+  .tarjeta-img-top:hover {
+    transform: scale(0.8);
+  }
+  .tajeta:hover + .oculto{
+    display: block;
+    visibility: visible;
+  }
+  
+  .imgTarjeta{
+    width: 80px;
+  }
+  
+  /* -------------- FIN DE LAS CARDS ----------- */
+  

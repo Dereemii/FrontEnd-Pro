@@ -1,0 +1,56 @@
+//Tema oscuro
+body {
+  //Estilo por defecto
+  margin: 0;
+  font-size: x-large;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 50px;
+  font-family: "Didact Gothic", sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+    120deg,
+    rgb(66, 181, 248),
+    rgb(161, 2, 161)
+  );
+  transition: 0.3s ease all;
+
+  // Estilo fondo con clase dark
+  &.dark {
+    background-image: linear-gradient(120deg, rgb(24, 25, 26), rgb(25, 54, 83));
+  }
+}
+/* -----------------------------------BARRA DE NAVEGACION --------------------------------------*/
+nav {
+  background-color: rgba(34, 51, 68, 0.582);
+  font-size: 17px;
+
+  body.dark & {
+    background-color: rgba(24, 25, 26, 0.856);
+  }
+}
+
+//Icono del navbar
+.iconoNav {
+  color: white;
+  background-image: none;
+  font-size: 24px;
+
+  body.dark & {
+    color: rgb(228, 230, 235);
+  }
+}
+
+/* -----------------------------------FOOTER ---------------------------------------------------*/
+
+footer {
+  background-color: rgba(34, 51, 68, 0.582);
+  position: absolute;
+  bottom: 0;
+  margin-top: auto;
+
+  body.dark & {
+    background-color: rgba(24, 25, 26, 0.856);
+  }
+}

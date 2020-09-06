@@ -3,6 +3,7 @@ import { Context } from "../../store/appContext";
 import { useHistory, Link } from "react-router-dom";
 import { Navbar } from "../navbar";
 import { Footer } from "../footer";
+import ThemeMode from "../ThemeMode";
 
 export const RegistrarCurso = (props) => {
 
@@ -148,7 +149,7 @@ export const RegistrarCurso = (props) => {
         <>
         <Navbar/>
             <div className="container">
-                <div className="row m-4 ">Registrar curso</div>
+            <div className="row m-4 font-weight-bold tituloRegistrar">Registrar curso</div>
                 <nav>
                     <div className="nav nav-tabs" id="nav-tab" role="tablist">
                         <a className={"nav-item nav-link " + nombre_active} id="nav-nombre-tab" data-toggle="tab" href="#nav-nombre" role="tab" aria-controls="nav-nombre" aria-selected={aria_nombre} onClick={() => seleccion_nombre()}>Nombre, imagen</a>

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { Link } from "react-router-dom";
-
-import "../../../styles/home.css"
 import { Navbar } from "../navbar";
 import { Footer } from "../footer";
 import { faDice } from "@fortawesome/free-solid-svg-icons";

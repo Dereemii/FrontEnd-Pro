@@ -7,8 +7,17 @@
 
 //Components
 @import "components/buttons";
-@import "layout/navbar";
-@import "layout/footer";
+@import "components/switch";
+@import "components/tarjetas";
+@import "components/formulario"; //Formulario pagina Welcome
 
 //Themes
-@import "themes/cambioTema";
+@import "themes/darkMode";
+
+//Layout
+
+
+//Pages
+@import "pages/Home";
+@import "pages/registrarCurso";
+@import "pages/curso";

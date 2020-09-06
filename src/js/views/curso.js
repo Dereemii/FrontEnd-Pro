@@ -117,7 +117,7 @@ export const Curso = ({match}, props) => {
     (indice<5)?
     <>
     <Navbar/>
-    <div className="container">
+    <div className="container cursoContainer">
       <div className="curso mt-3">
         <div className="row mr-2">
           <div className="col-1 m-auto text-center">
