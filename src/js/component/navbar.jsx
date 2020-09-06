@@ -37,7 +37,36 @@ export const Navbar = () => {
 											<Link className="nav-link text-light" to="/">Adminisitrador</Link>
 										</li>
 										<li className="nav-item">
-											<Link className="nav-link text-light" to="/">{name}</Link>
+											<Link className="nav-link text-light" to={"/editar_usuario"}>{name}</Link>
+										</li>
+										<li className="nav-item dropdown">
+											<img 
+											src={avatar} 
+											className="rounded-circle nav-link dropdown-toggle imgTarjeta" 
+											alt="img-fluid" 
+											width="10"
+											id="navbarDropdown"
+											role="button" 
+											data-toggle="dropdown" 
+											aria-haspopup="true" 
+											aria-expanded="false"
+											/>
+											<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+											{store.currentUser !== null ?
+											(
+											<Link className="dropdown-item" to={"/editar_usuario"}>Tu perfil</Link>
+											) : ""}
+												
+												{store.currentUser !== null ?
+												(
+													<a className="dropdown-item" href="/#" onClick={(e) => {
+														e.preventDefault();
+														actions.cerrarSesion(history);
+													}}>Cerrar Sesion</a>
+												) : (
+													<Link className="dropdown-item" type="button" to="/">Inicio</Link>
+												)}
+											</div>
 										</li>
 									</ul>
 							</div>

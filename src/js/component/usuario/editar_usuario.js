@@ -125,7 +125,7 @@ export const Editar_Usuario = (props) => {
           <form className="tarjeta col-4 m-4" onSubmit={e => actions.actualizarAvatar(e, props.history)}>
             <div className="tarjeta-contenido text-center border-0" >
               {<img 
-              className="tarjeta-foto-perfil rounded-circle m-3"
+              className="tarjeta-foto-perfil rounded-circle m-3 img-tarjeta img-fluid "
               src={avatar} alt="img-fluid"/>}
               <div className="tarjeta-cuerpo my-3">
                 <h5 className="titulo">Actualizar foto de perfil</h5>
