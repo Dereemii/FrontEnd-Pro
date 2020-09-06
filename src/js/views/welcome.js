@@ -13,11 +13,11 @@ export const Welcome = () => {
             <form className="col-md-auto mt-4 pt-4 ">
               <div className="row my-3 mx-3 justify-content-center">
                 <div className="col align-self-center text-center">
-                <h5 className="text-center font-weight-bold">¿ No tienes cuenta ? </h5>
+                <h5 className="text-center  enunciado">¿ No tienes cuenta ? </h5>
                   <Link className="btn btn-md btn-block mt-4 mb-5 button2" to={"/seleccion_curso"} onClick={() =>{actions.getTodo()}}>
                     Ingresa como invitado 
                   </Link >
-                  <h5 className="font-weight-bold">Crea una cuenta</h5>
+                  <h5 className=" enunciado">Crea una cuenta</h5>
                   <Link className="btn  btn-md btn-block my-4 button3" to={"/registro"}>
                     Crear cuenta
                   </Link>

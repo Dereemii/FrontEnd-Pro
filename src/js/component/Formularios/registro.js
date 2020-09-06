@@ -121,8 +121,8 @@ export const Formulario = (props) => {
             <form className="col-md-auto mt-5 px-5" onSubmit={e => actions.handleRegister(e, props.history, actions.getUsers())}  >
               <div className="row justify-content-center">
                 <div className="col-md-auto">
-                  <h4 className="col my-4">Registrate Aqui</h4>
-                  <label htmlFor="nombre_usuario" className="form-label">
+                  <h4 className="col my-4  enunciado">Registrate Aqui</h4>
+                  <label htmlFor="nombre_usuario" className="form-labe  enunciado">
                     Nombre de Usuario
                   </label>
                   <input
@@ -144,7 +144,7 @@ export const Formulario = (props) => {
               </div>
               <div className="row justify-content-center my-2">
                 <div className="col-md-auto">
-                  <label htmlFor="correo" className="form-label">
+                  <label htmlFor="correo" className="form-label  enunciado">
                     Correo Electronico
                   </label>
                   <input
@@ -166,7 +166,7 @@ export const Formulario = (props) => {
               </div>
               <div className="row justify-content-center my-2">
                 <div className="col-md-auto">
-                  <label htmlFor="telefono" className="form-label">
+                  <label htmlFor="telefono" className="form-label  enunciado">
                     Numero Telefónico
                   </label>
                   <input
@@ -175,7 +175,7 @@ export const Formulario = (props) => {
                     name="telefono"
                     /* pattern="[0-9]{8}" */
                     className={"form-control " + validarTelefono}
-                    placeholder="12345678"
+                    placeholder="Ejemplo: 987261913"
                     defaultValue={store.telefono}
                     onChange={actions.handleChange}
                     onBlur={e => es_telefono()}
@@ -188,7 +188,7 @@ export const Formulario = (props) => {
               </div>
               <div className="row justify-content-center my-2">
                 <div className="col-md-auto">
-                  <label htmlFor="clave" className="form-label">
+                  <label htmlFor="clave" className="form-label  enunciado">
                     Clave
                   </label>
                   <input

@@ -182,6 +182,7 @@ body.dark .button-outline {
   transition: transform 0.2s;
   z-index: inherit;
   width: 10em;
+  height: 10em;
 }
 
 .tarjeta-titulo {
@@ -274,6 +275,16 @@ footer {
 }
 body.dark footer {
   background-color: rgba(24, 25, 26, 0.856);
+}
+
+/* -------------- ENUNCIADOS - TITULOS ------------ */
+.enunciado {
+  color: white;
+  font-weight: 100;
+}
+body.dark .enunciado {
+  color: white;
+  font-weight: 300;
 }
 
 .bienvenido {

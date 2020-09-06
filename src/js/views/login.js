@@ -60,12 +60,12 @@ export const Login = props => {
                 <form className="col-md-auto px-4 py-3" onSubmit={e => actions.handleLogin(e, history)}>
                   <div className="row m-4">
                     <div className="col">
-                      <h3 className="text-center">Ingresar</h3>
+                      <h3 className="text-center enunciado">Ingresar</h3>
                     </div>
                   </div>
                   <div className="row justify-content-center">
                     <div className="col-md-auto">
-                      <label htmlFor="correo" className="form-label">
+                      <label htmlFor="correo" className="form-label enunciado">
                         Correo electrónico
                       </label>
                       <input
@@ -87,7 +87,7 @@ export const Login = props => {
                   </div>
                   <div className="row justify-content-center">
                     <div className="col-md-auto">
-                      <label htmlFor="clave" className="form-label">Clave</label>
+                      <label htmlFor="clave" className="form-label  enunciado">Clave</label>
                       <input
                         type="password"
                         id="clave"

@@ -20,7 +20,7 @@ export const Home = () => {
               <img src={Coach} alt="picture-coach" className="picture-coach"/>
             </div>
               <form className="col-md-auto p-5 align-self-center text-center mx-2">
-            <h4 className="my-4 bievenido">Bienvenido</h4>
+            <h4 className="my-4 bievenido  enunciado">Bienvenido</h4>
               <Link className="btn button1 btn-md btn-block my-4" to={"/welcome"}>
                   Comienza
               </Link>
