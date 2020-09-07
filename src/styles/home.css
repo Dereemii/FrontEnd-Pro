@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
@@ -367,6 +368,42 @@ body.dark .tituloRegistrar {
   background: rgba(248, 83, 83, 0.6);
   min-height: 10vh;
   border-radius: 20px;
+}
+
+/* ----------------INPUT DE EDITAR INFORMACIÓN DE CONTACTO ---------------- */
+/* INPUT "SELECCIONA UNA */
+.custom-file-label {
+  background-color: #f6f5f5;
+  font-size: 20px;
+  border-color: #8d93ab;
+}
+body.dark .custom-file-label {
+  background-color: #f6f5f5;
+  border-color: #07689f;
+}
+
+/* BOTON DE BROWSER */
+.custom-file-label::after {
+  background-color: #8d93ab;
+  color: white;
+  border-color: #8d93ab;
+}
+body.dark .custom-file-label::after {
+  background-color: #07689f;
+  border-color: #16213e;
+}
+
+.enunciado_Editar_Usuario {
+  color: white;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 14px;
+}
+
+.iconoAdress {
+  color: #f6f5f5;
+  font-size: 35px;
+  margin-left: 85px;
 }
 
 /*# sourceMappingURL=home.css.map */

@@ -4,9 +4,13 @@ import { Link, useHistory } from "react-router-dom";
 import { Navbar } from "../navbar";
 import { Footer } from "../footer";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAddressBook } from "@fortawesome/free-solid-svg-icons";
+/* ---------------- Estilos css: _editarUsuario.scss */
 
 export const Editar_Usuario = (props) => {
+
+  const IconoAdress = <FontAwesomeIcon icon={faAddressBook} />;
   const { store, actions } = useContext(Context);
   /* const { currentUser } = store; */
   const history = useHistory();
@@ -65,13 +69,15 @@ export const Editar_Usuario = (props) => {
               <span aria-hidden="true">&times;</span>
             </button>
           </div>)}
-          
-        <div className="row justify-content-center m-4 border panel">
+{/* ------------------- BANNER: EDITAR INFORMACIÓN DE CONTACTO ----------------------- */}
+        <div className="row justify-content-center m-4  panel">
             <div className="col-12">
-              <h4 className="text-center m-2">Editar información de contacto</h4>
+              <h4 className="text-center m-2 ">Editar información de contacto</h4>
             </div>
         </div>
-        <div className="row justify-content-center">
+
+{/* ----------- TARJETA 1 ---- EDITAR DATOS DE USUARIO ------------------------------- */}
+        <div className="row justify-content-center container-fluid m-0 ">
           {<form className="tarjeta col-md-auto" onSubmit={e => actions.handleRegister(e, props.history)}>
             <div className="row ">
               <div className="col-10"></div>
@@ -83,9 +89,11 @@ export const Editar_Usuario = (props) => {
                 </button>
               </div>
             </div>
+            <span className="iconoAdress">{IconoAdress}</span>
+{/* -------------------- EDITAR NOMBRE DE USUARIO ------------------------------- */}
             <div className="row justify-content-center">
               <div className="col-md-auto">
-                <label htmlFor="nombre_usuario" className="form-label">
+                <label htmlFor="nombre_usuario" className="form-label enunciado_Editar_Usuario">
                   Nombre
                 </label>
                 <input
@@ -100,9 +108,10 @@ export const Editar_Usuario = (props) => {
                 />
               </div>
             </div>
+{/* -------------------- EDITAR CORREO DEL USUARIO ------------------------------- */}
             <div className="row justify-content-center">
               <div className="col-md-auto">
-                <label htmlFor="correo" className="form-label">
+                <label htmlFor="correo" className="form-label enunciado_Editar_Usuario">
                   Correo
                 </label>
                 <input
@@ -117,10 +126,11 @@ export const Editar_Usuario = (props) => {
                 />
               </div>
             </div>
+{/* -------------------- EDITAR TELEFONO DE USUARIO ------------------------------- */}
             <div className="row justify-content-center mb-4">
               <div className="col-md-auto">
-                <label htmlFor="telefono" className="form-label">
-                  Telefono
+                <label htmlFor="telefono" className="form-label enunciado_Editar_Usuario">
+                  Teléfono
                 </label>
                 <input
                   type="telefono"
@@ -135,10 +145,13 @@ export const Editar_Usuario = (props) => {
               </div>
             </div>
             
-            <button type="submit" className="btn btn-primary form-control my-4">
+            <button type="submit" className="btn button1 form-control my-4">
               Actualizar
             </button>
           </form>} 
+{/* ------------------ FIN TARJETA 1 ------------------------------------------------- */}
+
+{/* ---------------------- INICIO DE SEGUNDA TARJETA CON FOTO ----------------------- */}
           <form className="tarjeta col-4 m-4" onSubmit={e => actions.actualizarAvatar(e, props.history)}>
             <div className="tarjeta-contenido text-center border-0" >
               {<img 
@@ -161,7 +174,7 @@ export const Editar_Usuario = (props) => {
                 />
               </div>
             </div>
-                <button type="submit" className="btn btn-primary form-control my-4">
+                <button type="submit" className="btn button1 form-control my-4">
                   Actualizar
                 </button>
           </form>
@@ -169,6 +182,7 @@ export const Editar_Usuario = (props) => {
       </div>
       
       <Footer/>
+{/* ------------------------ MODAL DE OPCIONES ------------------------------------------ */}
       <div className="modal fade" id="salir" tabindex="-1" role="dialog" aria-labelledby="salir" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
