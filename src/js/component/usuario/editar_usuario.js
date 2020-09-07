@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Navbar } from "../navbar";
 import { Footer } from "../footer";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
@@ -8,12 +8,29 @@ import { faDice } from "@fortawesome/free-solid-svg-icons";
 
 export const Editar_Usuario = (props) => {
   const { store, actions } = useContext(Context);
-  const { currentUser } = store;
-  const avatar = !!currentUser || currentUser !== "invitado" || currentUser !== undefined ? actions.obtenerAvatar(currentUser.usuario.avatar) : "../../img/avatar.JPG";
+  /* const { currentUser } = store; */
+  const history = useHistory();
+  const [currentUser, setCurrentUser] = useState("null");
+  const avatar = !!store.currentUser ? actions.obtenerAvatar(store.currentUser.usuario.avatar) : "../../img/avatar.JPG";
   
-  useEffect(() =>{
-      
-  }, [])
+
+
+ /*  useEffect(()=> {
+    if(store.currentUser !== null){
+      console.log("currentUser: " +store.currentUser)
+      setCurrentUser(store.currentUser);
+    }
+    if(!store.estaAut){
+        console.log("Editar no esta autenticado")
+        history.push("/login")
+    } else{
+        console.log("Editar esta autenticado")
+        history.push("/editar_usuario")
+    };
+
+   
+
+}, []) */
 
   return (
     
@@ -77,7 +94,7 @@ export const Editar_Usuario = (props) => {
                   name="nombre_usuario"
                   className="form-control"
                   placeholder="Su nombre de usuario"
-                  defaultValue={store.currentUser.usuario.nombre_usuario}
+                  defaultValue={!!store.currentUser ? store.currentUser.usuario.nombre_usuario : ""}
                   onChange={actions.handleChange}
                   required
                 />
@@ -94,7 +111,7 @@ export const Editar_Usuario = (props) => {
                   name="correo"
                   className="form-control"
                   placeholder="correo@ejemplo.com"
-                  defaultValue={store.currentUser.usuario.correo}
+                  defaultValue={!!store.currentUser ? store.currentUser.usuario.correo: ""}
                   onChange={actions.handleChange}
                   required
                 />
@@ -111,7 +128,7 @@ export const Editar_Usuario = (props) => {
                   name="telefono"
                   className="form-control"
                   placeholder="+569 12345678"
-                  defaultValue={store.currentUser.usuario.telefono}
+                  defaultValue={!!store.currentUser ? store.currentUser.usuario.telefono: ""}
                   onChange={actions.handleChange}
                   required
                 />

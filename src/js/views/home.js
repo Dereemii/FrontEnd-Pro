@@ -1,12 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ThemeMode from "../component/ThemeMode";
 import Coach from "../../img/svg/coach.png"
 
 
 export const Home = () => {
   const {store, actions} = useContext(Context);
+  const { currentUser } = store;
+  const history = useHistory();
+
+  useEffect(()=> {
+    if(!store.estaAut){
+        console.log("Home no esta autenticado")
+        history.push("/")
+    } else{
+        console.log("Home esta autenticado")
+        history.push("/seleccion_curso")
+    };
+}, [])
 
   return(
     <>

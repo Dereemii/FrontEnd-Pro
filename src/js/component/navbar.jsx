@@ -63,12 +63,12 @@ export const Navbar = () => {
 												
 												{store.currentUser !== null ?
 												(
-													<a className="dropdown-item" href="/#" onClick={(e) => {
+													<a className="dropdown-item" href="/#" onClick={e => {
 														e.preventDefault();
 														actions.cerrarSesion(history);
 													}}>Cerrar Sesion</a>
 												) : (
-													<Link className="dropdown-item" type="button" to="/">Inicio</Link>
+													<Link className="dropdown-item" type="button" to="/">Salir</Link>
 												)}
 											</div>
 										</li>

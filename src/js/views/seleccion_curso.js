@@ -14,7 +14,15 @@ export const Seleccion_curso = () => {
 
     const [ocultar, setOcultar]= useState(" d-none")
 
-
+    /* useEffect(()=> {
+        if(!store.estaAut){
+            console.log("Seleccion no esta autenticado")
+            history.push("/login")
+        } else{
+            console.log("Seleccion si esta autenticado")
+            history.push("/seleccion_curso")
+        };
+    }, []) */
     /* useEffect(() => { actions.autenticacion(); if (!store.estaAutenticado) history.push("/")
      else history.push("seleccion_curso"); }, []); */
    /*  function ocultarBoton(){
