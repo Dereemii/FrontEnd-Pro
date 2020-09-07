@@ -122,7 +122,7 @@ export const Formulario = (props) => {
               <div className="row justify-content-center">
                 <div className="col-md-auto">
                   <h4 className="col my-4  enunciado">Registrate Aqui</h4>
-                  <label htmlFor="nombre_usuario" className="form-labe  enunciado">
+                  <label htmlFor="nombre_usuario" className="form-label  enunciado">
                     Nombre de Usuario
                   </label>
                   <input
