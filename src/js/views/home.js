@@ -12,11 +12,11 @@ export const Home = () => {
 
   useEffect(()=> {
     if(!store.estaAut){
-        console.log("Home no esta autenticado")
-        history.push("/")
-    } else{
         console.log("Home esta autenticado")
         history.push("/seleccion_curso")
+    } else{
+        console.log("Home no esta autenticado")
+        history.push("/")
     };
 }, [])
 
