@@ -12,7 +12,7 @@ export const Usuarios = () => {
 		showModal: false
 	});
 
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	return (
 		<>
@@ -23,9 +23,13 @@ export const Usuarios = () => {
 						<div className="tarjeta-contactos m-4 border-0" key={usuario.id*22}>
 							<div className="tarjeta-contenido text-center border-0" >
 								<div className="tarjeta-cuerpo my-3">
-									{<img className="tarjeta-img-top rounded-circle mb-3" src={Avatarphoto} alt="Card image cap" key={usuario.index}/>}
+									{<img className="tarjeta-img-top rounded-circle mb-3" src={actions.obtenerAvatar(usuario.avatar)} alt="Card image cap" key={usuario.index}/>}
 									<div className="row">
 										<div className="col">
+										<div className="row justify-content-center">
+												<div className="col-4 text-right"><h5>ID:</h5></div>
+												<div className="col-8 text-left"><h5 >{usuario.id} </h5></div>
+											</div>
 											<div className="row justify-content-center">
 												<div className="col-4 text-right"><h5>Nombre:</h5></div>
 												<div className="col-8 text-left"><h5 >{usuario.nombre_usuario} </h5></div>
@@ -37,6 +41,10 @@ export const Usuarios = () => {
 											<div className="row justify-content-center">
 												<div className="col-4 text-right"><h5 >Correo:</h5></div>
 												<div className="col-8 text-left"><h5 >{usuario.correo} </h5></div>
+											</div>
+											<div className="row justify-content-center">
+												<div className="col-4 text-right"><h5 >Puntos:</h5></div>
+												<div className="col-8 text-left"><h5 >{usuario.puntos_experiencia} </h5></div>
 											</div>
 										</div>
 									</div>

@@ -11,8 +11,9 @@ export const Home = () => {
   const history = useHistory();
 
   useEffect(()=> {
-    if(!store.estaAut){
+    if(store.estaAut === true){
         console.log("Home esta autenticado")
+        console.log(!store.estaAut)
         history.push("/seleccion_curso")
     } else{
         console.log("Home no esta autenticado")

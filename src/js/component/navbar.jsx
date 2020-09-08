@@ -68,7 +68,7 @@ export const Navbar = () => {
 														actions.cerrarSesion(history);
 													}}>Cerrar Sesion</a>
 												) : (
-													<Link className="dropdown-item" type="button" to="/">Salir</Link>
+													<Link className="dropdown-item" type="button" to="/">Inicio</Link>
 												)}
 											</div>
 										</li>
