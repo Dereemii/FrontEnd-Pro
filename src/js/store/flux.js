@@ -56,6 +56,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("ObtenerAvatar, filename :" + filename)
 				return `${store.apiUrl}/fotoperfil/${filename}`
 			},
+			obtener_Imagenes_Preguntas: (filename) => {
+				const store = getStore();
+				console.log("ObtenerImagenes, filename :" + filename)
+				return `${store.apiUrl}/preguntas-imagenes/${filename}`
+			},
 			handleChange: e => {
 				const { name, value } = e.target;
 				setStore({

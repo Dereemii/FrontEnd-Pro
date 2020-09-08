@@ -16,8 +16,9 @@ export const Curso = ({match}, props) => {
 
   const {history} = props;
   const { store, actions } = useContext(Context);
+
   let leccion_id = match.params.id;
-  console.log("leccion id: " + leccion_id);
+
   const [indice, setIndice] = useState(0);
   const [respuestaA, setRespuestaA] = useState("btn btn-outline-primary mx-1 btn-block");
   const [respuestaB, setRespuestaB] = useState("btn btn-outline-primary mx-1 btn-block");
@@ -26,6 +27,8 @@ export const Curso = ({match}, props) => {
   const [visible, setVisible] = useState("");
   const [cambioColor, setCambioColor] = useState("");
   const [mensaje, setMensaje] = useState(null);
+
+  const imagen_pregunta = !!store.lecciones ? actions.obtener_Imagenes_Preguntas(store.lecciones[leccion_id-1].preguntas[indice].imagenes) : "../../../src/img/sin-imagen.png";
   
 
   let porcentaje = [{"width": "0%"}, {"width": "20%"}, {"width": "40%"}, {"width": "60%"}, {"width": "80%"} , {"width": "100%"}]
@@ -149,7 +152,7 @@ export const Curso = ({match}, props) => {
           <div className="container border">
             <div className="row justify-content-center py-2 border">
               <div className="col border">
-                <img className="imagen-pregunta img-fluid p-2 border" src={`../../img/iconos.jpg`} alt="Responsive image"/>
+                <img className="imagen-pregunta img-fluid p-2 border" src={imagen_pregunta} alt="Responsive image"/>
               </div>          
             </div>
           </div>
