@@ -154,12 +154,12 @@ export const RegistrarCurso = (props) => {
                 <nav className="navRegistrarCurso border-0">
 {/*------------------------------------ AGREGO CLASE: itemNav--------------------------------------------------*/}  
                     <div className="nav nav-tabs navRegistrarCurso border-0" id="nav-tab" role="tablist">
-                        <a className={"nav-item nav-link " + nombre_active + "itemNav"} id="nav-nombre-tab" data-toggle="tab" href="#nav-nombre" role="tab" aria-controls="nav-nombre" aria-selected={aria_nombre} onClick={() => seleccion_nombre()}>Nombre, imagen</a>
-                        <a className={"nav-item nav-link " + active1 + "itemNav"} id="nav-profile-tab" data-toggle="tab" href="#nav-pregunta1" role="tab" aria-controls="nav-pregunta1" aria-selected={aria1} onClick={() => seleccion_p1()}>Pregunta 1</a>
-                        <a className={"nav-item nav-link " + active2 + "itemNav"}  id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta2" role="tab" aria-controls="nav-pregunta2" aria-selected={aria2} onClick={() => seleccion_p2()}>Pregunta 2</a>
-                        <a className={"nav-item nav-link " + active3 + "itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta3" role="tab" aria-controls="nav-pregunta3" aria-selected={aria3} onClick={() => seleccion_p3()}>Pregunta 3</a>
-                        <a className={"nav-item nav-link " + active4 + "itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta4" role="tab" aria-controls="nav-pregunta4" aria-selected={aria4} onClick={() => seleccion_p4()}>Pregunta 4</a>
-                        <a className={"nav-item nav-link " + active5 + "itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta5" role="tab" aria-controls="nav-pregunta5" aria-selected={aria5} onClick={() => seleccion_p5()}>Pregunta 5</a>
+                        <a className={"nav-item nav-link " + nombre_active + " itemNav"} id="nav-nombre-tab" data-toggle="tab" href="#nav-nombre" role="tab" aria-controls="nav-nombre" aria-selected={aria_nombre} onClick={() => seleccion_nombre()}>Nombre, imagen</a>
+                        <a className={"nav-item nav-link " + active1 + " itemNav"} id="nav-profile-tab" data-toggle="tab" href="#nav-pregunta1" role="tab" aria-controls="nav-pregunta1" aria-selected={aria1} onClick={() => seleccion_p1()}>Pregunta 1</a>
+                        <a className={"nav-item nav-link " + active2 + " itemNav"}  id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta2" role="tab" aria-controls="nav-pregunta2" aria-selected={aria2} onClick={() => seleccion_p2()}>Pregunta 2</a>
+                        <a className={"nav-item nav-link " + active3 + " itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta3" role="tab" aria-controls="nav-pregunta3" aria-selected={aria3} onClick={() => seleccion_p3()}>Pregunta 3</a>
+                        <a className={"nav-item nav-link " + active4 + " itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta4" role="tab" aria-controls="nav-pregunta4" aria-selected={aria4} onClick={() => seleccion_p4()}>Pregunta 4</a>
+                        <a className={"nav-item nav-link " + active5 + " itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta5" role="tab" aria-controls="nav-pregunta5" aria-selected={aria5} onClick={() => seleccion_p5()}>Pregunta 5</a>
                     </div>
                 </nav>
 
