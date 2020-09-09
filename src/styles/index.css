@@ -23,5 +23,6 @@ html {
   color: #fff;
   transition: transform 0.2s;
   margin: 30px 10px;
+  border-radius: 0.5em;
 }
 

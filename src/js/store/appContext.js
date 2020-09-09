@@ -34,7 +34,7 @@ const injectContext = PassedComponent => {
 /* 			state.actions.autenticacion(); */
 			state.actions.getUsers("http://localhost:5000/usuarios");
 			state.actions.getUsers("http://localhost:5000/registro");
-			/* state.actions.obtenerAvatar(!!state.store.currentUser ? `{http://localhost:5000/fotoperfil${state.store.currentUser.usuario.avatar}}` : "") */
+			state.actions.estaAutenticado();
 			state.actions.getLecciones("http://localhost:5000/leccion");
 			state.actions.getPreguntas("http://localhost:5000/preguntas");
 			state.actions.getRespuestas("http://localhost:5000/respuestas");

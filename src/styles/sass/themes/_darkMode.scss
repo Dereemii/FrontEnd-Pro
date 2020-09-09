@@ -54,3 +54,15 @@ footer {
     background-color: rgba(24, 25, 26, 0.856);
   }
 }
+
+/* -------------- ENUNCIADOS - TITULOS ------------ */
+
+.enunciado{
+  color: white;
+  font-weight: 100;
+
+  body.dark & {
+    color: white;
+    font-weight: 300;
+  }
+}

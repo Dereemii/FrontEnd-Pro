@@ -13,8 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			clave: null,
 			telefono: null,
 			currentUser: null,
+			isAuth: null,
 			estaAut: null,
-			estaAutenticado: null,
 			error: null,
 			msg: null,
 			msg_leccion: null,
@@ -55,6 +55,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				console.log("ObtenerAvatar, filename :" + filename)
 				return `${store.apiUrl}/fotoperfil/${filename}`
+			},
+			obtener_Imagenes_Preguntas: (filename) => {
+				const store = getStore();
+				console.log("ObtenerImagenes, filename :" + filename)
+				return `${store.apiUrl}/preguntas-imagenes/${filename}`
 			},
 			handleChange: e => {
 				const { name, value } = e.target;
@@ -174,12 +179,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 						currentUser: datos.datos,
 						clave: null,
 						error: null,
-						isAuth: true,
+						estaAut: true,
 
 					})
 					/* actions.obtenerAvatar() */
 					localStorage.setItem("currentUser", JSON.stringify(datos.datos))
-					localStorage.setItem("isAuth", true)
+					localStorage.setItem("estaAut", true)
 					history.push("/seleccion_curso")
 				} else {
 					setStore({
@@ -190,12 +195,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				actions.handleLocal();
 			},
-			autenticacion: () => {
+			estaAutenticado: () => {
+				if(localStorage.getItem("estaAut")){
+					setStore({
+						currentUser: JSON.parse(localStorage.getItem("currentUser")),
+						estaAut: JSON.parse(localStorage.getItem("estaAut"))
+					})
+				}
+			},
+			/* autenticacion: () => {
 				const store = getStore(); setStore({
 					currentUser: JSON.parse(localStorage.getItem("currentUser")),
-					estaAutenticado: JSON.parse(localStorage.getItem("estaAut"))
+					estaAutenticado: JSON.parse(localStorage.getItem("estaAutenticado"))
 				}); console.log(store.currentUser, store.estaAutenticado);
-			},
+			}, */
 
 			claro: () => {
 				const store = getStore();
@@ -433,7 +446,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.removeItem("currentUser");
 				setStore({
 					error: null,
-					estaAutenticado: false,
+					estaAut: false,
 					currentUser: null,
 					correo: null
 				});

@@ -11,6 +11,7 @@ import { Login } from "./js/views/login";
 import { Welcome } from "./js/views/welcome";
 import { Usuarios } from "./js/views/usuarios"
 import { Seleccion_curso } from "./js/views/seleccion_curso";
+import { Seleccion_leccion } from "./js/views/Lecciones/Seleccion_leccion";
 import { Curso } from "./js/views/curso";
 import { Vista_Tutorial_Encender_Celular_Pregunta_Cuatro, Vista_Tutorial_Encender_Celular_Pregunta_Uno, Vista_Tutorial_Encender_Celular_Pregunta_Dos, Vista_Tutorial_Encender_Celular_Pregunta_Tres } from "./js/views/juegos/Encender_Celular";
 import { Quiz } from "./js/views/juegos/quiz";
@@ -50,6 +51,7 @@ export const Layout = () => {
 						<Route exact path="/crear_curso" component={CrearCurso}/>
 						<Route exact path="/registrar_curso" component={RegistrarCurso}/>
 						<Route exact path="/seleccion_curso" component={Seleccion_curso} />
+						<Route exact path="/Seleccion_leccion" component={Seleccion_leccion} />
 						<Route exact path="/admin_curso" component={Admin_curso}/>
 						<Route exact path="/curso/:id" component={Curso}/>
 						<Route exact path="/quiz" component={Quiz}/>
