@@ -1,15 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
+import React, {  useContext } from "react";
 import { Context } from "../store/appContext";
 import Avatarphoto from "../../img/avatar.JPG"
 
-import { Link } from "react-router-dom";
 
 export const UserCard = props => {
-	/* const [state, setState] = useState({
-		//initialize state here
-	}); */
+
 
 	const { store, actions } = useContext(Context);
 

@@ -1,30 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
+import React, {  useContext } from 'react';
 import Navbar from "../../component/navbar";
 import Footer from "../../component/footer";
-import LeccionesGrid from "./TeoriaGrid";
+import { Context } from "../../store/appContext";
 
-export const Seleccion_leccion = () => {
-    const [items, setItems] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-
-      /* http://localhost:5000/teoria */
-    useEffect(() =>{
-        const fetchItems = async () => {
-            const result = await axios(`https://breakingbadapi.com/api/characters`)
-            console.log(result.data)
-
-            setItems(result.data)
-            setIsLoading(false)
-        }
-
-        fetchItems();
-    }, [])
-
+export const Seleccion_leccion = ({ match }) => {
+    const { store, actions } = useContext(Context);
+        
     return (
         <>
             <Navbar />
-            <LeccionesGrid isLoading={isLoading} items={items} />
+            <div className="tarjetasTeoria">
+                {store.teoria.map((item, index,) => (
+                    <div className="container">
+                
+                        <div className="tarjetaTeoria">
+                            <div className="tarjetaTeoria-inner">
+                                <div className="tarjetaTeoria-front bg-dark">
+                                <img className="img-fluid" src={`http://localhost:5000/teoria-imagenes/${item.multimedia}`} alt=""/>
+                                </div>
+                                <div className="tarjetaTeoria-back">
+                                    {item.titulo}
+                                    <ul>
+                                        <li>
+                                            <strong className="contenidoTarjeta">{item.contenido}</strong>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>                 
+                    </div>
+
+                ))}
+            </div>
             <Footer />
         </>
     )
