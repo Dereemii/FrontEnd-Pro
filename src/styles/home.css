@@ -169,7 +169,7 @@ body.dark .button-outline {
 
 .tarjeta-img-top {
   position: relative;
-  min-width: 150px;
+  min-width: 130px;
   border-radius: 20px 20px 0 0;
   /* border-radius: 20px 20px 0 0; */
   transition: transform 0.2s;
@@ -218,8 +218,10 @@ body.dark .button-outline {
   width: 80px;
 }
 
-img {
-  width: 80px;
+.tarjeta-contenido {
+  margin: 0;
+  padding: 0;
+  /* hace que las cards de seleccionar curso se adapten a su contenido */
 }
 
 /* -------------- FIN DE LAS CARDS ----------- */
