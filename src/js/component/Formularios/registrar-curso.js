@@ -1287,7 +1287,6 @@ export const RegistrarCurso = (props) => {
                         </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </>
