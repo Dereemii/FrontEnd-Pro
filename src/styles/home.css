@@ -289,7 +289,19 @@ body.dark form {
 
 .tarjetaTeoria li {
   list-style: none;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
+}
+
+.bgTarjeta {
+  background-color: black;
+}
+body.dark .bgTarjeta {
+  background-color: #18191b;
+}
+
+hr {
+  color: white;
+  background-color: white;
 }
 
 .contenidoTarjeta {
@@ -306,6 +318,11 @@ body.dark form {
     grid-template-columns: 1fr;
   }
 }
+.tituloTeoria {
+  color: white;
+  font-weight: 200;
+}
+
 body {
   margin: 0;
   font-size: x-large;

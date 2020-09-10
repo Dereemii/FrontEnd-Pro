@@ -54,7 +54,21 @@
   
   .tarjetaTeoria li {
     list-style: none;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
+  }
+
+  .bgTarjeta{
+    background-color:black;
+ 
+
+    body.dark &{
+      background-color: rgb(24, 25, 27);
+    }
+  }
+
+  hr{
+    color: white;
+    background-color: white;
   }
   
   .contenidoTarjeta{
@@ -71,3 +85,8 @@
       grid-template-columns: 1fr;
     }
   }
+
+.tituloTeoria{
+  color:white;
+  font-weight: 200;
+}

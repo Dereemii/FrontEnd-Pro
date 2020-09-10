@@ -9,17 +9,18 @@ export const Seleccion_leccion = ({ match }) => {
     return (
         <>
             <Navbar />
+            <div><h1 className="text-center tituloTeoria">Gira la tarjeta para practicar: Redes Sociales</h1></div>
             <div className="tarjetasTeoria">
                 {store.teoria.map((item, index,) => (
                     <div className="container">
                 
-                        <div className="tarjetaTeoria">
+                        <div className="tarjetaTeoria ">
                             <div className="tarjetaTeoria-inner">
-                                <div className="tarjetaTeoria-front bg-dark">
-                                <img className="img-fluid" src={`http://localhost:5000/teoria-imagenes/${item.multimedia}`} alt=""/>
+                                <div className="tarjetaTeoria-front bgTarjeta ">
+                                <img className="img-fluid" src={`http://localhost:5000/teoria-imagenes/${item.multimedia}`} alt="" />
                                 </div>
                                 <div className="tarjetaTeoria-back">
-                                    {item.titulo}
+                                    {item.titulo}                        
                                     <ul>
                                         <li>
                                             <strong className="contenidoTarjeta">{item.contenido}</strong>
