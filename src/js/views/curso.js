@@ -20,9 +20,9 @@ export const Curso = ({match}, props) => {
   let leccion_id = match.params.id;
 
   const [indice, setIndice] = useState(0);
-  const [respuestaA, setRespuestaA] = useState("btn btn-outline-primary mx-1 btn-block");
-  const [respuestaB, setRespuestaB] = useState("btn btn-outline-primary mx-1 btn-block");
-  const [respuestaC, setRespuestaC] = useState("btn btn-outline-primary mx-1 btn-block");
+  const [respuestaA, setRespuestaA] = useState("btn btn-primary mx-1 btn-block");
+  const [respuestaB, setRespuestaB] = useState("btn btn-primary mx-1 btn-block");
+  const [respuestaC, setRespuestaC] = useState("btn btn-primary mx-1 btn-block");
   const [invisible, setInvisible] = useState("invisible");
   const [visible, setVisible] = useState("");
   const [cambioColor, setCambioColor] = useState("");
@@ -33,7 +33,7 @@ export const Curso = ({match}, props) => {
 
   let porcentaje = [{"width": "0%"}, {"width": "20%"}, {"width": "40%"}, {"width": "60%"}, {"width": "80%"} , {"width": "100%"}]
   let mystyle = porcentaje[indice];
-  let height_style = {height: "30px"}
+  let height_style = {height: "15px"}
  
 
   function respuesta_correcta(){
@@ -149,14 +149,9 @@ export const Curso = ({match}, props) => {
               <strong>{store.lecciones[leccion_id-1].preguntas[indice].enunciado}</strong>
             </div>
           </div>
-          <div className="container border">
-            <div className="row justify-content-center py-2 border">
-              <div className="col border">
-                <img className="imagen-pregunta img-fluid p-2 border" src={imagen_pregunta} alt="Responsive image"/>
-              </div>          
-            </div>
+            <div className="row justify-content-center">
+              <img className="imagen-pregunta img-fluid p-2" src={imagen_pregunta} alt="Responsive image"/>
           </div>
-          
           <div className="container">
             <div className="row justify-content-center py-3">
               <div className="col">
@@ -192,7 +187,7 @@ export const Curso = ({match}, props) => {
               <div className={"col-4 " + visible}>
                 <button 
                     type="button" 
-                    className="btn btn-outline-dark btn-block mx-1"
+                    className="btn btn-light btn-block mx-1"
                     onClick={() => store.seleccion === "verdadero"?  respuesta_correcta() : store.seleccion === "falso" ? respuesta_incorrecta() : null}>CALIFICAR
                   </button>
               </div>
