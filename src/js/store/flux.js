@@ -38,6 +38,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			imagen_leccion: null,
 			theme: null,
 			avatar: null,
+			imagen_teoria: null,
+			teoria: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -55,12 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				console.log("ObtenerAvatar, filename :" + filename)
 				return `${store.apiUrl}/fotoperfil/${filename}`
-			},
-			obtener_Imagenes_Preguntas: (filename) => {
-				const store = getStore();
-				console.log("ObtenerImagenes, filename :" + filename)
-				return `${store.apiUrl}/preguntas-imagenes/${filename}`
-			},
+			},			
 			handleChange: e => {
 				const { name, value } = e.target;
 				setStore({
@@ -210,18 +207,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}); console.log(store.currentUser, store.estaAutenticado);
 			}, */
 
-			claro: () => {
-				const store = getStore();
-				document.body.classList.remove("oscuro");
-				setStore({ tema: "claro" })
-				localStorage.setItem('tema-oscuro', 'claro');
-			},
-			oscuro: () => {
-				const store = getStore();
-				document.body.classList.add("oscuro");
-				setStore({ tema: "oscuro" })
-				localStorage.setItem('tema-oscuro', 'oscuro');
-			},
 			getSeleccion: (seleccion) => {
 				console.log(seleccion);
 				setStore({
@@ -503,7 +488,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 						error: data.msg
 					})
 				})
-			}
+			},
+			obtener_Imagenes_Teoria: (filename) => {
+				const store = getStore();
+				console.log("ObtenerImagenes, filename :" + filename)
+				return `${store.apiUrl}/teoria-imagenes/${filename}`
+			},
+			getTeoria: async () => {
+				const store = getStore();
+				const response = await fetch(store.apiUrl + "/teoria");
+				const datos = await response.json();
+				console.log("getTeoria");
+				setStore({
+					teoria: datos
+				})
+			},
+			obtener_Imagenes_Preguntas: (filename) => {
+				const store = getStore();
+				console.log("ObtenerImagenes, filename :" + filename)
+				return `${store.apiUrl}/preguntas-imagenes/${filename}`
+			},
 
 		}
 	};
