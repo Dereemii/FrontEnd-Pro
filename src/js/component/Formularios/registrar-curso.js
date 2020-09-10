@@ -7,6 +7,7 @@ import ThemeMode from "../ThemeMode";
 
 export const RegistrarCurso = (props) => {
 
+
     const { store, actions } = useContext(Context);
     const [nombre_leccion, setNombre_leccion] = useState("show active");
     const [nombre_active, setNombre_active] = useState("active");
@@ -201,7 +202,7 @@ export const RegistrarCurso = (props) => {
                                         </div>
                                     </div>
                                 </form>
-                                <form className="col-6 tarjeta-contactos m-4 border-0">
+                                <form className="col-6 tarjeta-contactos m-4 border-0" onSubmit={(e)=> actions.actualizar_Imagen_Pregunta(e, store.id_nueva_pregunta)}>
                                     <div className="tarjeta-cuerpo my-3">
                                         <h4 className="titulo text-center">Agregar imagen </h4>
                                     </div>
@@ -308,7 +309,7 @@ export const RegistrarCurso = (props) => {
                                     </div>
                                 </div>
                             </form>
-                            <form className="col-6 tarjeta-contactos m-2 border-0">
+                            <form className="col-6 tarjeta-contactos m-2 border-0" onSubmit={e => actions.actualizar_Imagen_Pregunta(e)}>
                                     <div className="tarjeta-cuerpo my-3">
                                         <h4 className="titulo text-center">Agregar imagen de la pregunta</h4>
                                     </div>
@@ -318,8 +319,8 @@ export const RegistrarCurso = (props) => {
                                             <input
                                                 type="file"
                                                 className="custom-file-input"
-                                                id="avatar"
-                                                name="avatar"
+                                                id="imagen_pregunta"
+                                                name="imagen_pregunta"
                                                 onChange={actions.handle_files}
                                                 required
                                             />
@@ -507,7 +508,7 @@ export const RegistrarCurso = (props) => {
                                             id="enunciado"
                                             name="enunciado"
                                             className="form-control"
-                                            placeholder="Ingresar pregunta 1"
+                                            placeholder="Ingresar pregunta 2"
                                             defaultValue={store.enunciado}
                                             onChange={actions.handleChange}
                                             required
@@ -714,7 +715,7 @@ export const RegistrarCurso = (props) => {
                                             id="enunciado"
                                             name="enunciado"
                                             className="form-control"
-                                            placeholder="Ingresar pregunta 1"
+                                            placeholder="Ingresar pregunta 3"
                                             defaultValue={store.enunciado}
                                             onChange={actions.handleChange}
                                             required
@@ -921,7 +922,7 @@ export const RegistrarCurso = (props) => {
                                             id="enunciado"
                                             name="enunciado"
                                             className="form-control"
-                                            placeholder="Ingresar pregunta 1"
+                                            placeholder="Ingresar pregunta 4"
                                             defaultValue={store.enunciado}
                                             onChange={actions.handleChange}
                                             required
@@ -1128,7 +1129,7 @@ export const RegistrarCurso = (props) => {
                                             id="enunciado"
                                             name="enunciado"
                                             className="form-control"
-                                            placeholder="Ingresar pregunta 1"
+                                            placeholder="Ingresar pregunta 5"
                                             defaultValue={store.enunciado}
                                             onChange={actions.handleChange}
                                             required

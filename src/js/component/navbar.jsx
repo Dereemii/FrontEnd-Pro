@@ -12,7 +12,7 @@ export const Navbar = () => {
 	const history = useHistory();
 	const IconoMenu = <FontAwesomeIcon icon={faBars} />
 	const { currentUser } = store;
-	const avatar = !!currentUser && currentUser !== "invitado" ? actions.obtenerAvatar(currentUser.usuario.avatar) : "../../img/avatar.JPG";
+	const avatar = !!currentUser ? actions.obtenerAvatar(currentUser.usuario.avatar) : "../../img/avatar.JPG";
 	const name = !!currentUser ? currentUser.usuario.nombre_usuario : "Invitado";
 
 

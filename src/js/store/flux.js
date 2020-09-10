@@ -38,6 +38,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			imagen_leccion: null,
 			theme: null,
 			avatar: null,
+			imagen_pregunta: null,
 			imagen_teoria: null,
 			teoria: [],
 		},
@@ -477,10 +478,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 						currentUser: currentUser,
 						avatar:null
 					})
-					localStorage.removeItem("estaAut");
+					/* localStorage.removeItem("estaAut");
 					localStorage.removeItem("currentUser");
 					localStorage.setItem("currentUser", JSON.stringify(store.currentUser))
-					localStorage.setItem("estaAut", true)
+					localStorage.setItem("estaAut", true) */
+				})
+				.catch(error => {
+					console.error(error)
+					setStore({
+						error: data.msg
+					})
+				})
+			},
+			actualizar_Imagen_Pregunta: async(e, id) => {
+				e.preventDefault();
+
+				const store = getStore();
+				let formData = new FormData();
+				formData.append("imagen", store.imagen_pregunta);
+
+				fetch(`${store.apiUrl}/preguntas-imagenes/${store.id_nueva_pregunta}`,{
+					method: "PUT",
+					body: formData,
+					headers: {
+						"Authorization":`Bearer ${store.currentUser.access_token}`
+					}
+				})
+				.then( resp => resp.json())
+				.then( data => {
+					console.log(data)
+					const {currentUser} = store;
+					currentUser["usuario"] = data.usuario
+					setStore({
+						msg: data.success,
+						currentUser: currentUser,
+						imagen_pregunta:null
+					})
 				})
 				.catch(error => {
 					console.error(error)
