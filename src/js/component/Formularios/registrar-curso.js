@@ -7,6 +7,7 @@ import ThemeMode from "../ThemeMode";
 
 export const RegistrarCurso = (props) => {
 
+
     const { store, actions } = useContext(Context);
     const [nombre_leccion, setNombre_leccion] = useState("show active");
     const [nombre_active, setNombre_active] = useState("active");
@@ -27,7 +28,7 @@ export const RegistrarCurso = (props) => {
     const [aria4, setAria4] = useState("");
     const [aria5, setAria5] = useState("");
 
-    function seleccion_nombre(){
+    function seleccion_nombre() {
         setNombre_leccion("show active");
         setPregunta1("");
         setPregunta2("");
@@ -46,9 +47,9 @@ export const RegistrarCurso = (props) => {
         setAria3("false");
         setAria4("false");
         setAria5("false");
-    
-      };
-      function seleccion_p1(){
+
+    };
+    function seleccion_p1() {
         setNombre_leccion("");
         setPregunta1("show active");
         setPregunta2("");
@@ -66,8 +67,8 @@ export const RegistrarCurso = (props) => {
         setAria3("false");
         setAria4("false");
         setAria5("false");
-      };
-      function seleccion_p2(){
+    };
+    function seleccion_p2() {
         setNombre_leccion("");
         setPregunta1("");
         setPregunta2("show active");
@@ -85,8 +86,8 @@ export const RegistrarCurso = (props) => {
         setAria3("false");
         setAria4("false");
         setAria5("false");
-      };
-      function seleccion_p3(){
+    };
+    function seleccion_p3() {
         setNombre_leccion("");
         setPregunta1("");
         setPregunta2("");
@@ -104,8 +105,8 @@ export const RegistrarCurso = (props) => {
         setAria3("true");
         setAria4("false");
         setAria5("false");
-      };
-      function seleccion_p4(){
+    };
+    function seleccion_p4() {
         setNombre_leccion("");
         setPregunta1("");
         setPregunta2("");
@@ -123,8 +124,8 @@ export const RegistrarCurso = (props) => {
         setAria3("false");
         setAria4("true");
         setAria5("false");
-      };
-      function seleccion_p5(){
+    };
+    function seleccion_p5() {
         setNombre_leccion("");
         setPregunta1("");
         setPregunta2("");
@@ -142,131 +143,154 @@ export const RegistrarCurso = (props) => {
         setAria3("false");
         setAria4("false");
         setAria5("true");
-      };
+    };
 
- 
+
     return (
         <>
-        <Navbar/>
+            <Navbar />
             <div className="container ">
-            
-            <div className="row m-4 font-weight-bold tituloRegistrar">Registrar curso <span className="mx-5"><ThemeMode /></span> {/* Agrego para revisar */}</div>
+
+                <div className="row m-4 font-weight-bold tituloRegistrar">Registrar curso <span className="mx-5"><ThemeMode /></span> {/* Agrego para revisar */}</div>
                 <nav className="navRegistrarCurso border-0">
-{/*------------------------------------ AGREGO CLASE: itemNav--------------------------------------------------*/}  
+                    {/*------------------------------------ AGREGO CLASE: itemNav--------------------------------------------------*/}
                     <div className="nav nav-tabs navRegistrarCurso border-0" id="nav-tab" role="tablist">
                         <a className={"nav-item nav-link " + nombre_active + " itemNav"} id="nav-nombre-tab" data-toggle="tab" href="#nav-nombre" role="tab" aria-controls="nav-nombre" aria-selected={aria_nombre} onClick={() => seleccion_nombre()}>Nombre, imagen</a>
                         <a className={"nav-item nav-link " + active1 + " itemNav"} id="nav-profile-tab" data-toggle="tab" href="#nav-pregunta1" role="tab" aria-controls="nav-pregunta1" aria-selected={aria1} onClick={() => seleccion_p1()}>Pregunta 1</a>
-                        <a className={"nav-item nav-link " + active2 + " itemNav"}  id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta2" role="tab" aria-controls="nav-pregunta2" aria-selected={aria2} onClick={() => seleccion_p2()}>Pregunta 2</a>
+                        <a className={"nav-item nav-link " + active2 + " itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta2" role="tab" aria-controls="nav-pregunta2" aria-selected={aria2} onClick={() => seleccion_p2()}>Pregunta 2</a>
                         <a className={"nav-item nav-link " + active3 + " itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta3" role="tab" aria-controls="nav-pregunta3" aria-selected={aria3} onClick={() => seleccion_p3()}>Pregunta 3</a>
                         <a className={"nav-item nav-link " + active4 + " itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta4" role="tab" aria-controls="nav-pregunta4" aria-selected={aria4} onClick={() => seleccion_p4()}>Pregunta 4</a>
                         <a className={"nav-item nav-link " + active5 + " itemNav"} id="nav-contact-tab" data-toggle="tab" href="#nav-pregunta5" role="tab" aria-controls="nav-pregunta5" aria-selected={aria5} onClick={() => seleccion_p5()}>Pregunta 5</a>
                     </div>
                 </nav>
 
-{/* ------------------------------- SECCION PAGINA 1 - INGRESA EL NOMBRE DE LA LECCIÓN -------------------------- */}
+                {/* ------------------------------- SECCION PAGINA 1 - INGRESA EL NOMBRE DE LA LECCIÓN E IMAGEN------------------- */}
 
                 <div className="tab-content" id="nav-tabContent">
                     <div className={"tab-pane fade " + nombre_leccion} id="nav-nombre" role="tabpanel" aria-labelledby="nav-nombre-tab">
-                        { !!store.msg_leccion && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_leccion}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
+                        {!!store.msg_leccion && (
+                            <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Excelente!</strong> {store.msg_leccion}
+                                <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>)}
                         <div className="container border-0">
-                            <div className="row">
-                            <form className="col border-0 pt-4" onSubmit={e => actions.handle_registrar_nombre_leccion(e)}>
-                            <div className="form-row">
-                                <span htmlFor="nombre_usuario" className="form-label">
-                                    Ingresa el nombre de la leccion
-                                        </span>
-                            </div>
-                            <div className="form-row mt-4 justify-content-center">
-                                <div className="col-8">
-
-                                    <input
-                                        type="nombre_leccion"
-                                        id="nombre_leccion"
-                                        name="nombre_leccion"
-                                        className="form-control"
-                                        placeholder="Ingresa el nombre de la lección"
-                                        defaultValue={store.nombre_leccion}
-                                        onChange={actions.handleChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="col-3">
-                                    <button type="submit" className="btn button1  mb-4">
-                                        Registrar nombre
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                            </div>
-                            <div className="container p-4">
                             <div className="row justify-content-center">
-                                <div className="col-3">
-                                    <button className="btn button4 btn-block" id="nombre_leccion">
-                                        Salir
-                                    </button>
-                                </div>
-                                <div className="col-3">
-                                    <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p1()}>
-                                        Continuar
-                                    </button>
-                                </div>
-                                
-                            </div>
-                            </div>
-                            
-
-                        <div className="row">
-
-                        </div>
-                        
-                        </div>
-                        
-                    </div>
-                    <div className={"tab-pane fade " + pregunta1} id="nav-pregunta1" role="tabpanel" aria-labelledby="nav-pregunta1-tab">
-                    <div className="container border-0">
-                        { !!store.msg_pregunta && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_pregunta}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
-                                <div className="form-row">
-                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 1</span>
-                                </div>
+                                <form className="col-6 tarjeta-contactos m-4 border-0" onSubmit={e => actions.handle_registrar_nombre_leccion(e)}>
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Ingresa el nombre de la leccion</h4> 
+                                    </div>
                                     <div className="form-row mt-4 justify-content-center">
+                                        <div className="col-8">
+
+                                            <input
+                                                type="nombre_leccion"
+                                                id="nombre_leccion"
+                                                name="nombre_leccion"
+                                                className="form-control"
+                                                placeholder="Ingresa el nombre de la lección"
+                                                defaultValue={store.nombre_leccion}
+                                                onChange={actions.handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-3">
+                                            <button type="submit" className="btn button1  mb-4">
+                                                Registrar nombre
+                                    </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form className="col-6 tarjeta-contactos m-4 border-0" onSubmit={(e)=> actions.actualizar_Imagen_Pregunta(e, store.id_nueva_pregunta)}>
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar imagen </h4>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-7 mt-4">
+                                            <label className="custom-file-label sm" htmlFor="validatedCustomFile">"Selecciona una imagen"</label>
+                                            <input
+                                                type="file"
+                                                className="custom-file-input"
+                                                id="avatar"
+                                                name="avatar"
+                                                onChange={actions.handle_files}
+                                                required
+                                            />
+                                        </div>
                                         <div className="col-4">
-                                            <div className="input-group mb-3">
-                                                <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
-                                                </div>
-                                                <input
-                                                    type="id_nueva_leccion"
-                                                    id="id_nueva_leccion"
-                                                    name="id_nueva_leccion"
-                                                    className="form-control"
-                                                    defaultValue={store.id_nueva_leccion}
-                                                    onChange={actions.handleChange}
-                                                    placeholder="ID"
-                                                    required
-                                                />
+                                        <button type="submit" className="btn button1 form-control my-4">
+                                            Agregar imagen
+                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div className="container">
+                                <div className="row justify-content-center">
+                                    <div className="col-6 tarjeta-contactos">
+                                        <div className="row justify-content-center m-4 border-0">
+                                            <div className="col-4">
+                                                <button className="btn button4 btn-block" id="nombre_leccion">
+                                                    Salir
+                                            </button>
+                                            </div>
+                                            <div className="col-4">
+                                                <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p1()}>
+                                                    Continuar
+                                                </button>
                                             </div>
                                         </div>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className={"tab-pane fade " + pregunta1} id="nav-pregunta1" role="tabpanel" aria-labelledby="nav-pregunta1-tab">
+                        <div className="container border-0">
+                            {!!store.msg_pregunta && (
+                                <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Excelente!</strong> {store.msg_pregunta}
+                                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>)}
+                        <div className="container border-0">
+                            <div className="row justify-content-center">
+                            <form className="col-6 tarjeta-contactos m-4 border-0" onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                                        <div className="tarjeta-cuerpo my-3">
+                                            <h4 className="titulo text-center">Agregar Pregunta </h4>
+                                        </div>
+                                <div className="form-row mt-4 justify-content-center">
+                                    <div className="col-2">
+                                        <div className="input-group mb-3">
+                                            <div className="input-group-prepend">
+                                                <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID lección</button>
+                                            </div>
+                                            <input
+                                                type="id_nueva_leccion"
+                                                id="id_nueva_leccion"
+                                                name="id_nueva_leccion"
+                                                className="form-control"
+                                                defaultValue={store.id_nueva_leccion}
+                                                onChange={actions.handleChange}
+                                                placeholder="ID"
+                                                required
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="form-row">
-                                        <label for="inputEmail4">Pregunta</label>
+                                </div>
+                                <div className="form-row mx-4">
+                                    <div className="tarjeta-cuerpo mx-4">
+                                        <h4 className="titulo">Pregunta 1 </h4>
                                     </div>
-                                    <div className="form-row justify-content-center">
-                                    <div className="col-8">
-                                    
+                                </div>
+                                
+                                <div className="form-row justify-content-center mx-4">
+                                    <div className="col">
+
                                         <input
                                             type="enunciado"
                                             id="enunciado"
@@ -279,31 +303,55 @@ export const RegistrarCurso = (props) => {
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn button1 mb-4">
-                                        Registrar pregunta
+                                        <button type="submit" className="btn button1 mb-4">
+                                            Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
-                                </form>
- {/*----------------------- SECCION AGREGAR RESPUESTAS PREGUNTA 1 -------------------------------------*/}
-                            <div className="container border-0 mt-4 py-4">
-                            { !!store.msg_respuestas && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_respuestas}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                                <div className="row m-2">
-                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 1  </span>
-                                </div>                               
-                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
-{/*----------------------- INPUT : ID DE LA PREGUNTA 1 -------------------------------------*/} 
-                                <div className="form-group row mt-4">
+                            </form>
+                            <form className="col-6 tarjeta-contactos m-2 border-0" onSubmit={e => actions.actualizar_Imagen_Pregunta(e)}>
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar imagen de la pregunta</h4>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-7 mt-4">
+                                            <label className="custom-file-label sm" htmlFor="validatedCustomFile">"Selecciona una imagen"</label>
+                                            <input
+                                                type="file"
+                                                className="custom-file-input"
+                                                id="imagen_pregunta"
+                                                name="imagen_pregunta"
+                                                onChange={actions.handle_files}
+                                                required
+                                            />
+                                        </div>
                                         <div className="col-4">
-                                            <div className="input-group mb-3">
+                                        <button type="submit" className="btn button1 form-control my-4">
+                                            Agregar imagen
+                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="container border-0">
+                        {!!store.msg_respuestas && (
+                                    <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Excelente!</strong> {store.msg_respuestas}
+                                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>)}
+                            <div className="row justify-content-center">
+                                <form className="col-6 tarjeta-contactos m-2 border-0" onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar respuestas </h4>
+                                    </div>
+                                    <div className="form-row mt-4 justify-content-center">
+                                        <div className="col-3">
+                                            <div className="input-group mb-2">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -313,12 +361,10 @@ export const RegistrarCurso = (props) => {
                                                     defaultValue={store.id_nueva_pregunta}
                                                     onChange={actions.handleChange}
                                                     placeholder="ID"
-                                                    required/>
+                                                    required />
                                             </div>
-                                        </div>
-
+                                        </div> 
                                     </div>
-{/*----------------------- SECCION RESPUESTAS DE INPUTS: PREGUNTA 1-------------------------------------*/}
                                     <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
@@ -327,10 +373,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_a"
                                                 name="respuesta_a"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="opcion_a" >Opcion</label>
@@ -340,6 +386,7 @@ export const RegistrarCurso = (props) => {
                                                 <option name="opcion_a">falso</option>
                                             </select>
                                         </div>
+                                        
                                     </div>
                                     <div className="form-group row">
                                         <div className="form-group col">
@@ -349,10 +396,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_b"
                                                 name="respuesta_b"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -371,10 +418,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_c"
                                                 name="respuesta_c"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -385,108 +432,138 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-
                                     <div className="container">
-                                    <div className="row">
-                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
-                                    </div>
-                                    <div className="row justify-content-center m-4">
-                                        <div className="col-3">
-                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_nombre()}>
-                                                Anterior
-                                            </button>
+                                        <div className="row">
+                                            <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                         </div>
-                                        <div className="col-3">
-                                            <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p2()}>
-                                                Continuar
+                                        <div className="row justify-content-center m-4">
+                                            <div className="col-3">
+                                                <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_nombre()}>
+                                                    Anterior
                                             </button>
+                                            </div>
+                                            <div className="col-3">
+                                                <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p2()}>
+                                                    Continuar
+                                            </button>
+                                            </div>
+
                                         </div>
-                                        
                                     </div>
-                                </div>
                                 </form>
-                                
                             </div>
+                        </div>
                             
-                            </div>
-                            
+                            {/*----------------------- SECCION AGREGAR RESPUESTAS PREGUNTA 1 -------------------------------------*/}
+
+
+                        </div>
+
                     </div>
                     <div className={"tab-pane fade " + pregunta2} id="nav-pregunta2" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div className="container border-0">
-                    { !!store.msg_pregunta && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_pregunta}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
-                                <div className="form-row">
-                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 2</span>
-                                </div>
-                                    <div className="form-row mt-4 justify-content-center">
-                                        <div className="col-4">
-                                            <div className="input-group mb-3">
-                                                <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
-                                                </div>
-                                                <input
-                                                    type="id_nueva_leccion"
-                                                    id="id_nueva_leccion"
-                                                    name="id_nueva_leccion"
-                                                    className="form-control"
-                                                    defaultValue={store.id_nueva_leccion}
-                                                    onChange={actions.handleChange}
-                                                    placeholder="ID"
-                                                    required
-                                                />
-                                            </div>
+                            {!!store.msg_pregunta && (
+                                <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Excelente!</strong> {store.msg_pregunta}
+                                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>)}
+                        <div className="container border-0">
+                            <div className="row justify-content-center">
+                            <form className="col-6 tarjeta-contactos m-4 border-0" onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                                        <div className="tarjeta-cuerpo my-3">
+                                            <h4 className="titulo text-center">Agregar Pregunta </h4>
                                         </div>
+                                <div className="form-row mt-4 justify-content-center">
+                                    <div className="col-2">
+                                        <div className="input-group mb-3">
+                                            <div className="input-group-prepend">
+                                                <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID lección</button>
+                                            </div>
+                                            <input
+                                                type="id_nueva_leccion"
+                                                id="id_nueva_leccion"
+                                                name="id_nueva_leccion"
+                                                className="form-control"
+                                                defaultValue={store.id_nueva_leccion}
+                                                onChange={actions.handleChange}
+                                                placeholder="ID"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-row mx-4">
+                                    <div className="tarjeta-cuerpo mx-4">
+                                        <h4 className="titulo">Pregunta 2 </h4>
+                                    </div>
+                                </div>
+                                
+                                <div className="form-row justify-content-center mx-4">
+                                    <div className="col">
 
-                                    </div>
-                                    <div className="form-row">
-                                        <label for="inputEmail4">Pregunta</label>
-                                    </div>
-                                    <div className="form-row justify-content-center">
-                                    <div className="col-8">
-                                    
                                         <input
                                             type="enunciado"
                                             id="enunciado"
                                             name="enunciado"
                                             className="form-control"
-                                            placeholder="Ingresar pregunta 1"
+                                            placeholder="Ingresar pregunta 2"
                                             defaultValue={store.enunciado}
                                             onChange={actions.handleChange}
                                             required
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn button1  mb-4">
-                                        Registrar pregunta
+                                        <button type="submit" className="btn button1 mb-4">
+                                            Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
-                                </form>
-                            <div className="container border-0 mt-4 py-4">
-                            { !!store.msg_respuestas && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_respuestas}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                                <div className="row m-2">
-                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 2  </span>
-                                </div>                               
-                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
-    {/*----------------------- INPUT : ID DE LA PREGUNTA 2 -------------------------------------*/} 
-                            
-                                <div className="form-row mt-4">
+                            </form>
+                            <form className="col-6 tarjeta-contactos m-2 border-0">
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar imagen de la pregunta</h4>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-7 mt-4">
+                                            <label className="custom-file-label sm" htmlFor="validatedCustomFile">"Selecciona una imagen"</label>
+                                            <input
+                                                type="file"
+                                                className="custom-file-input"
+                                                id="avatar"
+                                                name="avatar"
+                                                onChange={actions.handle_files}
+                                                required
+                                            />
+                                        </div>
                                         <div className="col-4">
-                                            <div className="input-group mb-3">
+                                        <button type="submit" className="btn button1 form-control my-4">
+                                            Agregar imagen
+                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="container border-0">
+                        {!!store.msg_respuestas && (
+                                    <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Excelente!</strong> {store.msg_respuestas}
+                                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>)}
+                            <div className="row justify-content-center">
+                                <form className="col-6 tarjeta-contactos m-2 border-0" onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar respuestas </h4>
+                                    </div>
+                                    <div className="form-row mt-4 justify-content-center">
+                                        <div className="col-3">
+                                            <div className="input-group mb-2">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -496,14 +573,11 @@ export const RegistrarCurso = (props) => {
                                                     defaultValue={store.id_nueva_pregunta}
                                                     onChange={actions.handleChange}
                                                     placeholder="ID"
-                                                    aria-label=""
-                                                    aria-describedby="basic-addon1" />
+                                                    required />
                                             </div>
-                                        </div>
-
+                                        </div> 
                                     </div>
-{/* ------------------------INPUTS PREGUNTAS 2 ---------------------------------- */}
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
                                             <input
@@ -511,10 +585,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_a"
                                                 name="respuesta_a"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="opcion_a" >Opcion</label>
@@ -524,8 +598,9 @@ export const RegistrarCurso = (props) => {
                                                 <option name="opcion_a">falso</option>
                                             </select>
                                         </div>
+                                        
                                     </div>
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta B</label>
                                             <input
@@ -533,10 +608,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_b"
                                                 name="respuesta_b"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -547,7 +622,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta C</label>
                                             <input
@@ -555,10 +630,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_c"
                                                 name="respuesta_c"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -570,102 +645,132 @@ export const RegistrarCurso = (props) => {
                                         </div>
                                     </div>
                                     <div className="container">
-                                    <div className="row">
-                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
-                                    </div>
-                                    <div className="row justify-content-center m-4">
-                                        <div className="col-3">
-                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p1()}>
-                                                Anterior
-                                            </button>
+                                        <div className="row">
+                                            <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                         </div>
-                                        <div className="col-3">
-                                            <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p3()}>
-                                                Continuar
+                                        <div className="row justify-content-center m-4">
+                                            <div className="col-3">
+                                                <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p1()}>
+                                                    Anterior
                                             </button>
+                                            </div>
+                                            <div className="col-3">
+                                                <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p3()}>
+                                                    Continuar
+                                            </button>
+                                            </div>
+
                                         </div>
-                                        
                                     </div>
-                                </div>
                                 </form>
                             </div>
-                            </div>
+                        </div>
+                        </div>
                     </div>
                     <div className={"tab-pane fade " + pregunta3} id="nav-pregunta3" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div className="container border-0">
-                    { !!store.msg_pregunta && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_pregunta}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
-                                <div className="form-row">
-                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 3</span>
-                                </div>
-                                    <div className="form-row mt-4 justify-content-center">
-                                        <div className="col-4">
-                                            <div className="input-group mb-3">
-                                                <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
-                                                </div>
-                                                <input
-                                                    type="id_nueva_leccion"
-                                                    id="id_nueva_leccion"
-                                                    name="id_nueva_leccion"
-                                                    className="form-control"
-                                                    defaultValue={store.id_nueva_leccion}
-                                                    onChange={actions.handleChange}
-                                                    placeholder="ID"
-                                                    required
-                                                />
-                                            </div>
+                            {!!store.msg_pregunta && (
+                                <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Excelente!</strong> {store.msg_pregunta}
+                                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>)}
+                        <div className="container border-0">
+                            <div className="row justify-content-center">
+                            <form className="col-6 tarjeta-contactos m-4 border-0" onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                                        <div className="tarjeta-cuerpo my-3">
+                                            <h4 className="titulo text-center">Agregar Pregunta </h4>
                                         </div>
+                                <div className="form-row mt-4 justify-content-center">
+                                    <div className="col-2">
+                                        <div className="input-group mb-3">
+                                            <div className="input-group-prepend">
+                                                <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID lección</button>
+                                            </div>
+                                            <input
+                                                type="id_nueva_leccion"
+                                                id="id_nueva_leccion"
+                                                name="id_nueva_leccion"
+                                                className="form-control"
+                                                defaultValue={store.id_nueva_leccion}
+                                                onChange={actions.handleChange}
+                                                placeholder="ID"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-row mx-4">
+                                    <div className="tarjeta-cuerpo mx-4">
+                                        <h4 className="titulo">Pregunta 3 </h4>
+                                    </div>
+                                </div>
+                                
+                                <div className="form-row justify-content-center mx-4">
+                                    <div className="col">
 
-                                    </div>
-                                    <div className="form-row">
-                                        <label for="inputEmail4">Pregunta</label>
-                                    </div>
-                                    <div className="form-row justify-content-center">
-                                    <div className="col-8">
-                                    
                                         <input
                                             type="enunciado"
                                             id="enunciado"
                                             name="enunciado"
                                             className="form-control"
-                                            placeholder="Ingresar pregunta 1"
+                                            placeholder="Ingresar pregunta 3"
                                             defaultValue={store.enunciado}
                                             onChange={actions.handleChange}
                                             required
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn button1   mb-4">
-                                        Registrar pregunta
+                                        <button type="submit" className="btn button1 mb-4">
+                                            Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
-                                </form>
-                            <div className="container border-0 mt-4 py-4">
-                            { !!store.msg_respuestas && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_respuestas}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                                <div className="row m-2">
-                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 3  </span>
-                                </div>                               
-                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
-{/*----------------------- INPUT : ID DE LA PREGUNTA 3 -------------------------------------*/} 
-                                <div className="form-row mt-4">
+                            </form>
+                            <form className="col-6 tarjeta-contactos m-2 border-0">
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar imagen de la pregunta</h4>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-7 mt-4">
+                                            <label className="custom-file-label sm" htmlFor="validatedCustomFile">"Selecciona una imagen"</label>
+                                            <input
+                                                type="file"
+                                                className="custom-file-input"
+                                                id="avatar"
+                                                name="avatar"
+                                                onChange={actions.handle_files}
+                                                required
+                                            />
+                                        </div>
                                         <div className="col-4">
-                                            <div className="input-group mb-3">
+                                        <button type="submit" className="btn button1 form-control my-4">
+                                            Agregar imagen
+                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="container border-0">
+                        {!!store.msg_respuestas && (
+                                    <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Excelente!</strong> {store.msg_respuestas}
+                                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>)}
+                            <div className="row justify-content-center">
+                                <form className="col-6 tarjeta-contactos m-2 border-0" onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar respuestas </h4>
+                                    </div>
+                                    <div className="form-row mt-4 justify-content-center">
+                                        <div className="col-3">
+                                            <div className="input-group mb-2">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -675,15 +780,11 @@ export const RegistrarCurso = (props) => {
                                                     defaultValue={store.id_nueva_pregunta}
                                                     onChange={actions.handleChange}
                                                     placeholder="ID"
-                                                    aria-label=""
-                                                    aria-describedby="basic-addon1" />
+                                                    required />
                                             </div>
-                                        </div>
-
+                                        </div> 
                                     </div>
-{/* ----------------------INPUTS - RESPUESTAS-  PREGUNTA: 3 ------------------------------ */}
-
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
                                             <input
@@ -691,10 +792,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_a"
                                                 name="respuesta_a"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="opcion_a" >Opcion</label>
@@ -704,8 +805,9 @@ export const RegistrarCurso = (props) => {
                                                 <option name="opcion_a">falso</option>
                                             </select>
                                         </div>
+                                        
                                     </div>
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta B</label>
                                             <input
@@ -713,10 +815,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_b"
                                                 name="respuesta_b"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -727,7 +829,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta C</label>
                                             <input
@@ -735,10 +837,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_c"
                                                 name="respuesta_c"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -750,103 +852,132 @@ export const RegistrarCurso = (props) => {
                                         </div>
                                     </div>
                                     <div className="container">
-                                    <div className="row">
-                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
-                                    </div>
-                                    <div className="row justify-content-center m-4">
-                                        <div className="col-3">
-                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p2()}>
-                                                Anterior
-                                            </button>
+                                        <div className="row">
+                                            <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                         </div>
-                                        <div className="col-3">
-                                            <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p4()}>
-                                                Continuar
+                                        <div className="row justify-content-center m-4">
+                                            <div className="col-3">
+                                                <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p2()}>
+                                                    Anterior
                                             </button>
+                                            </div>
+                                            <div className="col-3">
+                                                <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p4()}>
+                                                    Continuar
+                                            </button>
+                                            </div>
+
                                         </div>
-                                        
                                     </div>
-                                </div>
                                 </form>
                             </div>
-                            </div>
-                    </div>
+                        </div>
+                        </div>
+                         </div>
                     <div className={"tab-pane fade " + pregunta4} id="nav-pregunta4" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div className="container border-0">
-                    { !!store.msg_pregunta && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_pregunta}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
-                                <div className="form-row">
-                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 4</span>
-                                </div>
-                                    <div className="form-row mt-4 justify-content-center">
-                                        <div className="col-4">
-                                            <div className="input-group mb-3">
-                                                <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
-                                                </div>
-                                                <input
-                                                    type="id_nueva_leccion"
-                                                    id="id_nueva_leccion"
-                                                    name="id_nueva_leccion"
-                                                    className="form-control"
-                                                    defaultValue={store.id_nueva_leccion}
-                                                    onChange={actions.handleChange}
-                                                    placeholder="ID"
-                                                    required
-                                                />
-                                            </div>
+                            {!!store.msg_pregunta && (
+                                <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Excelente!</strong> {store.msg_pregunta}
+                                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>)}
+                        <div className="container border-0">
+                            <div className="row justify-content-center">
+                            <form className="col-6 tarjeta-contactos m-4 border-0" onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                                        <div className="tarjeta-cuerpo my-3">
+                                            <h4 className="titulo text-center">Agregar Pregunta </h4>
                                         </div>
+                                <div className="form-row mt-4 justify-content-center">
+                                    <div className="col-2">
+                                        <div className="input-group mb-3">
+                                            <div className="input-group-prepend">
+                                                <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID lección</button>
+                                            </div>
+                                            <input
+                                                type="id_nueva_leccion"
+                                                id="id_nueva_leccion"
+                                                name="id_nueva_leccion"
+                                                className="form-control"
+                                                defaultValue={store.id_nueva_leccion}
+                                                onChange={actions.handleChange}
+                                                placeholder="ID"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-row mx-4">
+                                    <div className="tarjeta-cuerpo mx-4">
+                                        <h4 className="titulo">Pregunta 4 </h4>
+                                    </div>
+                                </div>
+                                
+                                <div className="form-row justify-content-center mx-4">
+                                    <div className="col">
 
-                                    </div>
-                                    <div className="form-row">
-                                        <label for="inputEmail4">Pregunta</label>
-                                    </div>
-                                    <div className="form-row justify-content-center">
-                                    <div className="col-8">
-                                    
                                         <input
                                             type="enunciado"
                                             id="enunciado"
                                             name="enunciado"
                                             className="form-control"
-                                            placeholder="Ingresar pregunta 1"
+                                            placeholder="Ingresar pregunta 4"
                                             defaultValue={store.enunciado}
                                             onChange={actions.handleChange}
                                             required
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn button1   mb-4">
-                                        Registrar pregunta
+                                        <button type="submit" className="btn button1 mb-4">
+                                            Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
-                                </form>
-                            <div className="container border-0 mt-4 py-4">
-                            { !!store.msg_respuestas && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_respuestas}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                                <div className="row m-2">
-                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 4  </span>
-                                </div>                               
-                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
-  {/*----------------------- INPUT : ID DE LA PREGUNTA 4 -------------------------------------*/} 
-
-                                <div className="form-row mt-4">
+                            </form>
+                            <form className="col-6 tarjeta-contactos m-2 border-0">
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar imagen de la pregunta</h4>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-7 mt-4">
+                                            <label className="custom-file-label sm" htmlFor="validatedCustomFile">"Selecciona una imagen"</label>
+                                            <input
+                                                type="file"
+                                                className="custom-file-input"
+                                                id="avatar"
+                                                name="avatar"
+                                                onChange={actions.handle_files}
+                                                required
+                                            />
+                                        </div>
                                         <div className="col-4">
-                                            <div className="input-group mb-3">
+                                        <button type="submit" className="btn button1 form-control my-4">
+                                            Agregar imagen
+                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="container border-0">
+                        {!!store.msg_respuestas && (
+                                    <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Excelente!</strong> {store.msg_respuestas}
+                                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>)}
+                            <div className="row justify-content-center">
+                                <form className="col-6 tarjeta-contactos m-2 border-0" onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar respuestas </h4>
+                                    </div>
+                                    <div className="form-row mt-4 justify-content-center">
+                                        <div className="col-3">
+                                            <div className="input-group mb-2">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -856,14 +987,11 @@ export const RegistrarCurso = (props) => {
                                                     defaultValue={store.id_nueva_pregunta}
                                                     onChange={actions.handleChange}
                                                     placeholder="ID"
-                                                    aria-label=""
-                                                    aria-describedby="basic-addon1" />
+                                                    required />
                                             </div>
-                                        </div>
-
+                                        </div> 
                                     </div>
-{/* ------------------------INPUTS PREGUNTAS 4 ---------------------------------- */}
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
                                             <input
@@ -871,10 +999,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_a"
                                                 name="respuesta_a"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="opcion_a" >Opcion</label>
@@ -884,8 +1012,9 @@ export const RegistrarCurso = (props) => {
                                                 <option name="opcion_a">falso</option>
                                             </select>
                                         </div>
+                                        
                                     </div>
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta B</label>
                                             <input
@@ -893,10 +1022,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_b"
                                                 name="respuesta_b"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -907,7 +1036,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta C</label>
                                             <input
@@ -915,10 +1044,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_c"
                                                 name="respuesta_c"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -930,103 +1059,132 @@ export const RegistrarCurso = (props) => {
                                         </div>
                                     </div>
                                     <div className="container">
-                                    <div className="row">
-                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
-                                    </div>
-                                    <div className="row justify-content-center m-4">
-                                        <div className="col-3">
-                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p3()}>
-                                                Anterior
-                                            </button>
+                                        <div className="row">
+                                            <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
                                         </div>
-                                        <div className="col-3">
-                                            <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p5()}>
-                                                Continuar
+                                        <div className="row justify-content-center m-4">
+                                            <div className="col-3">
+                                                <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p3()}>
+                                                    Anterior
                                             </button>
+                                            </div>
+                                            <div className="col-3">
+                                                <button className="btn btn-success btn-block" id="nombre_leccion" onClick={() => seleccion_p5()}>
+                                                    Continuar
+                                            </button>
+                                            </div>
+
                                         </div>
-                                        
                                     </div>
-                                </div>
                                 </form>
                             </div>
-                            </div>
+                        </div>
+                        </div>
                     </div>
                     <div className={"tab-pane fade " + pregunta5} id="nav-pregunta5" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div className="container border-0">
-                    { !!store.msg_pregunta && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_pregunta}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                            <form className="container border-0 mt-4 " onSubmit={e => actions.handle_registrar_pregunta(e)}>
-                                <div className="form-row">
-                                    <span className=" tituloRegistrar pt-3">Agregar pregunta 5</span>
-                                </div>
-                                    <div className="form-row mt-4 justify-content-center">
-                                        <div className="col-4">
-                                            <div className="input-group mb-3">
-                                                <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID de la lección</button>
-                                                </div>
-                                                <input
-                                                    type="id_nueva_leccion"
-                                                    id="id_nueva_leccion"
-                                                    name="id_nueva_leccion"
-                                                    className="form-control"
-                                                    defaultValue={store.id_nueva_leccion}
-                                                    onChange={actions.handleChange}
-                                                    placeholder="ID"
-                                                    required
-                                                />
-                                            </div>
+                            {!!store.msg_pregunta && (
+                                <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Excelente!</strong> {store.msg_pregunta}
+                                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>)}
+                        <div className="container border-0">
+                            <div className="row justify-content-center">
+                            <form className="col-6 tarjeta-contactos m-4 border-0" onSubmit={e => actions.handle_registrar_pregunta(e)}>
+                                        <div className="tarjeta-cuerpo my-3">
+                                            <h4 className="titulo text-center">Agregar Pregunta </h4>
                                         </div>
+                                <div className="form-row mt-4 justify-content-center">
+                                    <div className="col-2">
+                                        <div className="input-group mb-3">
+                                            <div className="input-group-prepend">
+                                                <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID lección</button>
+                                            </div>
+                                            <input
+                                                type="id_nueva_leccion"
+                                                id="id_nueva_leccion"
+                                                name="id_nueva_leccion"
+                                                className="form-control"
+                                                defaultValue={store.id_nueva_leccion}
+                                                onChange={actions.handleChange}
+                                                placeholder="ID"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="form-row mx-4">
+                                    <div className="tarjeta-cuerpo mx-4">
+                                        <h4 className="titulo">Pregunta 5</h4>
+                                    </div>
+                                </div>
+                                
+                                <div className="form-row justify-content-center mx-4">
+                                    <div className="col">
 
-                                    </div>
-                                    <div className="form-row">
-                                        <label for="inputEmail4">Pregunta</label>
-                                    </div>
-                                    <div className="form-row justify-content-center">
-                                    <div className="col-8">
-                                    
                                         <input
                                             type="enunciado"
                                             id="enunciado"
                                             name="enunciado"
                                             className="form-control"
-                                            placeholder="Ingresar pregunta 1"
+                                            placeholder="Ingresar pregunta 5"
                                             defaultValue={store.enunciado}
                                             onChange={actions.handleChange}
                                             required
                                         />
                                     </div>
                                     <div className="col-3">
-                                    <button type="submit" className="btn button1 mb-4">
-                                        Registrar pregunta
+                                        <button type="submit" className="btn button1 mb-4">
+                                            Registrar pregunta
                                     </button>
                                     </div>
                                 </div>
-                                </form>
-                            <div className="container border-0 mt-4 py-4">
-                            { !!store.msg_respuestas && (
-                        <div className="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Excelente!</strong> {store.msg_respuestas}
-                            <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>)}
-                                <div className="row m-2">
-                                    <span className=" tituloRegistrar">Agregar respuestas: Pregunta 5  </span>
-                                </div>                               
-                                <form className="p-4"  onSubmit={e => actions.handle_registrar_respuestas(e)}>
-   {/*----------------------- INPUT : ID DE LA PREGUNTA 5 -------------------------------------*/} 
-
-                                <div className="form-row mt-4">
+                            </form>
+                            <form className="col-6 tarjeta-contactos m-2 border-0">
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar imagen de la pregunta</h4>
+                                    </div>
+                                    <div className="row justify-content-center m-4">
+                                        <div className="col-7 mt-4">
+                                            <label className="custom-file-label sm" htmlFor="validatedCustomFile">"Selecciona una imagen"</label>
+                                            <input
+                                                type="file"
+                                                className="custom-file-input"
+                                                id="avatar"
+                                                name="avatar"
+                                                onChange={actions.handle_files}
+                                                required
+                                            />
+                                        </div>
                                         <div className="col-4">
-                                            <div className="input-group mb-3">
+                                        <button type="submit" className="btn button1 form-control my-4">
+                                            Agregar imagen
+                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="container border-0">
+                        {!!store.msg_respuestas && (
+                                    <div className="alert alert-success alert-dismissible fade show" role="alert">
+                                        <strong>Excelente!</strong> {store.msg_respuestas}
+                                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>)}
+                            <div className="row justify-content-center">
+                                <form className="col-6 tarjeta-contactos m-2 border-0" onSubmit={e => actions.handle_registrar_respuestas(e)}>
+                                    <div className="tarjeta-cuerpo my-3">
+                                        <h4 className="titulo text-center">Agregar respuestas </h4>
+                                    </div>
+                                    <div className="form-row mt-4 justify-content-center">
+                                        <div className="col-3">
+                                            <div className="input-group mb-2">
                                                 <div className="input-group-prepend">
-                                                    <button className="btn button-outline" type="button" onClick={() => actions.getRespuestas()}>ID de la pregunta</button>
+                                                    <button className="btn button-outline" type="button" onClick={() => actions.getLecciones()}>ID pregunta</button>
                                                 </div>
                                                 <input
                                                     type="id_nueva_pregunta"
@@ -1036,14 +1194,11 @@ export const RegistrarCurso = (props) => {
                                                     defaultValue={store.id_nueva_pregunta}
                                                     onChange={actions.handleChange}
                                                     placeholder="ID"
-                                                    aria-label=""
-                                                    aria-describedby="basic-addon1" />
+                                                    required />
                                             </div>
-                                        </div>
-
+                                        </div> 
                                     </div>
-{/* ------------------------INPUTS PREGUNTAS 5 ---------------------------------- */}
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta A</label>
                                             <input
@@ -1051,10 +1206,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_a"
                                                 name="respuesta_a"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="opcion_a" >Opcion</label>
@@ -1064,8 +1219,9 @@ export const RegistrarCurso = (props) => {
                                                 <option name="opcion_a">falso</option>
                                             </select>
                                         </div>
+                                        
                                     </div>
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta B</label>
                                             <input
@@ -1073,10 +1229,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_b"
                                                 name="respuesta_b"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -1087,7 +1243,7 @@ export const RegistrarCurso = (props) => {
                                             </select>
                                         </div>
                                     </div>
-                                    <div className="form-row p-1">
+                                    <div className="form-group row">
                                         <div className="form-group col">
                                             <label for="inputEmail4">Respuesta C</label>
                                             <input
@@ -1095,10 +1251,10 @@ export const RegistrarCurso = (props) => {
                                                 id="respuesta_c"
                                                 name="respuesta_c"
                                                 className="form-control"
-                                                placeholder="Ingresa la respuesta " 
+                                                placeholder="Ingresa la respuesta "
                                                 onChange={actions.handleChange}
                                                 required
-                                                />
+                                            />
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label for="inputState">Opcion</label>
@@ -1110,28 +1266,28 @@ export const RegistrarCurso = (props) => {
                                         </div>
                                     </div>
                                     <div className="container">
-                                    <div className="row">
-                                        <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
-                                    </div>
-                                    <div className="row justify-content-center m-4">
-                                        <div className="col-3">
-                                            <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p4()}>
-                                                Anterior
+                                        <div className="row">
+                                            <button type="submit" className="btn button5 mt-3">Registrar respuestas</button>
+                                        </div>
+                                        <div className="row justify-content-center m-4">
+                                            <div className="col-3">
+                                                <button className="btn button3 btn-block" id="nombre_leccion" onClick={() => seleccion_p4()}>
+                                                    Anterior
                                             </button>
-                                        </div>
-                                        <div className="col-3">
-                                            <Link className="btn btn-success btn-block" id="nombre_leccion" to="/">
-                                                Terminar y salir
+                                            </div>
+                                            <div className="col-3">
+                                                <Link className="btn btn-success btn-block" id="nombre_leccion" to="/administrador">
+                                                    Terminar
                                             </Link>
+                                            </div>
+
                                         </div>
-                                        
                                     </div>
-                                </div>
                                 </form>
                             </div>
-                            </div>
+                        </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </>

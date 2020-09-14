@@ -169,7 +169,7 @@ body.dark .button-outline {
 
 .tarjeta-img-top {
   position: relative;
-  min-width: 150px;
+  min-width: 130px;
   border-radius: 20px 20px 0 0;
   /* border-radius: 20px 20px 0 0; */
   transition: transform 0.2s;
@@ -218,8 +218,10 @@ body.dark .button-outline {
   width: 80px;
 }
 
-img {
-  width: 80px;
+.tarjeta-contenido {
+  margin: 0;
+  padding: 0;
+  /* hace que las cards de seleccionar curso se adapten a su contenido */
 }
 
 /* -------------- FIN DE LAS CARDS ----------- */
@@ -231,6 +233,96 @@ form {
 }
 body.dark form {
   color: white;
+}
+
+.tarjetasTeoria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.tarjetaTeoria {
+  cursor: pointer;
+  background-color: transparent;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.tarjetaTeoria h1 {
+  font-size: 25px;
+  border-bottom: 1px #fff solid;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.tarjetaTeoria img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.tarjetaTeoria-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.tarjetaTeoria:hover .tarjetaTeoria-inner {
+  transform: rotateY(180deg);
+}
+
+.tarjetaTeoria-front,
+.tarjetaTeoria-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.tarjetaTeoria-back {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  transform: rotateY(180deg);
+}
+
+.tarjetaTeoria li {
+  list-style: none;
+  padding-bottom: 30px;
+}
+
+.bgTarjeta {
+  background-color: black;
+}
+body.dark .bgTarjeta {
+  background-color: #18191b;
+}
+
+hr {
+  color: white;
+  background-color: white;
+}
+
+.contenidoTarjeta {
+  font-size: 17px;
+}
+
+@media (max-width: 800px) {
+  .tarjetasTeoria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .tarjetasTeoria {
+    grid-template-columns: 1fr;
+  }
+}
+.tituloTeoria {
+  color: white;
+  font-weight: 200;
 }
 
 body {
@@ -340,10 +432,11 @@ body.dark .tituloRegistrar {
 }
 
 .curso {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.329), 0 6px 20px 0 rgba(0, 0, 0, 0.301);
   /* background-color: rgba(216, 247, 244, 0.918); */
-  background-color: rgba(228, 230, 235, 0.3);
-  min-height: 70vh;
+  background-color: rgba(228, 230, 235, 0.719);
+  min-height: 50vh;
+  min-width: 50vh;
   border-radius: 20px;
 }
 
@@ -352,8 +445,8 @@ body.dark .tituloRegistrar {
 }
 
 .imagen-pregunta {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: auto;
 }
 
 .respuesta_correcta {

@@ -38,6 +38,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			imagen_leccion: null,
 			theme: null,
 			avatar: null,
+			imagen_pregunta: null,
+			imagen_teoria: null,
+			teoria: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -55,12 +58,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				console.log("ObtenerAvatar, filename :" + filename)
 				return `${store.apiUrl}/fotoperfil/${filename}`
-			},
-			obtener_Imagenes_Preguntas: (filename) => {
-				const store = getStore();
-				console.log("ObtenerImagenes, filename :" + filename)
-				return `${store.apiUrl}/preguntas-imagenes/${filename}`
-			},
+			},			
 			handleChange: e => {
 				const { name, value } = e.target;
 				setStore({
@@ -210,18 +208,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}); console.log(store.currentUser, store.estaAutenticado);
 			}, */
 
-			claro: () => {
-				const store = getStore();
-				document.body.classList.remove("oscuro");
-				setStore({ tema: "claro" })
-				localStorage.setItem('tema-oscuro', 'claro');
-			},
-			oscuro: () => {
-				const store = getStore();
-				document.body.classList.add("oscuro");
-				setStore({ tema: "oscuro" })
-				localStorage.setItem('tema-oscuro', 'oscuro');
-			},
 			getSeleccion: (seleccion) => {
 				console.log(seleccion);
 				setStore({
@@ -492,10 +478,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 						currentUser: currentUser,
 						avatar:null
 					})
-					localStorage.removeItem("estaAut");
+					/* localStorage.removeItem("estaAut");
 					localStorage.removeItem("currentUser");
 					localStorage.setItem("currentUser", JSON.stringify(store.currentUser))
-					localStorage.setItem("estaAut", true)
+					localStorage.setItem("estaAut", true) */
 				})
 				.catch(error => {
 					console.error(error)
@@ -503,7 +489,58 @@ const getState = ({ getStore, getActions, setStore }) => {
 						error: data.msg
 					})
 				})
-			}
+			},
+			actualizar_Imagen_Pregunta: async(e, id) => {
+				e.preventDefault();
+
+				const store = getStore();
+				let formData = new FormData();
+				formData.append("imagen", store.imagen_pregunta);
+
+				fetch(`${store.apiUrl}/preguntas-imagenes/${store.id_nueva_pregunta}`,{
+					method: "PUT",
+					body: formData,
+					headers: {
+						"Authorization":`Bearer ${store.currentUser.access_token}`
+					}
+				})
+				.then( resp => resp.json())
+				.then( data => {
+					console.log(data)
+					const {currentUser} = store;
+					currentUser["usuario"] = data.usuario
+					setStore({
+						msg: data.success,
+						currentUser: currentUser,
+						imagen_pregunta:null
+					})
+				})
+				.catch(error => {
+					console.error(error)
+					setStore({
+						error: data.msg
+					})
+				})
+			},
+			obtener_Imagenes_Teoria: (filename) => {
+				const store = getStore();
+				console.log("ObtenerImagenes, filename :" + filename)
+				return `${store.apiUrl}/teoria-imagenes/${filename}`
+			},
+			getTeoria: async () => {
+				const store = getStore();
+				const response = await fetch(store.apiUrl + "/teoria");
+				const datos = await response.json();
+				console.log("getTeoria");
+				setStore({
+					teoria: datos
+				})
+			},
+			obtener_Imagenes_Preguntas: (filename) => {
+				const store = getStore();
+				console.log("ObtenerImagenes, filename :" + filename)
+				return `${store.apiUrl}/preguntas-imagenes/${filename}`
+			},
 
 		}
 	};
